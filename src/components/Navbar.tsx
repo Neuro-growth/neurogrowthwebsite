@@ -53,6 +53,7 @@ export default function Navbar() {
           <span style={{
             fontFamily: 'var(--font-space), sans-serif',
             fontSize: 17, fontWeight: 700, color: '#fff', letterSpacing: '-0.3px',
+            marginLeft: '-6px',
           }}>
             euroGrowth<span style={{ color: '#00D4FF' }}> Tech</span>
           </span>
