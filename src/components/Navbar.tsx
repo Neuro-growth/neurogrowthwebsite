@@ -44,9 +44,9 @@ export default function Navbar() {
         <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
           <Image
             src="/logo.png"
-            alt="NeuroGrowth Tech"
-            width={38}
-            height={38}
+            alt="N"
+            width={44}
+            height={44}
             style={{ objectFit: 'contain' }}
             priority
           />
@@ -54,7 +54,7 @@ export default function Navbar() {
             fontFamily: 'var(--font-space), sans-serif',
             fontSize: 17, fontWeight: 700, color: '#fff', letterSpacing: '-0.3px',
           }}>
-            NeuroGrowth<span style={{ color: '#00D4FF' }}> Tech</span>
+            euroGrowth<span style={{ color: '#00D4FF' }}> Tech</span>
           </span>
         </Link>
 
