@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  --deep-navy: #0A192F;
+  --navy: #112240;
+  --navy-light: #1a2f50;
+  --neon: #64FFDA;
+  --neon-dim: rgba(100, 255, 218, 0.12);
+  --neon-glow: rgba(100, 255, 218, 0.35);
+  --white: #FFFFFF;
+  --light-gray: #CCD6F6;
+  --muted: #8892B0;
+  --border: rgba(100, 255, 218, 0.12);
+  --card-bg: rgba(17, 34, 64, 0.7);
+  --font-main: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--deep-navy);
+  color: var(--light-gray);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* --- TICKER --- */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ticker-animate { animation: ticker 32s linear infinite; }
+
+/* --- MARQUEE --- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-animate { animation: marquee 22s linear infinite; }
+.marquee-slow    { animation: marquee 34s linear infinite; }
+
+/* --- SCROLL LINE --- */
+@keyframes scrollLine {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+.scroll-line-animate { animation: scrollLine 2.2s ease-in-out infinite; }
+
+/* --- PULSE DOT --- */
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--neon-glow); }
+  50%       { opacity: 0.6; box-shadow: 0 0 0 6px transparent; }
+}
+.pulse-dot { animation: pulseDot 2s infinite; }
+
+/* --- REVEAL --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- TEXT GRADIENT --- */
+.text-gradient {
+  background: linear-gradient(135deg, #64FFDA 0%, #00B4D8 55%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- FAQ --- */
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.faq-body.open { max-height: 320px; }
