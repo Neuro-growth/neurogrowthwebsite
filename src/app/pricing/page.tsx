@@ -5,7 +5,8 @@ import FaqAccordion from '@/components/FaqAccordion'
 
 export const metadata: Metadata = {
   title: 'Pricing',
-  description: 'NeuroGrowth Tech pricing plans — choose the AI growth system that fits your business stage and goals.',
+  description: 'NeuroGrowth Tech AI solutions pricing — Starter at $2,500/mo, Growth at $6,500/mo, Enterprise custom. Full AI growth systems for businesses at every stage.',
+  alternates: { canonical: 'https://neurogrowthtech.com/pricing' },
 }
 
 const faqItems = [
@@ -82,10 +83,10 @@ export default function PricingPage() {
 
             {/* GROWTH (featured) */}
             <RevealOnScroll delay={80}>
-              <div style={{ ...cardStyle, border: '1px solid #00D4FF', boxShadow: '0 0 40px rgba(0,212,255,0.12)', background: 'linear-gradient(135deg, rgba(5,26,62,0.9) 0%, rgba(100,255,218,0.03) 100%)', position: 'relative' }}>
+              <div style={{ ...cardStyle, border: '1px solid #00D4FF', boxShadow: '0 0 40px rgba(0,212,255,0.12)', background: 'linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(100,255,218,0.03) 100%)', position: 'relative' }}>
                 <div style={{
                   position: 'absolute', top: -14, left: '50%', transform: 'translateX(-50%)',
-                  background: '#00D4FF', color: '#020B2D', fontSize: 12, fontWeight: 700,
+                  background: '#00D4FF', color: '#000000', fontSize: 12, fontWeight: 700,
                   padding: '5px 18px', borderRadius: 50, letterSpacing: '1px', whiteSpace: 'nowrap',
                 }}>Most Popular</div>
                 <div style={planLabel}>Growth</div>
@@ -121,7 +122,7 @@ export default function PricingPage() {
       </section>
 
       {/* WHAT'S INCLUDED */}
-      <section style={{ padding: '100px 0', background: '#051A3E' }}>
+      <section style={{ padding: '100px 0', background: '#0A0A0A' }}>
         <div style={container}>
           <p style={{ ...labelStyle, textAlign: 'center' }}>[ EVERY PLAN INCLUDES ]</p>
           <h2 style={{ ...h2Style, textAlign: 'center' }}>
@@ -134,7 +135,7 @@ export default function PricingPage() {
               { n: '✓', title: 'Ongoing Optimization', body: 'AI systems are continuously monitored, tested, and improved each month so performance compounds rather than plateaus.' },
             ].map((c, i) => (
               <RevealOnScroll key={i} delay={i * 80}>
-                <div style={{ background: 'rgba(5,26,62,0.75)', border: '1px solid rgba(0,212,255,0.12)', borderRadius: 20, padding: '40px 32px' }}>
+                <div style={{ background: 'rgba(10,10,10,0.85)', border: '1px solid rgba(0,212,255,0.12)', borderRadius: 20, padding: '40px 32px' }}>
                   <div style={{ width: 56, height: 56, borderRadius: '50%', border: '1px solid rgba(0,212,255,0.20)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-space), sans-serif', fontSize: 20, fontWeight: 700, color: '#00D4FF', marginBottom: 20 }}>{c.n}</div>
                   <h3 style={{ fontFamily: 'var(--font-space), sans-serif', fontSize: 20, fontWeight: 700, color: '#fff', marginBottom: 12 }}>{c.title}</h3>
                   <p style={{ fontSize: 15, color: '#8892B0', lineHeight: 1.8 }}>{c.body}</p>
@@ -160,10 +161,10 @@ export default function PricingPage() {
       </section>
 
       {/* CTA */}
-      <section style={{ padding: '100px 0', background: '#051A3E' }}>
+      <section style={{ padding: '100px 0', background: '#0A0A0A' }}>
         <div style={container}>
           <RevealOnScroll>
-            <div style={{ background: 'rgba(2,11,45,0.8)', border: '1px solid rgba(0,212,255,0.12)', borderRadius: 20, padding: '80px 60px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ background: 'rgba(0,0,0,0.8)', border: '1px solid rgba(0,212,255,0.12)', borderRadius: 20, padding: '80px 60px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
               <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 600, height: 400, background: 'radial-gradient(ellipse, rgba(0,212,255,0.05) 0%, transparent 70%)', pointerEvents: 'none' }} />
               <p style={{ ...labelStyle, textAlign: 'center', position: 'relative' }}>[ LET&apos;S TALK ]</p>
               <h2 style={{ ...h2Style, position: 'relative' }}>Not Sure Which Plan Is Right?</h2>
@@ -216,10 +217,10 @@ function PageHero({ label, headline, sub }: { label: string; headline: React.Rea
 const container: React.CSSProperties = { maxWidth: 1200, margin: '0 auto', padding: '0 24px' }
 const labelStyle: React.CSSProperties = { fontSize: 12, fontWeight: 600, letterSpacing: '3px', textTransform: 'uppercase', color: '#00D4FF', marginBottom: 20 }
 const h2Style: React.CSSProperties = { fontFamily: 'var(--font-space), sans-serif', fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 700, color: '#fff', lineHeight: 1.2, marginBottom: 20 }
-const cardStyle: React.CSSProperties = { background: 'rgba(5,26,62,0.75)', border: '1px solid rgba(0,212,255,0.12)', borderRadius: 20, padding: '44px 36px' }
+const cardStyle: React.CSSProperties = { background: 'rgba(10,10,10,0.85)', border: '1px solid rgba(0,212,255,0.12)', borderRadius: 20, padding: '44px 36px' }
 const planLabel: React.CSSProperties = { fontSize: 13, fontWeight: 700, color: '#00D4FF', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: 8 }
 const priceStyle: React.CSSProperties = { fontFamily: 'var(--font-space), sans-serif', fontSize: 52, fontWeight: 800, color: '#fff', lineHeight: 1, marginBottom: 4 }
 const descStyle: React.CSSProperties = { fontSize: 14, color: '#8892B0', marginBottom: 32, lineHeight: 1.6 }
 const divider: React.CSSProperties = { height: 1, background: 'rgba(0,212,255,0.12)', marginBottom: 28 }
-const btnPrimary: React.CSSProperties = { display: 'flex', justifyContent: 'center', padding: '14px 0', background: '#00D4FF', color: '#020B2D', fontWeight: 700, fontSize: 15, borderRadius: 8, textDecoration: 'none', fontFamily: 'var(--font-space), sans-serif', width: '100%' }
+const btnPrimary: React.CSSProperties = { display: 'flex', justifyContent: 'center', padding: '14px 0', background: '#00D4FF', color: '#000000', fontWeight: 700, fontSize: 15, borderRadius: 8, textDecoration: 'none', fontFamily: 'var(--font-space), sans-serif', width: '100%' }
 const btnOutline: React.CSSProperties = { display: 'flex', justifyContent: 'center', padding: '14px 0', background: 'transparent', color: '#CCD6F6', fontWeight: 600, fontSize: 15, border: '1.5px solid rgba(0,212,255,0.20)', borderRadius: 8, textDecoration: 'none', fontFamily: 'var(--font-space), sans-serif', width: '100%' }

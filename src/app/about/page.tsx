@@ -4,7 +4,8 @@ import RevealOnScroll from '@/components/RevealOnScroll'
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Learn about NeuroGrowth Tech — an AI solutions and marketing engineering company building intelligent growth systems for businesses.',
+  description: 'NeuroGrowth Tech is an AI solutions and engineering company building intelligent systems for African businesses. We combine deep AI expertise with engineering to automate, predict, and scale business operations.',
+  alternates: { canonical: 'https://neurogrowthtech.com/about' },
 }
 
 const values = [
@@ -37,11 +38,11 @@ export default function AboutPage() {
       <PageHero
         label="ABOUT US"
         headline={<>Not an Agency.<br /><span className="text-gradient">An AI Growth Engineering Firm.</span></>}
-        sub="NeuroGrowth Tech was built on one belief: businesses that harness AI correctly don't just grow — they compound. We're here to make that happen."
+        sub="NeuroGrowth Tech was built on one belief: businesses that harness AI correctly don't just grow — they compound. We build AI solutions across every function of your business."
       />
 
       {/* MISSION */}
-      <section style={{ padding: '100px 0', background: '#051A3E' }}>
+      <section style={{ padding: '100px 0', background: '#0A0A0A' }}>
         <div style={container}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }} className="two-col">
             <RevealOnScroll>
@@ -50,9 +51,9 @@ export default function AboutPage() {
                 We exist to give every business access to enterprise-grade{' '}
                 <span className="text-gradient">AI growth infrastructure.</span>
               </h2>
-              <p style={bodyStyle}>Most businesses know AI matters. Few know how to actually deploy it in ways that drive measurable, compounding growth. That's the gap we close.</p>
+              <p style={bodyStyle}>Most businesses know AI matters. Few know how to actually deploy it in ways that drive measurable, compounding results. That's the gap we close.</p>
               <p style={{ ...bodyStyle, marginBottom: 32 }}>
-                We don&apos;t sell software. We don&apos;t run ads. We engineer complete AI-powered growth systems — fully custom, deeply integrated, and relentlessly optimized.
+                We build AI solutions for businesses — from marketing automation and customer intelligence to operations, data systems, and custom AI products. Fully engineered, deeply integrated, and relentlessly optimized.
               </p>
               <Link href="/contact" style={btnPrimary}>Work With Us</Link>
             </RevealOnScroll>
@@ -97,7 +98,7 @@ export default function AboutPage() {
       </section>
 
       {/* DIFFERENCES */}
-      <section style={{ padding: '100px 0', background: '#051A3E' }}>
+      <section style={{ padding: '100px 0', background: '#0A0A0A' }}>
         <div style={container}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80, alignItems: 'start' }} className="two-col">
             <RevealOnScroll>
@@ -143,7 +144,7 @@ export default function AboutPage() {
                     width: 72, height: 72, borderRadius: '50%',
                     background: 'linear-gradient(135deg, #00AAFF, #00FFCC)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: 22, fontWeight: 700, color: '#020B2D', margin: '0 auto 16px',
+                    fontSize: 22, fontWeight: 700, color: '#000000', margin: '0 auto 16px',
                   }}>{t.initials}</div>
                   <h3 style={{ fontFamily: 'var(--font-space), sans-serif', fontSize: 16, fontWeight: 700, color: '#fff', marginBottom: 4 }}>{t.title}</h3>
                   <span style={{ fontSize: 13, color: '#00D4FF' }}>{t.role}</span>
@@ -208,9 +209,9 @@ const container: React.CSSProperties = { maxWidth: 1200, margin: '0 auto', paddi
 const labelStyle: React.CSSProperties = { fontSize: 12, fontWeight: 600, letterSpacing: '3px', textTransform: 'uppercase', color: '#00D4FF', marginBottom: 20 }
 const h2Style: React.CSSProperties = { fontFamily: 'var(--font-space), sans-serif', fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 700, color: '#fff', lineHeight: 1.2, marginBottom: 20 }
 const bodyStyle: React.CSSProperties = { color: '#8892B0', fontSize: 17, lineHeight: 1.8, marginBottom: 32 }
-const cardStyle: React.CSSProperties = { background: 'rgba(5,26,62,0.75)', border: '1px solid rgba(0,212,255,0.12)', borderRadius: 20, padding: 36 }
+const cardStyle: React.CSSProperties = { background: 'rgba(10,10,10,0.85)', border: '1px solid rgba(0,212,255,0.12)', borderRadius: 20, padding: 36 }
 const statCard: React.CSSProperties = { ...cardStyle, padding: '32px 28px' }
-const btnPrimary: React.CSSProperties = { display: 'inline-flex', alignItems: 'center', padding: '15px 36px', background: '#00D4FF', color: '#020B2D', fontWeight: 700, fontSize: 16, borderRadius: 8, textDecoration: 'none', fontFamily: 'var(--font-space), sans-serif' }
+const btnPrimary: React.CSSProperties = { display: 'inline-flex', alignItems: 'center', padding: '15px 36px', background: '#00D4FF', color: '#000000', fontWeight: 700, fontSize: 16, borderRadius: 8, textDecoration: 'none', fontFamily: 'var(--font-space), sans-serif' }
 
 function GridStyles() {
   return (

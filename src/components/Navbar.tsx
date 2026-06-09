@@ -6,11 +6,10 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 const links = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
-  { href: '/pricing', label: 'Pricing' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/solutions', label: 'Solutions' },
+  { href: '/about', label: 'About' },
+  { href: '/resources', label: 'Resources' },
 ]
 
 export default function Navbar() {
@@ -24,62 +23,58 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // close mobile menu on route change
   useEffect(() => { setOpen(false) }, [pathname])
 
   return (
-    <nav
-      style={{
-        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-        padding: scrolled ? '14px 0' : '20px 0',
-        background: scrolled ? 'rgba(2,11,45,0.96)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(0,212,255,0.12)' : '1px solid transparent',
-        transition: 'all 0.3s cubic-bezier(0.4,0,0.2,1)',
-      }}
-    >
+    <nav style={{
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
+      padding: scrolled ? '12px 0' : '18px 0',
+      background: scrolled ? 'rgba(0,0,0,0.97)' : 'transparent',
+      backdropFilter: scrolled ? 'blur(24px)' : 'none',
+      WebkitBackdropFilter: scrolled ? 'blur(24px)' : 'none',
+      borderBottom: scrolled ? '1px solid rgba(0,212,255,0.12)' : '1px solid transparent',
+      transition: 'all 0.3s cubic-bezier(0.4,0,0.2,1)',
+    }}>
       <div style={{
-        maxWidth: 1200, margin: '0 auto', padding: '0 24px',
-        display: 'flex', alignItems: 'center', gap: 40,
+        maxWidth: 1240, margin: '0 auto', padding: '0 32px',
+        display: 'flex', alignItems: 'center',
       }}>
-        {/* LOGO */}
-        <Link href="/" style={{ textDecoration: 'none', flexShrink: 0, display: 'flex', alignItems: 'center', gap: 10 }}>
+
+        {/* ── LOGO ── */}
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
           <Image
             src="/logo.png"
             alt="NeuroGrowth Tech"
-            width={40}
-            height={40}
+            width={38}
+            height={38}
             style={{ objectFit: 'contain' }}
             priority
           />
           <span style={{
             fontFamily: 'var(--font-space), sans-serif',
-            fontSize: 18, fontWeight: 700, color: '#fff', letterSpacing: '-0.5px',
+            fontSize: 17, fontWeight: 700, color: '#fff', letterSpacing: '-0.3px',
           }}>
             NeuroGrowth<span style={{ color: '#00D4FF' }}> Tech</span>
           </span>
         </Link>
 
-        {/* DESKTOP LINKS */}
+        {/* ── DESKTOP LINKS – centred ── */}
         <ul style={{
-          display: 'flex', gap: 4, marginLeft: 'auto', listStyle: 'none',
-          padding: 0,
-        }}
-          className="desktop-nav"
-        >
+          display: 'flex', gap: 2, listStyle: 'none', padding: 0,
+          margin: '0 auto',
+        }} className="desktop-nav">
           {links.map(({ href, label }) => {
             const active = pathname === href
             return (
               <li key={href}>
                 <Link href={href} style={{
-                  padding: '8px 16px', fontSize: 14, fontWeight: 500,
+                  padding: '8px 18px', fontSize: 14, fontWeight: 500,
                   color: active ? '#00D4FF' : '#CCD6F6',
-                  borderRadius: 6, textDecoration: 'none',
+                  borderRadius: 8, textDecoration: 'none', display: 'block',
                   transition: 'color 0.2s',
                 }}
-                  onMouseEnter={e => { if (!active) (e.target as HTMLElement).style.color = '#00D4FF' }}
-                  onMouseLeave={e => { if (!active) (e.target as HTMLElement).style.color = '#CCD6F6' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = '#00D4FF')}
+                  onMouseLeave={e => { if (!active) e.currentTarget.style.color = '#CCD6F6' }}
                 >
                   {label}
                 </Link>
@@ -88,28 +83,32 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* CTA */}
+        {/* ── BOOK DEMO CTA ── */}
         <Link href="/contact"
+          className="desktop-nav"
           style={{
-            flexShrink: 0, padding: '10px 22px', background: '#00D4FF',
-            color: '#020B2D', fontWeight: 700, fontSize: 14, borderRadius: 8,
-            textDecoration: 'none', fontFamily: 'var(--font-space), sans-serif',
-            transition: 'all 0.25s', marginLeft: 8,
+            flexShrink: 0,
+            padding: '10px 24px',
+            background: 'linear-gradient(135deg, #00AAFF, #00D4FF)',
+            color: '#000000', fontWeight: 700, fontSize: 14,
+            borderRadius: 8, textDecoration: 'none',
+            fontFamily: 'var(--font-space), sans-serif',
+            boxShadow: '0 0 20px rgba(0,212,255,0.3)',
+            transition: 'all 0.25s',
           }}
-          className="nav-cta desktop-nav"
           onMouseEnter={e => {
-            (e.currentTarget as HTMLElement).style.background = '#00AEDD'
-            ;(e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'
+            e.currentTarget.style.transform = 'translateY(-2px)'
+            e.currentTarget.style.boxShadow = '0 6px 28px rgba(0,212,255,0.5)'
           }}
           onMouseLeave={e => {
-            (e.currentTarget as HTMLElement).style.background = '#00D4FF'
-            ;(e.currentTarget as HTMLElement).style.transform = ''
+            e.currentTarget.style.transform = ''
+            e.currentTarget.style.boxShadow = '0 0 20px rgba(0,212,255,0.3)'
           }}
         >
-          Schedule a Consultation
+          Book Demo
         </Link>
 
-        {/* HAMBURGER */}
+        {/* ── HAMBURGER ── */}
         <button
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
@@ -137,26 +136,30 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* MOBILE MENU */}
+      {/* ── MOBILE MENU ── */}
       {open && (
         <div style={{
-          background: '#051A3E', borderTop: '1px solid rgba(0,212,255,0.12)',
-          padding: '20px 24px', display: 'flex', flexDirection: 'column', gap: 4,
+          background: '#0A0A0A', borderTop: '1px solid rgba(0,212,255,0.12)',
+          padding: '20px 32px', display: 'flex', flexDirection: 'column', gap: 4,
         }}>
           {links.map(({ href, label }) => (
             <Link key={href} href={href} style={{
-              padding: '12px 0', fontSize: 16, color: pathname === href ? '#00D4FF' : '#CCD6F6',
-              borderBottom: '1px solid rgba(0,212,255,0.10)', textDecoration: 'none', display: 'block',
+              padding: '13px 0', fontSize: 16,
+              color: pathname === href ? '#00D4FF' : '#CCD6F6',
+              borderBottom: '1px solid rgba(0,212,255,0.08)',
+              textDecoration: 'none', display: 'block',
             }}>
               {label}
             </Link>
           ))}
           <Link href="/contact" style={{
-            marginTop: 12, padding: '13px 0', background: '#00D4FF',
-            color: '#020B2D', fontWeight: 700, fontSize: 15, borderRadius: 8,
-            textDecoration: 'none', textAlign: 'center', display: 'block',
+            marginTop: 16, padding: '14px 0',
+            background: 'linear-gradient(135deg, #00AAFF, #00D4FF)',
+            color: '#000000', fontWeight: 700, fontSize: 15,
+            borderRadius: 8, textDecoration: 'none',
+            textAlign: 'center', display: 'block',
           }}>
-            Schedule a Consultation
+            Book Demo
           </Link>
         </div>
       )}
@@ -164,7 +167,7 @@ export default function Navbar() {
       <style>{`
         @media (max-width: 768px) {
           .desktop-nav { display: none !important; }
-          .hamburger { display: flex !important; }
+          .hamburger   { display: flex !important; }
         }
       `}</style>
     </nav>

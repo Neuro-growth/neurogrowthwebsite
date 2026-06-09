@@ -2,16 +2,16 @@
 
 :root {
   /* ── Brand colours extracted from NeuroGrowth logo ── */
-  --deep-navy:  #020B2D;        /* logo background – darkest */
-  --navy:       #051A3E;        /* section/card base */
-  --navy-light: #0A2550;        /* elevated surfaces */
+  --deep-navy:  #000000;        /* pure black background */
+  --navy:       #0A0A0A;        /* section/card base */
+  --navy-light: #111111;        /* elevated surfaces */
 
-  /* Primary accent – electric cyan-blue (logo N gradient midpoint) */
+  /* Primary accent – electric cyan-blue */
   --neon:       #00D4FF;
   --neon-dim:   rgba(0, 212, 255, 0.12);
   --neon-glow:  rgba(0, 212, 255, 0.35);
 
-  /* Secondary accent – teal (logo circuit lines) */
+  /* Secondary accent – teal */
   --teal:       #00FFCC;
   --teal-dim:   rgba(0, 255, 204, 0.12);
 
@@ -19,8 +19,8 @@
   --light-gray: #C8D8F0;
   --muted:      #7A90B8;
   --border:     rgba(0, 212, 255, 0.14);
-  --card-bg:    rgba(5, 26, 62, 0.75);
-  --font-main:  'Space Grotesk', 'Inter', sans-serif;
+  --card-bg:    rgba(10, 10, 10, 0.85);
+  --font-main:  'Sora', 'Inter', sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,9 +30,15 @@ html { scroll-behavior: smooth; }
 body {
   background-color: var(--deep-navy);
   color: var(--light-gray);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), 'Inter', sans-serif;
   line-height: 1.7;
   overflow-x: hidden;
+}
+
+/* --- FLOAT (dashboard pills) --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
 }
 
 /* --- TICKER --- */

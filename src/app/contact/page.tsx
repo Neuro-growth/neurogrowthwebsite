@@ -5,7 +5,8 @@ import ContactForm from '@/components/ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Schedule a free AI strategy consultation with NeuroGrowth Tech. Let\'s map out your custom AI growth system.',
+  description: 'Schedule a free AI strategy consultation with NeuroGrowth Tech. We\'ll map out a custom AI solution for your business — no commitment required.',
+  alternates: { canonical: 'https://neurogrowthtech.com/contact' },
 }
 
 const steps = [
@@ -72,7 +73,7 @@ export default function ContactPage() {
               {/* contact info box */}
               <div style={{
                 marginTop: 48, padding: '28px 32px',
-                background: 'rgba(5,26,62,0.75)',
+                background: 'rgba(10,10,10,0.85)',
                 border: '1px solid rgba(0,212,255,0.12)',
                 borderRadius: 16,
               }}>
@@ -100,7 +101,7 @@ export default function ContactPage() {
             {/* RIGHT — FORM */}
             <RevealOnScroll delay={100}>
               <div style={{
-                background: 'rgba(5,26,62,0.75)',
+                background: 'rgba(10,10,10,0.85)',
                 border: '1px solid rgba(0,212,255,0.12)',
                 borderRadius: 20, padding: '48px 40px',
               }}>
@@ -120,7 +121,7 @@ export default function ContactPage() {
       </section>
 
       {/* WHY BOOK */}
-      <section style={{ padding: '100px 0', background: '#051A3E' }}>
+      <section style={{ padding: '100px 0', background: '#0A0A0A' }}>
         <div style={container}>
           <p style={{ ...labelStyle, textAlign: 'center' }}>[ WHY BOOK A CALL ]</p>
           <h2 style={{ ...h2Style, textAlign: 'center' }}>
@@ -130,7 +131,7 @@ export default function ContactPage() {
             {whyBook.map((c, i) => (
               <RevealOnScroll key={i} delay={i * 80}>
                 <div style={{
-                  background: 'rgba(2,11,45,0.8)',
+                  background: 'rgba(0,0,0,0.8)',
                   border: '1px solid rgba(0,212,255,0.12)',
                   borderRadius: 20, padding: '40px 32px',
                 }}>

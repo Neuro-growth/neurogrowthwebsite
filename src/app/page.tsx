@@ -2,9 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/RevealOnScroll'
 import FaqAccordion from '@/components/FaqAccordion'
+import HeroViz from '@/components/HeroViz'
 
 export const metadata: Metadata = {
-  title: 'NeuroGrowth Tech — AI Solutions & Marketing Engineering',
+  title: 'NeuroGrowth Tech — AI Solutions & Engineering for African Businesses',
 }
 
 const faqItems = [
@@ -85,127 +86,131 @@ export default function Home() {
       <section style={{
         position: 'relative', minHeight: '100vh',
         display: 'flex', alignItems: 'center',
-        padding: '140px 0 80px', overflow: 'hidden',
+        padding: '120px 0 80px', overflow: 'hidden',
       }}>
         {/* grid bg */}
         <div style={{
           position: 'absolute', inset: 0,
-          backgroundImage: 'linear-gradient(rgba(100,255,218,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(100,255,218,0.04) 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px)',
           backgroundSize: '60px 60px',
-          maskImage: 'radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)',
+          maskImage: 'radial-gradient(ellipse 90% 90% at 50% 40%, black 30%, transparent 100%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 90% 90% at 50% 40%, black 30%, transparent 100%)',
         }} />
-        {/* glow */}
+        {/* left glow */}
         <div style={{
-          position: 'absolute', top: '20%', left: '50%', transform: 'translateX(-50%)',
-          width: 800, height: 500,
-          background: 'radial-gradient(ellipse, rgba(0,212,255,0.07) 0%, transparent 70%)',
+          position: 'absolute', top: '10%', left: '-10%',
+          width: 700, height: 700,
+          background: 'radial-gradient(ellipse, rgba(0,170,255,0.09) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }} />
+        {/* right glow */}
+        <div style={{
+          position: 'absolute', top: '20%', right: '-5%',
+          width: 600, height: 600,
+          background: 'radial-gradient(ellipse, rgba(0,255,204,0.06) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
 
-        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px', position: 'relative', zIndex: 2, width: '100%' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: 24 }}>
+        <div style={{ maxWidth: 1240, margin: '0 auto', padding: '0 32px', position: 'relative', zIndex: 2, width: '100%' }}>
+          <div style={{
+            display: 'grid', gridTemplateColumns: '1fr 1fr',
+            gap: 60, alignItems: 'center',
+          }} className="hero-grid">
 
-            {/* badge */}
-            <div style={{
-              display: 'inline-flex', alignItems: 'center', gap: 10,
-              padding: '8px 20px',
-              background: 'rgba(0,212,255,0.08)',
-              border: '1px solid rgba(0,212,255,0.20)',
-              borderRadius: 50, fontSize: 13, fontWeight: 600, color: '#00D4FF',
-              letterSpacing: '1px',
-            }}>
-              <span className="pulse-dot" style={{
-                width: 8, height: 8, background: '#00D4FF', borderRadius: '50%', flexShrink: 0,
-              }} />
-              AI-Powered Growth Systems
-            </div>
+            {/* ── LEFT: TEXT ── */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 28 }}>
 
-            {/* ticker */}
-            <div style={{
-              width: '100%', overflow: 'hidden',
-              borderTop: '1px solid rgba(0,212,255,0.12)',
-              borderBottom: '1px solid rgba(0,212,255,0.12)',
-              padding: '14px 0',
-            }} aria-hidden="true">
-              <div className="ticker-animate" style={{ display: 'inline-flex', whiteSpace: 'nowrap', gap: 0 }}>
-                {tickerDouble.map((item, i) => (
-                  <span key={i} style={{ padding: '0 8px', fontSize: 14, fontWeight: 500, color: i % 2 === 0 ? '#8892B0' : '#00D4FF' }}>
-                    {i % 2 === 0 ? item : '·'}
-                  </span>
-                ))}
-                {tickerDouble.map((item, i) => (
-                  <span key={`b${i}`} style={{ padding: '0 8px', fontSize: 14, fontWeight: 500, color: i % 2 === 0 ? '#8892B0' : '#00D4FF' }}>
-                    {i % 2 === 0 ? item : '·'}
-                  </span>
-                ))}
+              {/* badge */}
+              <div style={{
+                display: 'inline-flex', alignItems: 'center', gap: 10,
+                padding: '7px 18px', alignSelf: 'flex-start',
+                background: 'rgba(0,212,255,0.08)',
+                border: '1px solid rgba(0,212,255,0.22)',
+                borderRadius: 50, fontSize: 12, fontWeight: 600,
+                color: '#00D4FF', letterSpacing: '1.5px', textTransform: 'uppercase',
+              }}>
+                <span className="pulse-dot" style={{ width: 7, height: 7, background: '#00D4FF', borderRadius: '50%', flexShrink: 0 }} />
+                Accelerating Growth Through Intelligence
+              </div>
+
+              {/* headline */}
+              <h1 style={{
+                fontFamily: 'var(--font-space), sans-serif',
+                fontSize: 'clamp(36px, 5vw, 68px)',
+                fontWeight: 800, lineHeight: 1.08, color: '#fff',
+                letterSpacing: '-2px', margin: 0,
+              }}>
+                AI Solutions &amp;<br />
+                Engineering<br />
+                <span className="text-gradient">For African Businesses</span>
+              </h1>
+
+              {/* sub */}
+              <p style={{ color: '#8892B0', fontSize: 18, lineHeight: 1.8, maxWidth: 480, margin: 0 }}>
+                We build intelligent AI systems that automate operations, accelerate growth, and transform how your business works.
+              </p>
+
+              {/* CTAs */}
+              <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
+                <Link href="/contact" style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                  padding: '14px 32px',
+                  background: 'linear-gradient(135deg, #00AAFF, #00D4FF)',
+                  color: '#000000', fontWeight: 700, fontSize: 15,
+                  borderRadius: 10, textDecoration: 'none',
+                  fontFamily: 'var(--font-space), sans-serif',
+                  boxShadow: '0 4px 24px rgba(0,212,255,0.35)',
+                }}>
+                  📅 Book Strategy Call
+                </Link>
+                <Link href="/services" style={{
+                  display: 'inline-flex', alignItems: 'center', gap: 8,
+                  padding: '14px 32px',
+                  background: 'rgba(0,212,255,0.08)',
+                  color: '#00D4FF', fontWeight: 600, fontSize: 15,
+                  border: '1.5px solid rgba(0,212,255,0.3)',
+                  borderRadius: 10, textDecoration: 'none',
+                  fontFamily: 'var(--font-space), sans-serif',
+                }}>
+                  ▶ Watch Demo
+                </Link>
+              </div>
+
+              {/* social proof strip */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap', marginTop: 8 }}>
+                <div style={{ display: 'flex' }}>
+                  {['SL','JM','AR','KO'].map((init, i) => (
+                    <div key={i} style={{
+                      width: 32, height: 32, borderRadius: '50%',
+                      background: `linear-gradient(135deg, #00AAFF, #00FFCC)`,
+                      border: '2px solid #000000',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      fontSize: 10, fontWeight: 700, color: '#000000',
+                      marginLeft: i === 0 ? 0 : -10,
+                    }}>{init}</div>
+                  ))}
+                </div>
+                <span style={{ fontSize: 13, color: '#8892B0' }}>
+                  <span style={{ color: '#00D4FF', fontWeight: 700 }}>50+</span> African businesses growing with AI
+                </span>
               </div>
             </div>
 
-            {/* headline */}
-            <h1 style={{
-              fontFamily: 'var(--font-space), sans-serif',
-              fontSize: 'clamp(38px, 7vw, 80px)',
-              fontWeight: 800, lineHeight: 1.1, color: '#fff',
-              letterSpacing: '-2px', maxWidth: 900,
-            }}>
-              We Build{' '}
-              <span className="text-gradient">AI-Powered</span>
-              <br />Growth Systems
-            </h1>
-
-            <p style={{ maxWidth: 620, color: '#8892B0', fontSize: 18, lineHeight: 1.8 }}>
-              NeuroGrowth Tech is not a traditional agency. We engineer intelligent growth infrastructure — automating marketing, personalizing customer journeys, and maximizing ROI through AI.
-            </p>
-
-            <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'center' }}>
-              <Link href="/contact" style={btnPrimary}>Schedule a Consultation</Link>
-              <Link href="/services" style={btnGhost}>Explore Services</Link>
-            </div>
-
-            {/* stats bar */}
-            <div style={{
-              display: 'flex', alignItems: 'center', flexWrap: 'wrap',
-              justifyContent: 'center', marginTop: 16, padding: '28px 40px',
-              background: 'rgba(5,26,62,0.75)',
-              border: '1px solid rgba(0,212,255,0.12)',
-              borderRadius: 20, backdropFilter: 'blur(12px)',
-              WebkitBackdropFilter: 'blur(12px)',
-              gap: 0,
-            }}
-              className="stats-bar"
-            >
-              {stats.map((s, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0 36px' }}
-                    className="stat-item"
-                  >
-                    <span style={{
-                      fontFamily: 'var(--font-space), sans-serif',
-                      fontSize: 32, fontWeight: 800, color: '#00D4FF', lineHeight: 1,
-                    }}>{s.num}</span>
-                    <span style={{ fontSize: 12, color: '#8892B0', marginTop: 4, letterSpacing: '0.5px' }}>{s.label}</span>
-                  </div>
-                  {i < stats.length - 1 && (
-                    <div className="stat-div" style={{ width: 1, height: 48, background: 'rgba(0,212,255,0.12)' }} />
-                  )}
-                </div>
-              ))}
+            {/* ── RIGHT: AI INTELLIGENCE VISUALIZATION ── */}
+            <div className="hero-dashboard">
+              <HeroViz />
             </div>
           </div>
         </div>
 
         {/* scroll indicator */}
         <div style={{
-          position: 'absolute', bottom: 40, left: '50%', transform: 'translateX(-50%)',
+          position: 'absolute', bottom: 32, left: '50%', transform: 'translateX(-50%)',
           display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8,
-          fontSize: 11, letterSpacing: '3px', textTransform: 'uppercase', color: '#8892B0',
+          fontSize: 11, letterSpacing: '3px', textTransform: 'uppercase', color: '#7A90B8',
         }}>
           <span>Scroll</span>
-          <div className="scroll-line-animate" style={{
-            width: 1, height: 50,
-            background: 'linear-gradient(to bottom, #00D4FF, transparent)',
-          }} />
+          <div className="scroll-line-animate" style={{ width: 1, height: 40, background: 'linear-gradient(to bottom, #00D4FF, transparent)' }} />
         </div>
       </section>
 
@@ -237,8 +242,8 @@ export default function Home() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }} className="two-col">
             <RevealOnScroll>
               <p style={labelStyle}>[ IN NUMBER ]</p>
-              <h2 style={h2Style}>At NeuroGrowth Tech, we don&apos;t run campaigns — we build AI growth engines tailored to your business.</h2>
-              <p style={bodyStyle}>We combine deep AI expertise with marketing engineering to create systems that work around the clock — generating leads, nurturing customers, and converting at scale.</p>
+              <h2 style={h2Style}>At NeuroGrowth Tech, we don&apos;t run campaigns — we build AI solutions tailored to your business, across every function that matters.</h2>
+              <p style={bodyStyle}>We build AI solutions for businesses — from marketing automation and customer intelligence to operations, data systems, and custom AI products.</p>
               <Link href="/about" style={btnOutline}>Learn About Us</Link>
             </RevealOnScroll>
             <RevealOnScroll delay={100}>
@@ -306,7 +311,7 @@ export default function Home() {
       </section>
 
       {/* ── WHY US ── */}
-      <section style={{ padding: '100px 0', background: '#051A3E' }}>
+      <section style={{ padding: '100px 0', background: '#0A0A0A' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80, alignItems: 'start' }} className="two-col">
             <RevealOnScroll>
@@ -353,7 +358,7 @@ export default function Home() {
                       width: 44, height: 44, borderRadius: '50%',
                       background: 'linear-gradient(135deg, #00AAFF, #00FFCC)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: 13, fontWeight: 700, color: '#020B2D', flexShrink: 0,
+                      fontSize: 13, fontWeight: 700, color: '#000000', flexShrink: 0,
                     }}>{t.initials}</div>
                     <div>
                       <strong style={{ display: 'block', color: '#fff', fontSize: 15 }}>{t.name}</strong>
@@ -368,7 +373,7 @@ export default function Home() {
       </section>
 
       {/* ── FAQ ── */}
-      <section style={{ padding: '100px 0', background: '#051A3E' }}>
+      <section style={{ padding: '100px 0', background: '#0A0A0A' }}>
         <div style={{ maxWidth: 800, margin: '0 auto', padding: '0 24px' }}>
           <p style={{ ...labelStyle, textAlign: 'center' }}>[ FREQUENTLY ASKED ]</p>
           <MarqueeHeading text="F A Q S     F A Q S     F A Q S     F A Q S     " slow />
@@ -405,7 +410,21 @@ export default function Home() {
         </div>
       </section>
 
-      <GridStyles />
+      <style>{`
+        @media (max-width: 1024px) {
+          .two-col   { grid-template-columns: 1fr !important; gap: 48px !important; }
+          .three-col { grid-template-columns: 1fr 1fr !important; }
+          .hero-grid { grid-template-columns: 1fr !important; }
+          .hero-dashboard { height: 360px !important; }
+        }
+        @media (max-width: 640px) {
+          .three-col { grid-template-columns: 1fr !important; }
+          .stats-bar { padding: 20px 16px !important; flex-direction: column !important; gap: 16px !important; }
+          .stat-item { padding: 0 !important; }
+          .stat-div  { width: 60px !important; height: 1px !important; }
+          .hero-dashboard { display: none !important; }
+        }
+      `}</style>
     </>
   )
 }
@@ -471,7 +490,7 @@ function ServiceCard({ icon, title, desc }: { icon: string; title: string; desc:
 /* ── SHARED STYLES ── */
 const btnPrimary: React.CSSProperties = {
   display: 'inline-flex', alignItems: 'center', padding: '15px 36px',
-  background: '#00D4FF', color: '#020B2D', fontWeight: 700, fontSize: 16,
+  background: '#00D4FF', color: '#000000', fontWeight: 700, fontSize: 16,
   borderRadius: 8, textDecoration: 'none',
   fontFamily: 'var(--font-space), sans-serif', transition: 'all 0.25s',
 }
@@ -500,7 +519,7 @@ const bodyStyle: React.CSSProperties = {
   color: '#8892B0', fontSize: 17, lineHeight: 1.8, marginBottom: 32,
 }
 const cardStyle: React.CSSProperties = {
-  background: 'rgba(5,26,62,0.75)',
+  background: 'rgba(10,10,10,0.85)',
   border: '1px solid rgba(0,212,255,0.12)',
   borderRadius: 20, padding: 36,
 }

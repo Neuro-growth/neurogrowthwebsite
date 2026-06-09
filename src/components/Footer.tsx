@@ -20,7 +20,7 @@ const serviceLinks = [
 export default function Footer() {
   return (
     <footer style={{
-      background: '#051A3E',
+      background: '#0A0A0A',
       borderTop: '1px solid rgba(0,212,255,0.12)',
       padding: '80px 0 0',
     }}>
@@ -57,7 +57,7 @@ export default function Footer() {
               color: '#8892B0', fontSize: 14, lineHeight: 1.8,
               margin: '16px 0 24px', maxWidth: 280,
             }}>
-              We build AI-powered growth systems that transform marketing, automate customer journeys, and maximize ROI for growth-focused businesses.
+              We build AI solutions and engineering systems for African businesses — automating operations, accelerating growth, and transforming how businesses work.
             </p>
             <div style={{ display: 'flex', gap: 12 }}>
               {['in', 'ig', '𝕏'].map((icon, i) => (

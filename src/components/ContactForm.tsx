@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
-  background: 'rgba(2,11,45,0.8)',
+  background: 'rgba(0,0,0,0.8)',
   border: '1px solid rgba(0,212,255,0.12)',
   borderRadius: 10,
   padding: '14px 18px',
@@ -56,7 +56,7 @@ function SelectField({ label, id, options }: { label: string; id: string; option
         }}
       >
         <option value="" disabled>Select...</option>
-        {options.map(o => <option key={o} value={o} style={{ background: '#051A3E', color: '#fff' }}>{o}</option>)}
+        {options.map(o => <option key={o} value={o} style={{ background: '#0A0A0A', color: '#fff' }}>{o}</option>)}
       </select>
     </div>
   )
@@ -168,7 +168,7 @@ export default function ContactForm() {
         style={{
           marginTop: 24, width: '100%', padding: '15px 0',
           background: loading ? 'rgba(100,255,218,0.5)' : '#00D4FF',
-          color: '#020B2D', fontWeight: 700, fontSize: 16,
+          color: '#000000', fontWeight: 700, fontSize: 16,
           borderRadius: 8, border: 'none', cursor: loading ? 'not-allowed' : 'pointer',
           fontFamily: 'var(--font-space), sans-serif',
           transition: 'all 0.25s',

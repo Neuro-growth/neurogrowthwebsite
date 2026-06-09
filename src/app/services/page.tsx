@@ -3,8 +3,9 @@ import Link from 'next/link'
 import RevealOnScroll from '@/components/RevealOnScroll'
 
 export const metadata: Metadata = {
-  title: 'Services',
-  description: 'Explore NeuroGrowth Tech\'s 10 core AI services — from AI strategy and marketing automation to predictive analytics and lead generation systems.',
+  title: 'AI Services',
+  description: 'Explore NeuroGrowth Tech\'s 10 AI services — AI strategy consulting, marketing automation, predictive analytics, AI chatbots, CRM automation, lead generation, and custom AI solutions for African businesses.',
+  alternates: { canonical: 'https://neurogrowthtech.com/services' },
 }
 
 const services = [
@@ -136,7 +137,7 @@ export default function ServicesPage() {
       <PageHero
         label="OUR SERVICES"
         headline={<>10 AI Services.<br /><span className="text-gradient">One Growth Engine.</span></>}
-        sub="Every service we offer is a component of a larger, interconnected AI growth system — engineered to work together and compound results over time."
+        sub="Every service we offer is a component of a larger, interconnected AI solutions stack — engineered to automate operations, accelerate growth, and transform how your business works."
       />
 
       {/* SERVICES GRID */}
@@ -146,7 +147,7 @@ export default function ServicesPage() {
             {services.map((s, i) => (
               <RevealOnScroll key={i} delay={(i % 2) * 80}>
                 <div style={{
-                  background: 'rgba(5,26,62,0.75)',
+                  background: 'rgba(10,10,10,0.85)',
                   border: '1px solid rgba(0,212,255,0.12)',
                   borderRadius: 20, padding: '40px 36px',
                   display: 'flex', flexDirection: 'column', gap: 16,
@@ -171,7 +172,7 @@ export default function ServicesPage() {
       </section>
 
       {/* PROCESS STRIP */}
-      <section style={{ padding: '100px 0', background: '#051A3E' }}>
+      <section style={{ padding: '100px 0', background: '#0A0A0A' }}>
         <div style={container}>
           <p style={{ ...labelStyle, textAlign: 'center' }}>[ HOW WE WORK ]</p>
           <h2 style={{ ...h2Style, textAlign: 'center' }}>
@@ -179,12 +180,12 @@ export default function ServicesPage() {
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, marginTop: 48 }} className="three-col">
             {[
-              { n: '01', title: 'Discovery & Audit', body: 'We audit your current marketing systems, data infrastructure, and growth metrics to identify the highest-leverage AI opportunities.' },
+              { n: '01', title: 'Discovery & Audit', body: 'We audit your current business systems, data infrastructure, and growth metrics to identify the highest-leverage AI opportunities across your entire operation.' },
               { n: '02', title: 'Design & Architecture', body: 'We design your custom AI growth stack — selecting the right services, tools, and integrations to deliver your specific goals.' },
               { n: '03', title: 'Build & Deploy', body: 'Our engineers build, test, and deploy your AI systems — fully integrated with your existing tools and configured for your business.' },
             ].map((c, i) => (
               <RevealOnScroll key={i} delay={i * 80}>
-                <div style={{ background: 'rgba(5,26,62,0.75)', border: '1px solid rgba(0,212,255,0.12)', borderRadius: 20, padding: '40px 32px' }}>
+                <div style={{ background: 'rgba(10,10,10,0.85)', border: '1px solid rgba(0,212,255,0.12)', borderRadius: 20, padding: '40px 32px' }}>
                   <div style={{ width: 56, height: 56, borderRadius: '50%', border: '1px solid rgba(0,212,255,0.20)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-space), sans-serif', fontSize: 16, fontWeight: 700, color: '#00D4FF', marginBottom: 20 }}>{c.n}</div>
                   <h3 style={{ fontFamily: 'var(--font-space), sans-serif', fontSize: 20, fontWeight: 700, color: '#fff', marginBottom: 12 }}>{c.title}</h3>
                   <p style={{ fontSize: 15, color: '#8892B0', lineHeight: 1.8 }}>{c.body}</p>
@@ -229,12 +230,12 @@ function CtaBanner({ headline, sub }: { headline: string; sub: string }) {
     <section style={{ padding: '100px 0' }}>
       <div style={container}>
         <RevealOnScroll>
-          <div style={{ background: 'rgba(5,26,62,0.75)', border: '1px solid rgba(0,212,255,0.12)', borderRadius: 20, padding: '80px 60px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ background: 'rgba(10,10,10,0.85)', border: '1px solid rgba(0,212,255,0.12)', borderRadius: 20, padding: '80px 60px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 600, height: 400, background: 'radial-gradient(ellipse, rgba(0,212,255,0.05) 0%, transparent 70%)', pointerEvents: 'none' }} />
             <p style={{ ...labelStyle, textAlign: 'center', position: 'relative' }}>[ GET STARTED ]</p>
             <h2 style={{ ...h2Style, position: 'relative' }}>{headline}</h2>
             <p style={{ color: '#8892B0', fontSize: 17, lineHeight: 1.8, maxWidth: 500, margin: '0 auto 36px', position: 'relative' }}>{sub}</p>
-            <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', padding: '15px 36px', background: '#00D4FF', color: '#020B2D', fontWeight: 700, fontSize: 16, borderRadius: 8, textDecoration: 'none', fontFamily: 'var(--font-space), sans-serif', position: 'relative' }}>Schedule a Consultation</Link>
+            <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', padding: '15px 36px', background: '#00D4FF', color: '#000000', fontWeight: 700, fontSize: 16, borderRadius: 8, textDecoration: 'none', fontFamily: 'var(--font-space), sans-serif', position: 'relative' }}>Schedule a Consultation</Link>
             <span style={{ display: 'block', marginTop: 16, fontSize: 13, color: '#8892B0', position: 'relative' }}>Free 30-min strategy call &nbsp;·&nbsp; No commitment required</span>
           </div>
         </RevealOnScroll>
