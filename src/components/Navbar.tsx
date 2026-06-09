@@ -45,8 +45,8 @@ export default function Navbar() {
           <Image
             src="/logo.png"
             alt="N"
-            width={44}
-            height={44}
+            width={28}
+            height={28}
             style={{ objectFit: 'contain' }}
             priority
           />
