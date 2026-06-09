@@ -1,18 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --deep-navy: #0A192F;
-  --navy: #112240;
-  --navy-light: #1a2f50;
-  --neon: #64FFDA;
-  --neon-dim: rgba(100, 255, 218, 0.12);
-  --neon-glow: rgba(100, 255, 218, 0.35);
-  --white: #FFFFFF;
-  --light-gray: #CCD6F6;
-  --muted: #8892B0;
-  --border: rgba(100, 255, 218, 0.12);
-  --card-bg: rgba(17, 34, 64, 0.7);
-  --font-main: 'Space Grotesk', 'Inter', sans-serif;
+  /* ── Brand colours extracted from NeuroGrowth logo ── */
+  --deep-navy:  #020B2D;        /* logo background – darkest */
+  --navy:       #051A3E;        /* section/card base */
+  --navy-light: #0A2550;        /* elevated surfaces */
+
+  /* Primary accent – electric cyan-blue (logo N gradient midpoint) */
+  --neon:       #00D4FF;
+  --neon-dim:   rgba(0, 212, 255, 0.12);
+  --neon-glow:  rgba(0, 212, 255, 0.35);
+
+  /* Secondary accent – teal (logo circuit lines) */
+  --teal:       #00FFCC;
+  --teal-dim:   rgba(0, 255, 204, 0.12);
+
+  --white:      #FFFFFF;
+  --light-gray: #C8D8F0;
+  --muted:      #7A90B8;
+  --border:     rgba(0, 212, 255, 0.14);
+  --card-bg:    rgba(5, 26, 62, 0.75);
+  --font-main:  'Space Grotesk', 'Inter', sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -53,7 +61,7 @@ body {
 
 /* --- PULSE DOT --- */
 @keyframes pulseDot {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--neon-glow); }
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.4); }
   50%       { opacity: 0.6; box-shadow: 0 0 0 6px transparent; }
 }
 .pulse-dot { animation: pulseDot 2s infinite; }
@@ -69,9 +77,9 @@ body {
   transform: translateY(0);
 }
 
-/* --- TEXT GRADIENT --- */
+/* --- TEXT GRADIENT (matches logo N: blue top → cyan bottom) --- */
 .text-gradient {
-  background: linear-gradient(135deg, #64FFDA 0%, #00B4D8 55%, #a78bfa 100%);
+  background: linear-gradient(135deg, #00AAFF 0%, #00D4FF 45%, #00FFCC 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
