@@ -236,6 +236,96 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── ABOUT US ── */}
+      <section style={{ padding: '100px 0', background: '#0A0A0A' }}>
+        <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 32px' }}>
+          <div style={{
+            display: 'grid', gridTemplateColumns: '1fr 1fr',
+            gap: 80, alignItems: 'center',
+          }} className="two-col">
+
+            {/* LEFT */}
+            <RevealOnScroll>
+              <p style={labelStyle}>[ ABOUT US ]</p>
+              <h2 style={{ ...h2Style, fontSize: 'clamp(28px, 4vw, 48px)' }}>
+                We Are Not an Agency.<br />
+                We Are an <span className="text-gradient">AI Engineering Firm.</span>
+              </h2>
+              <p style={bodyStyle}>
+                NeuroGrowth Tech was built on one belief — businesses that harness AI correctly don&apos;t just grow, they compound. We exist to make that a reality for African businesses.
+              </p>
+              <p style={{ ...bodyStyle, marginBottom: 36 }}>
+                We combine deep AI expertise with engineering to build intelligent systems that automate operations, personalize customer experiences, predict outcomes, and scale revenue — across every function of your business. Not campaigns. Not software licenses. Actual AI infrastructure, built for you.
+              </p>
+              <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+                <Link href="/about" style={btnPrimary}>Our Story</Link>
+                <Link href="/services" style={{
+                  display: 'inline-flex', alignItems: 'center', padding: '15px 32px',
+                  background: 'transparent', color: '#00D4FF', fontWeight: 600, fontSize: 15,
+                  border: '1.5px solid rgba(0,212,255,0.3)', borderRadius: 8,
+                  textDecoration: 'none', fontFamily: 'var(--font-space), sans-serif',
+                }}>View Our Services</Link>
+              </div>
+            </RevealOnScroll>
+
+            {/* RIGHT — stats + pillars */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+
+              {/* stats row */}
+              <div style={{
+                display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16,
+              }}>
+                {[
+                  { num: '50+', label: 'Businesses Served', icon: '🏢' },
+                  { num: '80%', label: 'Avg. Efficiency Gain', icon: '⚡' },
+                  { num: '$2B+', label: 'Revenue Influenced', icon: '📈' },
+                  { num: '24/7', label: 'AI Systems Running', icon: '🤖' },
+                ].map((s, i) => (
+                  <RevealOnScroll key={i} delay={i * 80}>
+                    <div style={{
+                      background: 'rgba(0,212,255,0.04)',
+                      border: '1px solid rgba(0,212,255,0.12)',
+                      borderRadius: 16, padding: '24px 20px',
+                      display: 'flex', flexDirection: 'column', gap: 8,
+                    }}>
+                      <span style={{ fontSize: 24 }}>{s.icon}</span>
+                      <span style={{
+                        fontFamily: 'var(--font-space), sans-serif',
+                        fontSize: 36, fontWeight: 800, color: '#00D4FF',
+                        lineHeight: 1,
+                      }}>{s.num}</span>
+                      <span style={{ fontSize: 13, color: '#7A90B8' }}>{s.label}</span>
+                    </div>
+                  </RevealOnScroll>
+                ))}
+              </div>
+
+              {/* mission pill */}
+              <RevealOnScroll delay={200}>
+                <div style={{
+                  background: 'linear-gradient(135deg, rgba(0,170,255,0.08), rgba(0,255,204,0.05))',
+                  border: '1px solid rgba(0,212,255,0.2)',
+                  borderRadius: 16, padding: '24px 28px',
+                  display: 'flex', gap: 16, alignItems: 'flex-start',
+                }}>
+                  <span style={{ fontSize: 28, flexShrink: 0 }}>🌍</span>
+                  <div>
+                    <h4 style={{
+                      fontFamily: 'var(--font-space), sans-serif',
+                      fontSize: 16, fontWeight: 700, color: '#fff', marginBottom: 8,
+                    }}>Built for African Businesses</h4>
+                    <p style={{ fontSize: 14, color: '#7A90B8', lineHeight: 1.7, margin: 0 }}>
+                      We understand the unique challenges and opportunities of the African market. Our AI systems are designed to work within local contexts, integrate with regional platforms, and drive growth that is sustainable and scalable.
+                    </p>
+                  </div>
+                </div>
+              </RevealOnScroll>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── ABOUT PREVIEW ── */}
       <section style={{ padding: '100px 0' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
