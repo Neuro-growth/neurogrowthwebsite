@@ -47,15 +47,14 @@ export default function Navbar() {
             alt="N"
             width={28}
             height={28}
-            style={{ objectFit: 'contain' }}
+            style={{ objectFit: 'contain', width: 'auto', height: '28px' }}
             priority
           />
           <span style={{
             fontFamily: 'var(--font-space), sans-serif',
-            fontSize: 17, fontWeight: 700, color: '#fff', letterSpacing: '-0.3px',
-            marginLeft: '-14px',
+            fontSize: 20, fontWeight: 700, color: '#fff', letterSpacing: '-0.3px',
           }}>
-            euroGrowth<span style={{ color: '#00D4FF' }}> Tech</span>
+            NeuroGrowth<span style={{ color: '#00D4FF' }}> Tech</span>
           </span>
         </Link>
 

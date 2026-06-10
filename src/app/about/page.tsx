@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/RevealOnScroll'
+import TeamCard from '@/components/TeamCard'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -26,9 +27,9 @@ const differences = [
 
 const teamRoles = [
   { photo: '/team/shilla.jpg', name: 'Shilla Swanapole', role: 'Founder & CEO' },
-  { photo: '/team/ml.jpg', name: 'ML Engineering', role: 'Predictive Models & Data Science' },
-  { photo: '/team/mk.jpg', name: 'Marketing Engineering', role: 'Automation & Growth Systems' },
-  { photo: '/team/cx.jpg', name: 'CX & Personalization', role: 'Customer Journey Design' },
+  { photo: '/team/eric.jpg', name: 'Eric Cecil', role: 'ML Engineering' },
+  { photo: '/team/lenny.jpg', name: 'Lenny Kadavi', role: 'Marketing Engineering' },
+  { photo: '/team/racheal.jpg', name: 'Racheal Ngochi', role: 'CX & Personalization' },
 ]
 
 export default function AboutPage() {
@@ -139,38 +140,7 @@ export default function AboutPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 24, marginTop: 48 }} className="four-col">
             {teamRoles.map((t, i) => (
               <RevealOnScroll key={i} delay={i * 80}>
-                <div style={{
-                  background: 'rgba(10,10,10,0.85)',
-                  border: '1px solid rgba(0,212,255,0.12)',
-                  borderRadius: 20, padding: '32px 20px',
-                  textAlign: 'center',
-                  display: 'flex', flexDirection: 'column',
-                  alignItems: 'center', gap: 12,
-                  height: '100%', minHeight: 220,
-                }}>
-                  {/* Photo circle — shows photo if available, gradient fallback */}
-                  <div style={{
-                    width: 90, height: 90, borderRadius: '50%',
-                    border: '2px solid rgba(0,212,255,0.3)',
-                    overflow: 'hidden', flexShrink: 0,
-                    background: 'linear-gradient(135deg, #00AAFF, #00FFCC)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  }}>
-                    <img
-                      src={t.photo}
-                      alt={t.name}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      onError={(e) => {
-                        const el = e.currentTarget as HTMLImageElement
-                        el.style.display = 'none'
-                      }}
-                    />
-                  </div>
-                  <div>
-                    <h3 style={{ fontFamily: 'var(--font-space), sans-serif', fontSize: 15, fontWeight: 700, color: '#fff', marginBottom: 4, lineHeight: 1.3 }}>{t.name}</h3>
-                    <span style={{ fontSize: 12, color: '#00D4FF', letterSpacing: '0.5px' }}>{t.role}</span>
-                  </div>
-                </div>
+                <TeamCard photo={t.photo} name={t.name} role={t.role} />
               </RevealOnScroll>
             ))}
           </div>

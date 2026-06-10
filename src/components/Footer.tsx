@@ -6,6 +6,7 @@ import Image from 'next/image'
 const companyLinks = [
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
+  { href: '/solutions', label: 'Solutions' },
   { href: '/pricing', label: 'Pricing' },
   { href: '/contact', label: 'Contact' },
 ]
@@ -15,6 +16,11 @@ const serviceLinks = [
   { href: '/services', label: 'Marketing Automation' },
   { href: '/services', label: 'Predictive Analytics' },
   { href: '/services', label: 'AI Chatbots' },
+]
+
+const resourceLinks = [
+  { href: '/resources', label: 'Resources' },
+  { href: '/resources/ai-fundamentals', label: 'AI Fundamentals' },
 ]
 
 export default function Footer() {
@@ -38,20 +44,19 @@ export default function Footer() {
         >
           {/* BRAND */}
           <div>
-            <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 4 }}>
+            <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 8 }}>
               <Image
                 src="/logo.png"
-                alt="N"
-                width={40}
-                height={40}
-                style={{ objectFit: 'contain' }}
+                alt="NeuroGrowth Tech"
+                width={36}
+                height={36}
+                style={{ objectFit: 'contain', width: 'auto', height: '32px' }}
               />
               <span style={{
                 fontFamily: 'var(--font-space), sans-serif',
                 fontSize: 18, fontWeight: 700, color: '#fff',
-                marginLeft: '-14px',
               }}>
-                euroGrowth<span style={{ color: '#00D4FF' }}> Tech</span>
+                NeuroGrowth<span style={{ color: '#00D4FF' }}> Tech</span>
               </span>
             </Link>
             <p style={{
@@ -61,7 +66,7 @@ export default function Footer() {
               We build AI solutions and engineering systems for African businesses — automating operations, accelerating growth, and transforming how businesses work.
             </p>
             <div style={{ display: 'flex', gap: 12 }}>
-              {['in', 'ig', '𝕏'].map((icon, i) => (
+              {['in', 'ig', 'X'].map((icon, i) => (
                 <a key={i} href="#" aria-label={['LinkedIn', 'Instagram', 'Twitter'][i]}
                   style={{
                     width: 40, height: 40, borderRadius: '50%',
@@ -92,13 +97,14 @@ export default function Footer() {
           {/* LINKS */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: 40,
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gap: 32,
           }}
             className="footer-links-grid"
           >
             <FooterCol title="Company" links={companyLinks} />
             <FooterCol title="Services" links={serviceLinks} />
+            <FooterCol title="Resources" links={resourceLinks} />
             <div>
               <h4 style={{
                 fontFamily: 'var(--font-space), sans-serif',
@@ -134,7 +140,7 @@ export default function Footer() {
           display: 'flex', justifyContent: 'space-between', alignItems: 'center',
           padding: '24px 0', fontSize: 13, color: '#8892B0', flexWrap: 'wrap', gap: 12,
         }}>
-          <span>© 2026 NeuroGrowth Tech. All rights reserved.</span>
+          <span>© 2024 NeuroGrowth Tech. All rights reserved.</span>
           <span>Built with AI. Powered by Growth.</span>
         </div>
       </div>
@@ -142,7 +148,7 @@ export default function Footer() {
       <style>{`
         @media (max-width: 1024px) {
           .footer-top-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
-          .footer-links-grid { grid-template-columns: repeat(3, 1fr) !important; }
+          .footer-links-grid { grid-template-columns: 1fr 1fr !important; }
         }
         @media (max-width: 640px) {
           .footer-links-grid { grid-template-columns: 1fr 1fr !important; }
