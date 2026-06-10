@@ -54,7 +54,7 @@ export default function Footer() {
               />
               <span style={{
                 fontFamily: 'var(--font-space), sans-serif',
-                fontSize: 20, fontWeight: 700, color: '#fff',
+                fontSize: 24, fontWeight: 700, color: '#fff',
               }}>
                 euroGrowth<span style={{ color: '#00D4FF' }}> Tech</span>
               </span>
