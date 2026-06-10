@@ -84,7 +84,10 @@ export default function Navbar() {
         </ul>
 
         {/* ── BOOK DEMO CTA ── */}
-        <Link href="/contact"
+        <a
+          href="https://wa.me/254796382271?text=Hi%20NeuroGrowth%20Tech!%20I%27d%20like%20to%20book%20a%20demo."
+          target="_blank"
+          rel="noopener noreferrer"
           className="desktop-nav"
           style={{
             flexShrink: 0,
@@ -106,7 +109,7 @@ export default function Navbar() {
           }}
         >
           Book Demo
-        </Link>
+        </a>
 
         {/* ── HAMBURGER ── */}
         <button
