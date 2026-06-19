@@ -60,8 +60,13 @@ export default function Footer() {
               We build AI solutions and engineering systems for African businesses — automating operations, accelerating growth, and transforming how businesses work.
             </p>
             <div style={{ display: 'flex', gap: 12 }}>
-              {['in', 'ig', 'X'].map((icon, i) => (
-                <a key={i} href="#" aria-label={['LinkedIn', 'Instagram', 'Twitter'][i]}
+              {[
+                { icon: 'in', label: 'LinkedIn', href: 'https://www.linkedin.com/company/neurogrowthtech/' },
+                { icon: 'ig', label: 'Instagram', href: 'https://www.instagram.com/neurogrowth.tech?igsh=bGtrMmh1ZzlnM2xt&utm_source=qr' },
+                { icon: 'X',  label: 'Twitter',   href: '#' },
+              ].map(({ icon, label, href }) => (
+                <a key={label} href={href} aria-label={label}
+                  target="_blank" rel="noopener noreferrer"
                   style={{
                     width: 40, height: 40, borderRadius: '50%',
                     border: '1px solid rgba(0,212,255,0.12)',

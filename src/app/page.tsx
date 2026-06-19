@@ -127,7 +127,7 @@ export default function Home() {
                 background: 'rgba(0,212,255,0.08)',
                 border: '1px solid rgba(0,212,255,0.22)',
                 borderRadius: 50, fontSize: 12, fontWeight: 600,
-                color: '#00D4FF', letterSpacing: '1.5px', textTransform: 'uppercase',
+                color: '#ffffff', letterSpacing: '1.5px', textTransform: 'uppercase',
               }}>
                 <span className="pulse-dot" style={{ width: 7, height: 7, background: '#00D4FF', borderRadius: '50%', flexShrink: 0 }} />
                 Accelerating Growth Through Intelligence

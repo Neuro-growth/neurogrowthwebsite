@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 const links = [
@@ -42,13 +41,11 @@ export default function Navbar() {
 
         {/* ── LOGO ── */}
         <a href="/" style={{ textDecoration: 'none', flexShrink: 0 }}>
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/logo.png"
             alt="NeuroGrowthTech"
-            width={180}
-            height={50}
-            style={{ objectFit: 'contain', height: '40px', width: 'auto' }}
-            priority
+            style={{ height: '65px', width: 'auto', display: 'block', opacity: 0.75 }}
           />
         </a>
 
