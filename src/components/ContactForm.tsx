@@ -18,9 +18,9 @@ const inputStyle: React.CSSProperties = {
   transition: 'border-color 0.2s, box-shadow 0.2s',
 }
 
-function Field({ label, id, type = 'text', placeholder, required, span }: {
+function Field({ label, id, type = 'text', placeholder, required, span, onChange }: {
   label: string; id: string; type?: string; placeholder: string;
-  required?: boolean; span?: boolean
+  required?: boolean; span?: boolean; onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }) {
   const [focused, setFocused] = useState(false)
   return (
@@ -30,6 +30,7 @@ function Field({ label, id, type = 'text', placeholder, required, span }: {
       </label>
       <input
         id={id} name={id} type={type} placeholder={placeholder} required={required}
+        onChange={onChange}
         onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
         style={{
           ...inputStyle,
@@ -41,12 +42,13 @@ function Field({ label, id, type = 'text', placeholder, required, span }: {
   )
 }
 
-function SelectField({ label, id, options }: { label: string; id: string; options: string[] }) {
+function SelectField({ label, id, options, onChange }: { label: string; id: string; options: string[]; onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void }) {
   const [focused, setFocused] = useState(false)
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8, gridColumn: '1 / -1' }}>
       <label htmlFor={id} style={{ fontSize: 13, fontWeight: 600, color: '#CCD6F6', letterSpacing: '0.5px' }}>{label}</label>
       <select id={id} name={id}
+        onChange={onChange}
         onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
         style={{
           ...inputStyle,
@@ -61,12 +63,13 @@ function SelectField({ label, id, options }: { label: string; id: string; option
   )
 }
 
-function TextareaField({ label, id, placeholder }: { label: string; id: string; placeholder: string }) {
+function TextareaField({ label, id, placeholder, onChange }: { label: string; id: string; placeholder: string; onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void }) {
   const [focused, setFocused] = useState(false)
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8, gridColumn: '1 / -1' }}>
       <label htmlFor={id} style={{ fontSize: 13, fontWeight: 600, color: '#CCD6F6', letterSpacing: '0.5px' }}>{label}</label>
       <textarea id={id} name={id} placeholder={placeholder} rows={5}
+        onChange={onChange}
         onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
         style={{
           ...inputStyle,
@@ -162,22 +165,23 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate onChange={handleChange}>
+    <form onSubmit={handleSubmit} noValidate>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }} className="form-grid">
-        <Field label="First Name" id="firstName" placeholder="John" required />
-        <Field label="Last Name" id="lastName" placeholder="Smith" required />
-        <Field label="Business Email" id="email" type="email" placeholder="john@yourcompany.com" required span />
-        <Field label="Company Name" id="company" placeholder="Your Company Inc." required span />
+        <Field label="First Name" id="firstName" placeholder="John" required onChange={handleChange} />
+        <Field label="Last Name" id="lastName" placeholder="Smith" required onChange={handleChange} />
+        <Field label="Business Email" id="email" type="email" placeholder="john@yourcompany.com" required span onChange={handleChange} />
+        <Field label="Company Name" id="company" placeholder="Your Company Inc." required span onChange={handleChange} />
         <SelectField label="Primary Interest" id="service" options={[
           'AI Strategy & Consulting', 'AI Marketing Automation', 'Customer Personalization',
           'Predictive Analytics', 'AI Chatbots & Support Agents', 'CRM Automation',
           'AI Content Generation', 'Lead Generation Systems', 'Digital Advertising Optimization',
           'Marketing Analytics Dashboards', 'Full AI Growth System', 'Not sure — need guidance',
-        ]} />
+        ]} onChange={handleChange} />
         <TextareaField
           label="Tell Us About Your Business & Goals"
           id="message"
           placeholder="Briefly describe your business and what you're hoping AI can help you achieve..."
+          onChange={handleChange}
         />
       </div>
 
