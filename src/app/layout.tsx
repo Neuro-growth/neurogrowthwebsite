@@ -58,6 +58,10 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://neurogrowthtech.com' },
   verification: { google: 'your-google-verification-code' },
   metadataBase: new URL('https://neurogrowthtech.com'),
+  icons: {
+    icon: '/icon.png',
+    apple: '/icon.png',
+  },
 };
 
 export default function RootLayout({
