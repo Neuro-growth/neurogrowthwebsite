@@ -41,22 +41,16 @@ export default function Navbar() {
       }}>
 
         {/* ── LOGO ── */}
-        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5, flexShrink: 0 }}>
+        <a href="/" style={{ textDecoration: 'none', flexShrink: 0 }}>
           <Image
             src="/logo.png"
-            alt="N"
-            width={28}
-            height={28}
-            style={{ objectFit: 'contain', width: 'auto', height: '28px' }}
+            alt="NeuroGrowthTech"
+            width={180}
+            height={50}
+            style={{ objectFit: 'contain', height: '40px', width: 'auto' }}
             priority
           />
-          <span style={{
-            fontFamily: 'var(--font-space), sans-serif',
-            fontSize: 26, fontWeight: 700, color: '#fff', letterSpacing: '-0.3px',
-          }}>
-            euroGrowth<span style={{ color: '#00D4FF' }}> Tech</span>
-          </span>
-        </Link>
+        </a>
 
         {/* ── DESKTOP LINKS – centred ── */}
         <ul style={{

@@ -44,20 +44,14 @@ export default function Footer() {
         >
           {/* BRAND */}
           <div>
-            <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 5 }}>
+            <Link href="/" style={{ textDecoration: 'none' }}>
               <Image
                 src="/logo.png"
-                alt="NeuroGrowth Tech"
-                width={36}
-                height={36}
-                style={{ objectFit: 'contain', width: 'auto', height: '32px' }}
+                alt="NeuroGrowthTech"
+                width={180}
+                height={50}
+                style={{ objectFit: 'contain', height: '44px', width: 'auto' }}
               />
-              <span style={{
-                fontFamily: 'var(--font-space), sans-serif',
-                fontSize: 24, fontWeight: 700, color: '#fff',
-              }}>
-                euroGrowth<span style={{ color: '#00D4FF' }}> Tech</span>
-              </span>
             </Link>
             <p style={{
               color: '#8892B0', fontSize: 14, lineHeight: 1.8,
