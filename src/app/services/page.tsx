@@ -147,8 +147,8 @@ export default function ServicesPage() {
             {services.map((s, i) => (
               <RevealOnScroll key={i} delay={(i % 2) * 80}>
                 <div style={{
-                  background: 'rgba(10,10,10,0.85)',
-                  border: '1px solid rgba(0,212,255,0.12)',
+                  background: 'transparent',
+                  border: 'none',
                   borderRadius: 20, padding: '40px 36px',
                   display: 'flex', flexDirection: 'column', gap: 16,
                   height: '100%',
@@ -172,7 +172,7 @@ export default function ServicesPage() {
       </section>
 
       {/* PROCESS STRIP */}
-      <section style={{ padding: '100px 0', background: '#0A0A0A' }}>
+      <section style={{ padding: '100px 0', background: 'transparent' }}>
         <div style={container}>
           <p style={{ ...labelStyle, textAlign: 'center' }}>[ HOW WE WORK ]</p>
           <h2 style={{ ...h2Style, textAlign: 'center' }}>
@@ -185,7 +185,7 @@ export default function ServicesPage() {
               { n: '03', title: 'Build & Deploy', body: 'Our engineers build, test, and deploy your AI systems — fully integrated with your existing tools and configured for your business.' },
             ].map((c, i) => (
               <RevealOnScroll key={i} delay={i * 80}>
-                <div style={{ background: 'rgba(10,10,10,0.85)', border: '1px solid rgba(0,212,255,0.12)', borderRadius: 20, padding: '40px 32px' }}>
+                <div style={{ background: 'transparent', border: 'none', borderRadius: 20, padding: '40px 32px' }}>
                   <div style={{ width: 56, height: 56, borderRadius: '50%', border: '1px solid rgba(0,212,255,0.20)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'var(--font-space), sans-serif', fontSize: 16, fontWeight: 700, color: '#00D4FF', marginBottom: 20 }}>{c.n}</div>
                   <h3 style={{ fontFamily: 'var(--font-space), sans-serif', fontSize: 20, fontWeight: 700, color: '#fff', marginBottom: 12 }}>{c.title}</h3>
                   <p style={{ fontSize: 15, color: '#8892B0', lineHeight: 1.8 }}>{c.body}</p>
@@ -230,12 +230,12 @@ function CtaBanner({ headline, sub }: { headline: string; sub: string }) {
     <section style={{ padding: '100px 0' }}>
       <div style={container}>
         <RevealOnScroll>
-          <div style={{ background: 'rgba(10,10,10,0.85)', border: '1px solid rgba(0,212,255,0.12)', borderRadius: 20, padding: '80px 60px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+          <div style={{ background: 'transparent', border: 'none', borderRadius: 20, padding: '80px 60px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 600, height: 400, background: 'radial-gradient(ellipse, rgba(0,212,255,0.05) 0%, transparent 70%)', pointerEvents: 'none' }} />
             <p style={{ ...labelStyle, textAlign: 'center', position: 'relative' }}>[ GET STARTED ]</p>
             <h2 style={{ ...h2Style, position: 'relative' }}>{headline}</h2>
             <p style={{ color: '#8892B0', fontSize: 17, lineHeight: 1.8, maxWidth: 500, margin: '0 auto 36px', position: 'relative' }}>{sub}</p>
-            <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', padding: '15px 36px', background: '#00D4FF', color: '#000000', fontWeight: 700, fontSize: 16, borderRadius: 8, textDecoration: 'none', fontFamily: 'var(--font-space), sans-serif', position: 'relative' }}>Schedule a Consultation</Link>
+            <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', padding: '15px 36px', background: 'linear-gradient(135deg, #00a83a 0%, #008c2e 40%, #007025 100%)', color: '#fff', fontWeight: 700, fontSize: 15, borderRadius: 999, border: 'none', textDecoration: 'none', fontFamily: 'var(--font-space), sans-serif', position: 'relative' }}>Schedule a Consultation</Link>
             <span style={{ display: 'block', marginTop: 16, fontSize: 13, color: '#8892B0', position: 'relative' }}>Free 30-min strategy call &nbsp;·&nbsp; No commitment required</span>
           </div>
         </RevealOnScroll>

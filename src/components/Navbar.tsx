@@ -3,8 +3,10 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Logo from './Logo'
 
 const links = [
+  { href: '/home', label: 'Home' },
   { href: '/services', label: 'Services' },
   { href: '/solutions', label: 'Solutions' },
   { href: '/about', label: 'About' },
@@ -28,7 +30,7 @@ export default function Navbar() {
     <nav style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
       padding: scrolled ? '12px 0' : '18px 0',
-      background: scrolled ? 'rgba(0,0,0,0.97)' : 'transparent',
+      background: scrolled ? 'rgba(5,13,26,0.6)' : 'transparent',
       backdropFilter: scrolled ? 'blur(24px)' : 'none',
       WebkitBackdropFilter: scrolled ? 'blur(24px)' : 'none',
       borderBottom: scrolled ? '1px solid rgba(0,212,255,0.12)' : '1px solid transparent',
@@ -39,20 +41,12 @@ export default function Navbar() {
         display: 'flex', alignItems: 'center',
       }}>
 
-        {/* ── LOGO ── */}
-        <a href="/" style={{ textDecoration: 'none', flexShrink: 0 }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/logo.png"
-            alt="NeuroGrowthTech"
-            style={{ height: '65px', width: 'auto', display: 'block', opacity: 0.75 }}
-          />
-        </a>
+        
 
-        {/* ── DESKTOP LINKS – centred ── */}
+        {/* ── DESKTOP LINKS – right-aligned next to Book Demo ── */}
         <ul style={{
           display: 'flex', gap: 2, listStyle: 'none', padding: 0,
-          margin: '0 auto',
+          margin: '0 0 0 auto',
         }} className="desktop-nav">
           {links.map(({ href, label }) => {
             const active = pathname === href
@@ -74,33 +68,33 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* ── BOOK DEMO CTA ── */}
-        <a
-          href="https://wa.me/254796382271?text=Hi%20NeuroGrowth%20Tech!%20I%27d%20like%20to%20book%20a%20demo."
-          target="_blank"
-          rel="noopener noreferrer"
-          className="desktop-nav"
-          style={{
-            flexShrink: 0,
-            padding: '10px 24px',
-            background: 'linear-gradient(135deg, #00AAFF, #00D4FF)',
-            color: '#000000', fontWeight: 700, fontSize: 14,
-            borderRadius: 8, textDecoration: 'none',
-            fontFamily: 'var(--font-space), sans-serif',
-            boxShadow: '0 0 20px rgba(0,212,255,0.3)',
-            transition: 'all 0.25s',
-          }}
-          onMouseEnter={e => {
-            e.currentTarget.style.transform = 'translateY(-2px)'
-            e.currentTarget.style.boxShadow = '0 6px 28px rgba(0,212,255,0.5)'
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.transform = ''
-            e.currentTarget.style.boxShadow = '0 0 20px rgba(0,212,255,0.3)'
-          }}
-        >
-          Book Demo
-        </a>
+        {/* ── BOOK DEMO CTA — hidden on landing page ── */}
+        {pathname !== '/' && (
+          <a
+            href="https://wa.me/254796382271?text=Hi%20NeuroGrowth%20Tech!%20I%27d%20like%20to%20book%20a%20demo."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="desktop-nav"
+            style={{
+              flexShrink: 0,
+              padding: '10px 24px',
+              background: 'linear-gradient(135deg, #00a83a 0%, #008c2e 40%, #007025 100%)', color: '#fff', fontWeight: 700, fontSize: 14, borderRadius: 999, border: 'none', textDecoration: 'none',
+              fontFamily: 'var(--font-space), sans-serif',
+              boxShadow: '0 0 18px rgba(0,140,46,0.45)',
+              transition: 'all 0.25s',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = 'translateY(-2px)'
+              e.currentTarget.style.boxShadow = '0 0 28px rgba(0,160,55,0.60), 0 6px 24px rgba(0,130,45,0.45)'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = ''
+              e.currentTarget.style.boxShadow = '0 0 18px rgba(0,140,46,0.45)'
+            }}
+          >
+            Book Demo
+          </a>
+        )}
 
         {/* ── HAMBURGER ── */}
         <button
@@ -133,7 +127,7 @@ export default function Navbar() {
       {/* ── MOBILE MENU ── */}
       {open && (
         <div style={{
-          background: '#0A0A0A', borderTop: '1px solid rgba(0,212,255,0.12)',
+          background: 'transparent', borderTop: '1px solid rgba(0,212,255,0.12)',
           padding: '20px 32px', display: 'flex', flexDirection: 'column', gap: 4,
         }}>
           {links.map(({ href, label }) => (
@@ -146,15 +140,15 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
-          <Link href="/contact" style={{
-            marginTop: 16, padding: '14px 0',
-            background: 'linear-gradient(135deg, #00AAFF, #00D4FF)',
-            color: '#000000', fontWeight: 700, fontSize: 15,
-            borderRadius: 8, textDecoration: 'none',
-            textAlign: 'center', display: 'block',
-          }}>
-            Book Demo
-          </Link>
+          {pathname !== '/' && (
+            <Link href="/contact" style={{
+              marginTop: 16, padding: '14px 0',
+              background: 'linear-gradient(135deg, #00a83a 0%, #008c2e 40%, #007025 100%)', color: '#fff', fontWeight: 700, fontSize: 15, borderRadius: 999, border: 'none', textDecoration: 'none',
+              textAlign: 'center', display: 'block',
+            }}>
+              Book Demo
+            </Link>
+          )}
         </div>
       )}
 

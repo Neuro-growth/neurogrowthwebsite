@@ -43,7 +43,7 @@ export default function AboutPage() {
       />
 
       {/* MISSION */}
-      <section style={{ padding: '100px 0', background: '#0A0A0A' }}>
+      <section style={{ padding: '100px 0', background: 'transparent' }}>
         <div style={container}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }} className="two-col">
             <RevealOnScroll>
@@ -99,7 +99,7 @@ export default function AboutPage() {
       </section>
 
       {/* DIFFERENCES */}
-      <section style={{ padding: '100px 0', background: '#0A0A0A' }}>
+      <section style={{ padding: '100px 0', background: 'transparent' }}>
         <div style={container}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80, alignItems: 'start' }} className="two-col">
             <RevealOnScroll>
@@ -201,9 +201,9 @@ const container: React.CSSProperties = { maxWidth: 1200, margin: '0 auto', paddi
 const labelStyle: React.CSSProperties = { fontSize: 12, fontWeight: 600, letterSpacing: '3px', textTransform: 'uppercase', color: '#00D4FF', marginBottom: 20 }
 const h2Style: React.CSSProperties = { fontFamily: 'var(--font-space), sans-serif', fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 700, color: '#fff', lineHeight: 1.2, marginBottom: 20 }
 const bodyStyle: React.CSSProperties = { color: '#8892B0', fontSize: 17, lineHeight: 1.8, marginBottom: 32 }
-const cardStyle: React.CSSProperties = { background: 'rgba(10,10,10,0.85)', border: '1px solid rgba(0,212,255,0.12)', borderRadius: 20, padding: 36 }
+const cardStyle: React.CSSProperties = { background: 'transparent', border: 'none', borderRadius: 20, padding: 36 }
 const statCard: React.CSSProperties = { ...cardStyle, padding: '32px 28px' }
-const btnPrimary: React.CSSProperties = { display: 'inline-flex', alignItems: 'center', padding: '15px 36px', background: '#00D4FF', color: '#000000', fontWeight: 700, fontSize: 16, borderRadius: 8, textDecoration: 'none', fontFamily: 'var(--font-space), sans-serif' }
+const btnPrimary: React.CSSProperties = { display: 'inline-flex', alignItems: 'center', padding: '15px 36px', background: 'linear-gradient(135deg, #00a83a 0%, #008c2e 40%, #007025 100%)', color: '#fff', fontWeight: 700, fontSize: 15, borderRadius: 999, border: 'none', textDecoration: 'none', fontFamily: 'var(--font-space), sans-serif' }
 
 function GridStyles() {
   return (

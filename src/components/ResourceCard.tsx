@@ -17,8 +17,8 @@ export default function ResourceCard({ icon, badge, title, desc, href, color, ti
     <Link href={href} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
       <div
         style={{
-          background: 'rgba(10,10,10,0.85)',
-          border: '1px solid rgba(0,212,255,0.12)',
+          background: 'transparent',
+          border: 'none',
           borderRadius: 20, padding: '36px 28px',
           display: 'flex', flexDirection: 'column', gap: 14,
           height: '100%', transition: 'all 0.25s',

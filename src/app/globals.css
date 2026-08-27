@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  /* ── Brand colours extracted from NeuroGrowth logo ── */
-  --deep-navy:  #000000;        /* pure black background */
-  --navy:       #0A0A0A;        /* section/card base */
-  --navy-light: #111111;        /* elevated surfaces */
+  /* ── Brand colours matching reference design ── */
+  --deep-navy:  #050D1A;        /* deep dark teal-navy background */
+  --navy:       #071220;        /* section/card base */
+  --navy-light: #0C1A2E;        /* elevated surfaces */
 
   /* Primary accent – electric cyan-blue */
   --neon:       #00D4FF;
@@ -15,11 +15,15 @@
   --teal:       #00FFCC;
   --teal-dim:   rgba(0, 255, 204, 0.12);
 
+  /* Wave accent colors from reference */
+  --wave-green: #1A4A2E;        /* deep green wave */
+  --wave-red:   #3A0A1A;        /* deep magenta/red wave */
+
   --white:      #FFFFFF;
   --light-gray: #C8D8F0;
   --muted:      #7A90B8;
   --border:     rgba(0, 212, 255, 0.14);
-  --card-bg:    rgba(10, 10, 10, 0.85);
+  --card-bg:    transparent;
   --font-main:  'Sora', 'Inter', sans-serif;
 }
 
@@ -34,6 +38,38 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
 }
+
+/* ── Full-site background image ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url('/neuro growth banner background 1.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: brightness(0.72) saturate(1.4);
+}
+
+/* Colour boost overlay — brightens pink left + green right independently */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 60% at 15% 65%, rgba(220, 40, 120, 0.28) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 55% at 85% 25%, rgba(0, 200, 80, 0.26) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 75%, rgba(0, 180, 60, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 35% 35% at 10% 30%, rgba(200, 30, 100, 0.16) 0%, transparent 55%);
+  mix-blend-mode: screen;
+}
+
+/* Ensure all page content sits above the background */
+#__next, main, nav, footer { position: relative; z-index: 1; }
 
 /* --- FLOAT (dashboard pills) --- */
 @keyframes float {
@@ -89,6 +125,80 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* ══════════════════════════════════════════
+   BUTTON SYSTEM — Green gradient pill
+   Primary  : .btn-primary
+   Secondary: .btn-secondary
+   Full-width variant: .btn-full
+══════════════════════════════════════════ */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 32px;
+  background: linear-gradient(135deg, #00a83a 0%, #008c2e 40%, #007025 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: 'Sora', 'Inter', system-ui, sans-serif;
+  border-radius: 999px;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 0 18px rgba(0, 140, 46, 0.45), 0 4px 16px rgba(0, 112, 37, 0.35);
+  transition: background 0.22s ease, box-shadow 0.22s ease, transform 0.18s ease;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #00c244 0%, #00a836 40%, #008e2a 100%);
+  box-shadow: 0 0 28px rgba(0, 160, 55, 0.60), 0 6px 24px rgba(0, 130, 45, 0.45);
+  transform: translateY(-2px);
+}
+.btn-primary:active {
+  background: linear-gradient(135deg, #006e1f 0%, #005c18 40%, #004e12 100%);
+  box-shadow: 0 0 10px rgba(0, 112, 37, 0.35);
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 30px;
+  background: transparent;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: 'Sora', 'Inter', system-ui, sans-serif;
+  border-radius: 999px;
+  border: 1.5px solid rgba(0, 160, 55, 0.50);
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 140, 46, 0.15);
+  transition: border-color 0.22s ease, box-shadow 0.22s ease, color 0.22s ease, transform 0.18s ease;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+.btn-secondary:hover {
+  border-color: rgba(0, 230, 90, 0.80);
+  color: #1aff6e;
+  box-shadow: 0 0 18px rgba(0, 210, 80, 0.25);
+  transform: translateY(-2px);
+}
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Full-width variant (pricing cards) */
+.btn-full {
+  width: 100%;
+  display: flex !important;
 }
 
 /* --- FAQ --- */

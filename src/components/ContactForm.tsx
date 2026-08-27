@@ -7,8 +7,8 @@ const FORMSPREE_ID = 'mdavdkee' // info@neurogrowthtech.com
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
-  background: 'rgba(10,10,10,0.8)',
-  border: '1px solid rgba(0,212,255,0.12)',
+  background: 'transparent',
+  border: 'none',
   borderRadius: 10,
   padding: '14px 18px',
   fontSize: 15,
@@ -187,9 +187,8 @@ export default function ContactForm() {
 
       <button type="submit" disabled={loading} style={{
         marginTop: 24, width: '100%', padding: '15px 0',
-        background: loading ? 'rgba(0,212,255,0.5)' : 'linear-gradient(135deg, #00AAFF, #00D4FF)',
-        color: '#000', fontWeight: 700, fontSize: 16, borderRadius: 8,
-        border: 'none', cursor: loading ? 'not-allowed' : 'pointer',
+        background: loading ? 'rgba(0,100,30,0.5)' : 'linear-gradient(135deg, #00a83a 0%, #008c2e 40%, #007025 100%)',
+        color: '#fff', fontWeight: 700, fontSize: 16, borderRadius: 999, border: 'none', cursor: loading ? 'not-allowed' : 'pointer',
         fontFamily: 'var(--font-space), sans-serif', transition: 'all 0.25s',
       }}>
         {loading ? 'Sending...' : '📅 Schedule a Consultation'}

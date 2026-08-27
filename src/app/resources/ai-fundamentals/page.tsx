@@ -87,9 +87,7 @@ export default function AIFundamentalsPage() {
           <Link href="/contact" style={{
             display: 'inline-flex', alignItems: 'center', gap: 8,
             padding: '14px 36px',
-            background: 'linear-gradient(135deg, #00AAFF, #00D4FF)',
-            color: '#000', fontWeight: 700, fontSize: 15,
-            borderRadius: 10, textDecoration: 'none',
+            background: 'linear-gradient(135deg, #00a83a 0%, #008c2e 40%, #007025 100%)', color: '#fff', fontWeight: 700, fontSize: 15, borderRadius: 999, border: 'none', textDecoration: 'none',
             fontFamily: 'var(--font-space), sans-serif',
             boxShadow: '0 4px 24px rgba(0,212,255,0.3)',
           }}>
@@ -105,8 +103,8 @@ export default function AIFundamentalsPage() {
             {chapters.map((ch, i) => (
               <RevealOnScroll key={i} delay={i * 60}>
                 <div style={{
-                  background: 'rgba(10,10,10,0.85)',
-                  border: '1px solid rgba(0,212,255,0.12)',
+                  background: 'transparent',
+                  border: 'none',
                   borderRadius: 20, padding: '36px 40px',
                   display: 'flex', gap: 28, alignItems: 'flex-start',
                 }} className="chapter-card">
@@ -152,9 +150,7 @@ export default function AIFundamentalsPage() {
                 <Link href="/contact" style={{
                   display: 'inline-flex', alignItems: 'center', gap: 8,
                   padding: '14px 36px',
-                  background: 'linear-gradient(135deg, #00AAFF, #00D4FF)',
-                  color: '#000', fontWeight: 700, fontSize: 15,
-                  borderRadius: 10, textDecoration: 'none',
+                  background: 'linear-gradient(135deg, #00a83a 0%, #008c2e 40%, #007025 100%)', color: '#fff', fontWeight: 700, fontSize: 15, borderRadius: 999, border: 'none', textDecoration: 'none',
                   fontFamily: 'var(--font-space), sans-serif',
                   boxShadow: '0 4px 24px rgba(0,212,255,0.3)',
                 }}>
@@ -163,10 +159,7 @@ export default function AIFundamentalsPage() {
                 <Link href="/services" style={{
                   display: 'inline-flex', alignItems: 'center', gap: 8,
                   padding: '14px 32px',
-                  background: 'transparent', color: '#00D4FF',
-                  border: '1.5px solid rgba(0,212,255,0.3)',
-                  fontWeight: 600, fontSize: 15,
-                  borderRadius: 10, textDecoration: 'none',
+                  background: 'transparent', color: '#fff', fontWeight: 600, fontSize: 15, border: '1.5px solid rgba(0,160,55,0.50)', borderRadius: 999, textDecoration: 'none',
                   fontFamily: 'var(--font-space), sans-serif',
                 }}>
                   Explore Our Services

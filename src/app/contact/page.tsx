@@ -57,7 +57,7 @@ export default function ContactPage() {
                   <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 16 }}>
                     <div style={{
                       width: 44, height: 44, borderRadius: 10,
-                      border: '1px solid rgba(0,212,255,0.12)',
+                      border: 'none',
                       background: 'rgba(0,212,255,0.08)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       fontSize: 18, flexShrink: 0,
@@ -73,8 +73,8 @@ export default function ContactPage() {
               {/* contact info box */}
               <div style={{
                 marginTop: 48, padding: '28px 32px',
-                background: 'rgba(10,10,10,0.85)',
-                border: '1px solid rgba(0,212,255,0.12)',
+                background: 'transparent',
+                border: 'none',
                 borderRadius: 16,
               }}>
                 <p style={labelStyle}>[ CONTACT INFO ]</p>
@@ -83,7 +83,7 @@ export default function ContactPage() {
                     <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 16 }}>
                       <div style={{
                         width: 44, height: 44, borderRadius: 10,
-                        border: '1px solid rgba(0,212,255,0.12)',
+                        border: 'none',
                         background: 'rgba(0,212,255,0.08)',
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                         fontSize: 18, flexShrink: 0,
@@ -101,8 +101,8 @@ export default function ContactPage() {
             {/* RIGHT — FORM */}
             <RevealOnScroll delay={100}>
               <div style={{
-                background: 'rgba(10,10,10,0.85)',
-                border: '1px solid rgba(0,212,255,0.12)',
+                background: 'transparent',
+                border: 'none',
                 borderRadius: 20, padding: '48px 40px',
               }}>
                 <h3 style={{
@@ -121,7 +121,7 @@ export default function ContactPage() {
       </section>
 
       {/* WHY BOOK */}
-      <section style={{ padding: '100px 0', background: '#0A0A0A' }}>
+      <section style={{ padding: '100px 0', background: 'transparent' }}>
         <div style={container}>
           <p style={{ ...labelStyle, textAlign: 'center' }}>[ WHY BOOK A CALL ]</p>
           <h2 style={{ ...h2Style, textAlign: 'center' }}>
@@ -131,8 +131,8 @@ export default function ContactPage() {
             {whyBook.map((c, i) => (
               <RevealOnScroll key={i} delay={i * 80}>
                 <div style={{
-                  background: 'rgba(0,0,0,0.8)',
-                  border: '1px solid rgba(0,212,255,0.12)',
+                  background: 'transparent',
+                  border: 'none',
                   borderRadius: 20, padding: '40px 32px',
                 }}>
                   <div style={{

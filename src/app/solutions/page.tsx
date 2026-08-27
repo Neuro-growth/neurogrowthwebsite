@@ -114,7 +114,7 @@ const solutions = [
 const container: React.CSSProperties = { maxWidth: 1200, margin: '0 auto', padding: '0 24px' }
 const labelStyle: React.CSSProperties = { fontSize: 12, fontWeight: 600, letterSpacing: '3px', textTransform: 'uppercase', color: '#00D4FF', marginBottom: 20 }
 const h2Style: React.CSSProperties = { fontFamily: 'var(--font-space), sans-serif', fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 700, color: '#fff', lineHeight: 1.2, marginBottom: 20 }
-const cardStyle: React.CSSProperties = { background: 'rgba(10,10,10,0.85)', border: '1px solid rgba(0,212,255,0.12)', borderRadius: 20, padding: 36 }
+const cardStyle: React.CSSProperties = { background: 'transparent', border: 'none', borderRadius: 20, padding: 36 }
 
 export default function SolutionsPage() {
   return (
@@ -200,12 +200,12 @@ export default function SolutionsPage() {
                 </Link>
                 <Link href="/contact" style={{
                   display: 'inline-flex', alignItems: 'center', gap: 8,
-                  padding: '14px 32px',
-                  background: 'transparent', color: sol.color,
-                  border: `1.5px solid ${sol.color}40`,
+                  padding: '12px 30px',
+                  background: 'transparent', color: '#fff',
+                  border: '1.5px solid rgba(0,160,55,0.50)',
                   fontWeight: 600, fontSize: 15,
-                  borderRadius: 10, textDecoration: 'none',
-                  fontFamily: 'var(--font-space), sans-serif',
+                  borderRadius: 999, textDecoration: 'none',
+                  fontFamily: "'Sora','Inter',system-ui,sans-serif",
                 }}>
                   Book a Demo
                 </Link>
@@ -230,7 +230,7 @@ export default function SolutionsPage() {
               <p style={{ color: '#7A90B8', fontSize: 17, lineHeight: 1.8, maxWidth: 500, margin: '0 auto 36px', position: 'relative' }}>
                 We partner with entrepreneurs and businesses to engineer AI-powered products from concept to launch. Let&apos;s build something transformative together.
               </p>
-              <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', padding: '15px 36px', background: '#00D4FF', color: '#000', fontWeight: 700, fontSize: 16, borderRadius: 8, textDecoration: 'none', fontFamily: 'var(--font-space), sans-serif', position: 'relative' }}>
+              <Link href="/contact" style={{ display: 'inline-flex', alignItems: 'center', padding: '15px 36px', background: 'linear-gradient(135deg, #00a83a 0%, #008c2e 40%, #007025 100%)', color: '#fff', fontWeight: 700, fontSize: 15, borderRadius: 999, border: 'none', textDecoration: 'none', fontFamily: 'var(--font-space), sans-serif', position: 'relative' }}>
                 Start a Conversation
               </Link>
             </div>

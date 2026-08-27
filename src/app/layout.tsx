@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import ConditionalFooter from "@/components/ConditionalFooter";
 import StructuredData from "@/components/StructuredData";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const inter = Inter({
@@ -77,8 +76,7 @@ export default function RootLayout({
         <ScrollToTop />
         <Navbar />
         <main>{children}</main>
-        <Footer />
-        <WhatsAppButton />
+        <ConditionalFooter />
       </body>
     </html>
   );

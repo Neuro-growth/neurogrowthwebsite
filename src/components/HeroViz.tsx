@@ -62,7 +62,7 @@ export default function HeroViz() {
         <div style={{
           width:'100%', height:'100%',
           borderRadius:'50%',
-          background:'linear-gradient(135deg, rgba(10,10,10,0.95) 0%, rgba(5,5,5,0.98) 100%)',
+          background:'linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.2) 100%)',
           border:'2px solid rgba(0,212,255,0.5)',
           boxShadow:'0 0 40px rgba(0,212,255,0.4), inset 0 0 20px rgba(0,212,255,0.08)',
           display:'flex', flexDirection:'column',
@@ -214,7 +214,7 @@ export default function HeroViz() {
       {/* Top center: AI prediction badge */}
       <div style={{
         position:'absolute', top:10, left:'50%', transform:'translateX(-50%)',
-        background:'rgba(10,10,10,0.92)',
+        background:'transparent',
         border:'1px solid rgba(0,212,255,0.35)',
         borderRadius:12, padding:'8px 16px',
         backdropFilter:'blur(12px)',

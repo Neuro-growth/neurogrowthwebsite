@@ -26,7 +26,7 @@ const resourceLinks = [
 export default function Footer() {
   return (
     <footer style={{
-      background: '#0A0A0A',
+      background: 'transparent',
       borderTop: '1px solid rgba(0,212,255,0.12)',
       padding: '80px 0 0',
     }}>
@@ -69,7 +69,7 @@ export default function Footer() {
                   target="_blank" rel="noopener noreferrer"
                   style={{
                     width: 40, height: 40, borderRadius: '50%',
-                    border: '1px solid rgba(0,212,255,0.12)',
+                    border: 'none',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     fontSize: 13, fontWeight: 700, color: '#8892B0',
                     textDecoration: 'none', transition: 'all 0.25s',
