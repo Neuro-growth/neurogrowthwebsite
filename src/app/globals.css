@@ -2,9 +2,9 @@
 
 :root {
   /* ── Brand colours matching reference design ── */
-  --deep-navy:  #050D1A;        /* deep dark teal-navy background */
-  --navy:       #071220;        /* section/card base */
-  --navy-light: #0C1A2E;        /* elevated surfaces */
+  --deep-navy:  #050D1A;
+  --navy:       #071220;
+  --navy-light: #0C1A2E;
 
   /* Primary accent – electric cyan-blue */
   --neon:       #00D4FF;
@@ -32,40 +32,26 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: var(--deep-navy);
+  background-color: #050D1A;
   color: var(--light-gray);
   font-family: var(--font-inter), 'Inter', sans-serif;
   line-height: 1.7;
   overflow-x: hidden;
 }
 
-/* ── Full-site background image ── */
+/* ── Full-site background — deep navy ── */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image: url('/neuro growth banner background 1.png');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  filter: brightness(0.72) saturate(1.4);
+  background: #050D1A;
 }
 
-/* Colour boost overlay — brightens pink left + green right independently */
+/* Remove the colour boost overlay */
 body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 55% 60% at 15% 65%, rgba(220, 40, 120, 0.28) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 55% at 85% 25%, rgba(0, 200, 80, 0.26) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 80% 75%, rgba(0, 180, 60, 0.18) 0%, transparent 55%),
-    radial-gradient(ellipse 35% 35% at 10% 30%, rgba(200, 30, 100, 0.16) 0%, transparent 55%);
-  mix-blend-mode: screen;
+  display: none;
 }
 
 /* Ensure all page content sits above the background */

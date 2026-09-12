@@ -147,7 +147,7 @@ export default function Home() {
 
               {/* sub */}
               <p style={{ color: '#8892B0', fontSize: 18, lineHeight: 1.8, maxWidth: 480, margin: 0 }}>
-                We build intelligent AI systems that automate operations, accelerate growth, and transform how your business works.
+                We don&apos;t just market businesses. We engineer smarter ways for them to grow.
               </p>
 
               {/* CTAs */}
