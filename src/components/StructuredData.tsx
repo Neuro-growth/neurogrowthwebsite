@@ -4,7 +4,7 @@ export default function StructuredData() {
     '@type': 'Organization',
     name: 'NeuroGrowth Tech',
     url: 'https://neurogrowthtech.com',
-    logo: 'https://neurogrowthtech.com/logo.png',
+    logo: 'https://neurogrowthtech.com/brand/neurogrowth-logo.png',
     description: 'NeuroGrowth Tech builds AI solutions and engineering systems for African businesses — automating operations, accelerating growth, and transforming business performance through custom artificial intelligence.',
     foundingDate: '2024',
     areaServed: { '@type': 'Place', name: 'Africa' },

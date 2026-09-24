@@ -1,76 +1,195 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@theme {
+  --color-navy: #050D1A;
+  --color-navy-2: #0A1628;
+  --color-navy-3: #12213A;
+  --color-cyan: #00D4FF;
+  --color-cyan-deep: #0069A8;
+  --color-teal: #00FFCC;
+  --color-green: #00A83A;
+  --color-green-hi: #00C244;
+  --color-green-ink: #03140A;
+  --color-mist: #EEF2F6;
+  --color-white: #FFFFFF;
+  --color-line: #D6DEE7;
+  --color-ink: #050D1A;
+  --color-ink-2: #3D4F68;
+  --color-ink-3: #5A6B82;
+  --color-on-dark: #FFFFFF;
+  --color-on-dark-2: #B4C2D6;
+  --color-on-dark-3: #8193AD;
+  --color-line-dark: rgb(255 255 255 / 0.14);
+  --color-whatsapp: #25D366;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --radius-panel: 24px;
+  --radius-panel-sm: 20px;
+  --radius-card: 16px;
+  --radius-media: 4px;
+  --radius-pill: 9999px;
+}
 
 :root {
-  /* ── Brand colours matching reference design ── */
-  --deep-navy:  #050D1A;
-  --navy:       #071220;
+  --background: var(--color-mist);
+  --foreground: var(--color-ink);
+  --card: var(--color-white);
+  --card-foreground: var(--color-ink);
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-green);
+  --primary-foreground: var(--color-green-ink);
+  --secondary: var(--color-mist);
+  --secondary-foreground: var(--color-ink);
+  --muted: var(--color-mist);
+  --muted-foreground: var(--color-ink-3);
+  --accent: var(--color-mist);
+  --accent-foreground: var(--color-ink);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: var(--color-line);
+  --input: var(--color-line);
+  --ring: var(--color-cyan);
+  --radius: 0.625rem;
+}
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-sans);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    font-family: var(--font-sans);
+  }
+  body {
+    background-color: var(--color-mist);
+    color: var(--color-ink-2);
+    overflow-x: hidden;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .t-display {
+    font-size: clamp(44px, 6.2vw, 96px);
+    font-weight: 400;
+    line-height: 1.0;
+    letter-spacing: -0.045em;
+  }
+  .t-h1 {
+    font-size: clamp(40px, 5.2vw, 76px);
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+  }
+  .t-h2 {
+    font-size: clamp(32px, 3.9vw, 54px);
+    font-weight: 400;
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+  }
+  .t-h2-sm {
+    font-size: clamp(30px, 3.4vw, 48px);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+  }
+  .t-h3 {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  .t-h4 {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .t-num {
+    font-size: clamp(44px, 4.6vw, 68px);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.04em;
+  }
+  .t-tag {
+    font-size: 11.5px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .container-site {
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: clamp(20px, 4vw, 56px);
+  }
+  .section-y {
+    padding-block: clamp(80px, 10vw, 140px);
+  }
+}
+
+/* ══════════════════════════════════════════
+   LEGACY — delete in Prompt 03
+   Keeps existing pages rendering until they are rebuilt.
+══════════════════════════════════════════ */
+:root {
+  --font-space: var(--font-geist-sans);
+  --font-inter: var(--font-geist-sans);
+  --deep-navy: #050D1A;
+  --navy: #071220;
   --navy-light: #0C1A2E;
-
-  /* Primary accent – electric cyan-blue */
-  --neon:       #00D4FF;
-  --neon-dim:   rgba(0, 212, 255, 0.12);
-  --neon-glow:  rgba(0, 212, 255, 0.35);
-
-  /* Secondary accent – teal */
-  --teal:       #00FFCC;
-  --teal-dim:   rgba(0, 255, 204, 0.12);
-
-  /* Wave accent colors from reference */
-  --wave-green: #1A4A2E;        /* deep green wave */
-  --wave-red:   #3A0A1A;        /* deep magenta/red wave */
-
-  --white:      #FFFFFF;
+  --neon: #00D4FF;
+  --neon-dim: rgba(0, 212, 255, 0.12);
+  --neon-glow: rgba(0, 212, 255, 0.35);
+  --teal: #00FFCC;
+  --teal-dim: rgba(0, 255, 204, 0.12);
+  --wave-green: #1A4A2E;
+  --wave-red: #3A0A1A;
+  --white: #FFFFFF;
   --light-gray: #C8D8F0;
-  --muted:      #7A90B8;
-  --border:     rgba(0, 212, 255, 0.14);
-  --card-bg:    transparent;
-  --font-main:  'Sora', 'Inter', sans-serif;
+  --card-bg: transparent;
+  --font-main: var(--font-geist-sans), 'Inter', sans-serif;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background-color: #050D1A;
-  color: var(--light-gray);
-  font-family: var(--font-inter), 'Inter', sans-serif;
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-
-/* ── Full-site background — deep navy ── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: #050D1A;
-}
-
-/* Remove the colour boost overlay */
-body::after {
-  display: none;
-}
-
-/* Ensure all page content sits above the background */
-#__next, main, nav, footer { position: relative; z-index: 1; }
-
-/* --- FLOAT (dashboard pills) --- */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-10px); }
 }
 
-/* --- TICKER --- */
 @keyframes ticker {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
 .ticker-animate { animation: ticker 32s linear infinite; }
 
-/* --- MARQUEE --- */
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -78,7 +197,6 @@ body::after {
 .marquee-animate { animation: marquee 22s linear infinite; }
 .marquee-slow    { animation: marquee 34s linear infinite; }
 
-/* --- SCROLL LINE --- */
 @keyframes scrollLine {
   0%   { transform: scaleY(0); transform-origin: top; }
   50%  { transform: scaleY(1); transform-origin: top; }
@@ -87,14 +205,12 @@ body::after {
 }
 .scroll-line-animate { animation: scrollLine 2.2s ease-in-out infinite; }
 
-/* --- PULSE DOT --- */
 @keyframes pulseDot {
   0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.4); }
   50%       { opacity: 0.6; box-shadow: 0 0 0 6px transparent; }
 }
 .pulse-dot { animation: pulseDot 2s infinite; }
 
-/* --- REVEAL --- */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -105,20 +221,12 @@ body::after {
   transform: translateY(0);
 }
 
-/* --- TEXT GRADIENT (matches logo N: blue top → cyan bottom) --- */
 .text-gradient {
   background: linear-gradient(135deg, #00AAFF 0%, #00D4FF 45%, #00FFCC 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
-/* ══════════════════════════════════════════
-   BUTTON SYSTEM — Green gradient pill
-   Primary  : .btn-primary
-   Secondary: .btn-secondary
-   Full-width variant: .btn-full
-══════════════════════════════════════════ */
 
 .btn-primary {
   display: inline-flex;
@@ -130,7 +238,7 @@ body::after {
   color: #fff;
   font-weight: 700;
   font-size: 15px;
-  font-family: 'Sora', 'Inter', system-ui, sans-serif;
+  font-family: var(--font-sans);
   border-radius: 999px;
   border: none;
   text-decoration: none;
@@ -161,7 +269,7 @@ body::after {
   color: #FFFFFF;
   font-weight: 600;
   font-size: 15px;
-  font-family: 'Sora', 'Inter', system-ui, sans-serif;
+  font-family: var(--font-sans);
   border-radius: 999px;
   border: 1.5px solid rgba(0, 160, 55, 0.50);
   text-decoration: none;
@@ -181,13 +289,11 @@ body::after {
   transform: translateY(0);
 }
 
-/* Full-width variant (pricing cards) */
 .btn-full {
   width: 100%;
   display: flex !important;
 }
 
-/* --- FAQ --- */
 .faq-body {
   max-height: 0;
   overflow: hidden;

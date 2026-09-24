@@ -46,7 +46,7 @@ export default function Footer() {
           <div>
             <Link href="/" style={{ textDecoration: 'none' }}>
               <Image
-                src="/logo.png"
+                src="/brand/neurogrowth-logo.webp"
                 alt="NeuroGrowthTech"
                 width={180}
                 height={50}

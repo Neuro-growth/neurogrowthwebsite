@@ -44,13 +44,6 @@ const services = [
   { icon: '🔗', title: 'CRM Automation', desc: 'Automate your entire CRM pipeline — from lead capture to deal close.' },
 ]
 
-const stats = [
-  { num: '10x', label: 'Faster Growth' },
-  { num: '300%', label: 'Avg. ROI Increase' },
-  { num: '50+', label: 'Businesses Transformed' },
-  { num: '24/7', label: 'AI Systems Running' },
-]
-
 const whyCards = [
   { title: 'Systems, Not Campaigns', body: "We don't run one-off campaigns. We build permanent AI infrastructure that generates compounding returns over time." },
   { title: 'Fully Tailored to Your Business', body: 'No templates. Every AI system we build is engineered specifically around your data, customers, and growth goals.' },
@@ -72,12 +65,6 @@ const testimonials = [
     name: 'Aisha R.', role: 'Operations Director, FinTech Startup', initials: 'AR',
   },
 ]
-
-const tickerItems = [
-  'AI Marketing Automation', 'Predictive Analytics', 'Customer Personalization',
-  'Lead Generation', 'CRM Automation', 'AI Chatbots', 'AI Content Generation',
-]
-const tickerDouble = [...tickerItems, ...tickerItems]
 
 export default function Home() {
   return (
@@ -583,15 +570,6 @@ const btnPrimary: React.CSSProperties = {
   boxShadow: '0 0 18px rgba(0,140,46,0.45), 0 4px 16px rgba(0,112,37,0.35)',
   transition: 'all 0.22s ease', cursor: 'pointer', whiteSpace: 'nowrap',
 }
-const btnGhost: React.CSSProperties = {
-  display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-  padding: '12px 30px',
-  background: 'transparent', color: '#fff', fontWeight: 600, fontSize: 15,
-  border: '1.5px solid rgba(0,160,55,0.50)', borderRadius: 999, textDecoration: 'none',
-  fontFamily: "'Sora','Inter',system-ui,sans-serif",
-  boxShadow: '0 0 10px rgba(0,140,46,0.15)',
-  transition: 'all 0.22s ease', cursor: 'pointer', whiteSpace: 'nowrap',
-}
 const btnOutline: React.CSSProperties = {
   display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
   padding: '12px 30px',
@@ -620,21 +598,4 @@ const cardStyle: React.CSSProperties = {
 }
 const statCard: React.CSSProperties = {
   ...cardStyle, padding: '32px 28px',
-}
-
-function GridStyles() {
-  return (
-    <style>{`
-      @media (max-width: 1024px) {
-        .two-col   { grid-template-columns: 1fr !important; gap: 48px !important; }
-        .three-col { grid-template-columns: 1fr 1fr !important; }
-      }
-      @media (max-width: 640px) {
-        .three-col { grid-template-columns: 1fr !important; }
-        .stats-bar { padding: 20px 16px !important; flex-direction: column !important; gap: 16px !important; }
-        .stat-item { padding: 0 !important; }
-        .stat-div  { width: 60px !important; height: 1px !important; }
-      }
-    `}</style>
-  )
 }

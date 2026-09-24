@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import Logo from './Logo'
 
 const links = [
   { href: '/home', label: 'Home' },
@@ -23,8 +22,6 @@ export default function Navbar() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  useEffect(() => { setOpen(false) }, [pathname])
 
   return (
     <nav style={{
@@ -131,21 +128,30 @@ export default function Navbar() {
           padding: '20px 32px', display: 'flex', flexDirection: 'column', gap: 4,
         }}>
           {links.map(({ href, label }) => (
-            <Link key={href} href={href} style={{
-              padding: '13px 0', fontSize: 16,
-              color: pathname === href ? '#00D4FF' : '#CCD6F6',
-              borderBottom: '1px solid rgba(0,212,255,0.08)',
-              textDecoration: 'none', display: 'block',
-            }}>
+            <Link
+              key={href}
+              href={href}
+              onClick={() => setOpen(false)}
+              style={{
+                padding: '13px 0', fontSize: 16,
+                color: pathname === href ? '#00D4FF' : '#CCD6F6',
+                borderBottom: '1px solid rgba(0,212,255,0.08)',
+                textDecoration: 'none', display: 'block',
+              }}
+            >
               {label}
             </Link>
           ))}
           {pathname !== '/' && (
-            <Link href="/contact" style={{
-              marginTop: 16, padding: '14px 0',
-              background: 'linear-gradient(135deg, #00a83a 0%, #008c2e 40%, #007025 100%)', color: '#fff', fontWeight: 700, fontSize: 15, borderRadius: 999, border: 'none', textDecoration: 'none',
-              textAlign: 'center', display: 'block',
-            }}>
+            <Link
+              href="/contact"
+              onClick={() => setOpen(false)}
+              style={{
+                marginTop: 16, padding: '14px 0',
+                background: 'linear-gradient(135deg, #00a83a 0%, #008c2e 40%, #007025 100%)', color: '#fff', fontWeight: 700, fontSize: 15, borderRadius: 999, border: 'none', textDecoration: 'none',
+                textAlign: 'center', display: 'block',
+              }}
+            >
               Book Demo
             </Link>
           )}

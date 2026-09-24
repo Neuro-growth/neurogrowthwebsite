@@ -52,7 +52,7 @@ export default function AboutPage() {
                 We exist to give every business access to enterprise-grade{' '}
                 <span className="text-gradient">AI growth infrastructure.</span>
               </h2>
-              <p style={bodyStyle}>Most businesses know AI matters. Few know how to actually deploy it in ways that drive measurable, compounding results. That's the gap we close.</p>
+              <p style={bodyStyle}>Most businesses know AI matters. Few know how to actually deploy it in ways that drive measurable, compounding results. That&apos;s the gap we close.</p>
               <p style={{ ...bodyStyle, marginBottom: 32 }}>
                 We build AI solutions for businesses — from marketing automation and customer intelligence to operations, data systems, and custom AI products. Fully engineered, deeply integrated, and relentlessly optimized.
               </p>
