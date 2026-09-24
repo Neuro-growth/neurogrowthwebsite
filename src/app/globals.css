@@ -154,6 +154,11 @@
   .section-y {
     padding-block: clamp(80px, 10vw, 140px);
   }
+  .hero-scrim {
+    background:
+      linear-gradient(90deg, rgb(5 13 26 / 0.92) 0%, rgb(5 13 26 / 0.72) 45%, rgb(5 13 26 / 0.5) 100%),
+      linear-gradient(0deg, rgb(5 13 26 / 0.95) 0%, rgb(5 13 26 / 0) 45%);
+  }
 }
 
 /* ══════════════════════════════════════════

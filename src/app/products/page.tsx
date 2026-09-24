@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/RevealOnScroll'
+import { PageHero } from '@/components/site/page-hero'
 
 export const metadata: Metadata = {
-  title: 'Solutions',
+  title: 'Our Products',
   description: 'NeuroGrowth Tech AI-powered products — SmartChama and Gikuyu AI Translator. Built for African businesses and communities.',
-  alternates: { canonical: 'https://neurogrowthtech.com/solutions' },
+  alternates: { canonical: '/products' },
 }
 
 const solutions = [
@@ -119,20 +120,11 @@ const cardStyle: React.CSSProperties = { background: 'transparent', border: 'non
 export default function SolutionsPage() {
   return (
     <>
-      {/* PAGE HERO */}
-      <section style={{ padding: '160px 0 80px', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-        <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 700, height: 300, background: 'radial-gradient(ellipse, rgba(0,212,255,0.07) 0%, transparent 70%)' }} />
-        <div style={{ ...container, position: 'relative', zIndex: 2 }}>
-          <p style={labelStyle}>[ OUR SOLUTIONS ]</p>
-          <h1 style={{ fontFamily: 'var(--font-space), sans-serif', fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 800, color: '#fff', letterSpacing: '-1.5px', lineHeight: 1.15, marginBottom: 20 }}>
-            AI Products Built<br /><span style={{ background: 'linear-gradient(135deg, #00AAFF 0%, #00D4FF 45%, #00FFCC 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>For Africa</span>
-          </h1>
-          <p style={{ maxWidth: 600, margin: '0 auto', color: '#7A90B8', fontSize: 18, lineHeight: 1.8 }}>
-            Beyond services — we build AI-powered products that solve real African problems. From community finance to language preservation, our solutions are engineered for impact.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Our products"
+        title="We build our own products, so we know what works here."
+        intro="SmartChama and the Gikuyu AI Translator are live in production, built for mobile money, low bandwidth and local languages."
+      />
 
       {/* SOLUTIONS */}
       {solutions.map((sol, idx) => (

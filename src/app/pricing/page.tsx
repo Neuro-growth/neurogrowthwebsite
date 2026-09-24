@@ -2,11 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/RevealOnScroll'
 import FaqAccordion from '@/components/FaqAccordion'
+import { PageHero } from '@/components/site/page-hero'
 
 export const metadata: Metadata = {
   title: 'Pricing',
-  description: 'NeuroGrowth Tech AI solutions pricing — Starter at $2,500/mo, Growth at $6,500/mo, Enterprise custom. Full AI growth systems for businesses at every stage.',
-  alternates: { canonical: 'https://neurogrowthtech.com/pricing' },
+  description: 'NeuroGrowth Tech AI solutions pricing — Starter, Growth, and Enterprise plans. Full AI growth systems for businesses at every stage.',
+  alternates: { canonical: '/pricing' },
 }
 
 const faqItems = [
@@ -56,9 +57,9 @@ export default function PricingPage() {
   return (
     <>
       <PageHero
-        label="PRICING"
-        headline={<>Invest in AI Growth.<br /><span className="text-gradient">Get Compounding Returns.</span></>}
-        sub="Choose the plan that matches your current stage. Every plan includes a dedicated AI growth strategy and hands-on implementation — not just software access."
+        eyebrow="Pricing"
+        title="Clear plans, priced in shillings."
+        intro="Every plan includes strategy, build and ongoing optimisation."
       />
 
       {/* PRICING CARDS */}
@@ -197,20 +198,6 @@ function FeatureList({ included, missing }: { included: string[]; missing: strin
         </li>
       ))}
     </ul>
-  )
-}
-
-function PageHero({ label, headline, sub }: { label: string; headline: React.ReactNode; sub: string }) {
-  return (
-    <section style={{ padding: '160px 0 80px', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
-      <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(100,255,218,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(100,255,218,0.03) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-      <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 700, height: 300, background: 'radial-gradient(ellipse, rgba(0,212,255,0.07) 0%, transparent 70%)' }} />
-      <div style={{ ...container, position: 'relative', zIndex: 2 }}>
-        <p style={labelStyle}>[ {label} ]</p>
-        <h1 style={{ fontFamily: 'var(--font-space), sans-serif', fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 800, color: '#fff', letterSpacing: '-1.5px', lineHeight: 1.15, marginBottom: 20 }}>{headline}</h1>
-        <p style={{ maxWidth: 600, margin: '0 auto', color: '#8892B0', fontSize: 18, lineHeight: 1.8 }}>{sub}</p>
-      </div>
-    </section>
   )
 }
 

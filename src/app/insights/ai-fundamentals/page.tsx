@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import RevealOnScroll from '@/components/RevealOnScroll'
+import { PageHero } from '@/components/site/page-hero'
 
 export const metadata: Metadata = {
   title: 'AI Fundamentals',
   description: 'A beginner-friendly guide to Artificial Intelligence — what it is, how it works, and how your business can start using AI today.',
-  alternates: { canonical: 'https://neurogrowthtech.com/resources/ai-fundamentals' },
+  alternates: { canonical: '/insights/ai-fundamentals' },
 }
 
 const chapters = [
@@ -65,36 +66,15 @@ const labelStyle: React.CSSProperties = { fontSize: 12, fontWeight: 600, letterS
 export default function AIFundamentalsPage() {
   return (
     <>
-      {/* HERO */}
-      <section style={{ padding: '160px 0 60px', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-        <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 700, height: 300, background: 'radial-gradient(ellipse, rgba(0,212,255,0.07) 0%, transparent 70%)' }} />
-        <div style={{ ...container, position: 'relative', zIndex: 2 }}>
-          <Link href="/resources" style={{ fontSize: 13, color: '#7A90B8', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6, marginBottom: 24 }}>
-            ← Back to Resources
-          </Link>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 10, marginBottom: 20, flexWrap: 'wrap' }}>
-            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '2px', color: '#00D4FF', border: '1px solid rgba(0,212,255,0.3)', padding: '4px 12px', borderRadius: 20 }}>BEGINNER FRIENDLY</span>
-            <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '2px', color: '#00FFCC', border: '1px solid rgba(0,255,204,0.3)', padding: '4px 12px', borderRadius: 20 }}>8 CHAPTERS</span>
-            <span style={{ fontSize: 11, color: '#7A90B8', padding: '4px 12px' }}>~15 min read</span>
-          </div>
-          <h1 style={{ fontFamily: 'var(--font-space), sans-serif', fontSize: 'clamp(32px, 6vw, 60px)', fontWeight: 800, color: '#fff', letterSpacing: '-1.5px', lineHeight: 1.15, marginBottom: 20 }}>
-            AI Fundamentals
-          </h1>
-          <p style={{ maxWidth: 580, margin: '0 auto 40px', color: '#7A90B8', fontSize: 18, lineHeight: 1.8 }}>
-            Everything you need to understand Artificial Intelligence — explained simply, without the jargon. Built for African business owners, managers, and entrepreneurs.
-          </p>
-          <Link href="/contact" style={{
-            display: 'inline-flex', alignItems: 'center', gap: 8,
-            padding: '14px 36px',
-            background: 'linear-gradient(135deg, #00a83a 0%, #008c2e 40%, #007025 100%)', color: '#fff', fontWeight: 700, fontSize: 15, borderRadius: 999, border: 'none', textDecoration: 'none',
-            fontFamily: 'var(--font-space), sans-serif',
-            boxShadow: '0 4px 24px rgba(0,212,255,0.3)',
-          }}>
-            📅 Book a Consultation
-          </Link>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Insights"
+        title="AI Fundamentals"
+        intro="Everything you need to understand Artificial Intelligence — explained simply, without the jargon. Built for African business owners, managers, and entrepreneurs."
+        breadcrumbs={[
+          { label: "Insights", href: "/insights" },
+          { label: "AI Fundamentals" },
+        ]}
+      />
 
       {/* CHAPTERS */}
       <section style={{ padding: '60px 0 100px' }}>

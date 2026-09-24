@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-export type LogoSize = "nav" | "footer" | number;
+export type LogoSize = "nav" | "footer" | "sm" | number;
 
 export interface LogoProps {
   size?: LogoSize;
@@ -23,6 +23,8 @@ export function Logo({
   let height = 46;
   if (size === "footer") {
     height = 52;
+  } else if (size === "sm") {
+    height = 32;
   } else if (typeof size === "number") {
     height = size;
   }

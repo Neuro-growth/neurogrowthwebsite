@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import RevealOnScroll from '@/components/RevealOnScroll'
 import ResourceCard from '@/components/ResourceCard'
+import { PageHero } from '@/components/site/page-hero'
 
 export const metadata: Metadata = {
-  title: 'Resources',
-  description: 'Free AI resources, guides, and fundamentals for African businesses — from NeuroGrowth Tech.',
-  alternates: { canonical: 'https://neurogrowthtech.com/resources' },
+  title: 'Insights',
+  description: 'Notes on building with AI in Africa — practical guides from the NeuroGrowth team.',
+  alternates: { canonical: '/insights' },
 }
 
 const resources = [
@@ -14,7 +15,7 @@ const resources = [
     badge: 'BEGINNER',
     title: 'AI Fundamentals',
     desc: 'A beginner-friendly guide to understanding artificial intelligence — what it is, how it works, and how your business can start using it today.',
-    href: '/resources/ai-fundamentals',
+    href: '/insights/ai-fundamentals',
     color: '#00D4FF',
     time: '15 min read',
   },
@@ -66,27 +67,15 @@ const resources = [
 ]
 
 const container: React.CSSProperties = { maxWidth: 1200, margin: '0 auto', padding: '0 24px' }
-const labelStyle: React.CSSProperties = { fontSize: 12, fontWeight: 600, letterSpacing: '3px', textTransform: 'uppercase', color: '#00D4FF', marginBottom: 20 }
 
 export default function ResourcesPage() {
   return (
     <>
-      <section style={{ padding: '160px 0 80px', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
-        <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: 700, height: 300, background: 'radial-gradient(ellipse, rgba(0,212,255,0.07) 0%, transparent 70%)' }} />
-        <div style={{ ...container, position: 'relative', zIndex: 2 }}>
-          <p style={labelStyle}>[ RESOURCES ]</p>
-          <h1 style={{ fontFamily: 'var(--font-space), sans-serif', fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 800, color: '#fff', letterSpacing: '-1.5px', lineHeight: 1.15, marginBottom: 20 }}>
-            Learn AI.<br />
-            <span style={{ background: 'linear-gradient(135deg, #00AAFF 0%, #00D4FF 45%, #00FFCC 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              Grow Your Business.
-            </span>
-          </h1>
-          <p style={{ maxWidth: 600, margin: '0 auto', color: '#7A90B8', fontSize: 18, lineHeight: 1.8 }}>
-            Free guides, frameworks, and tutorials to help African businesses understand and apply AI — from complete beginners to advanced practitioners.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Insights"
+        title="Notes on building with AI in Africa."
+        intro="Practical guides from the NeuroGrowth team."
+      />
 
       <section style={{ padding: '60px 0 100px' }}>
         <div style={container}>
