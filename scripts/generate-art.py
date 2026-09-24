@@ -93,11 +93,16 @@ JOBS = [
 ]
 
 
-def duotone_portrait(src, out, width=900):
+CROP_OFFSETS = {
+    "lenny": 0.0,
+}
+
+
+def duotone_portrait(src, out, width=900, crop_offset=0.0):
     """Vale-style blue duotone with a fine diagonal screen."""
     p = ImageOps.autocontrast(Image.open(src).convert("L"), cutoff=1)
     p = p.resize((width, int(width * p.size[1] / p.size[0])), Image.LANCZOS)
-    top = int(width * 0.06)
+    top = max(0, int(width * (0.06 + crop_offset)))
     p = p.crop((0, top, width, min(p.size[1], top + int(width * 1.15))))
     a = np.asarray(p, float) / 255
     y, x = np.mgrid[0:a.shape[0], 0:a.shape[1]]
@@ -121,11 +126,20 @@ def trimmed_logo(src, out_png, out_webp, height=250):
 if __name__ == "__main__":
     for seed, w, h, stops, name, sc, k, st, rot in JOBS:
         fluid(seed, w, h, stops, ART / name, scale=sc * 0.12, k=k, stretch=st, rot=rot)
-    founder_src = ROOT / "public" / "team" / "shilla.jpg"
-    if founder_src.exists():
-        duotone_portrait(founder_src, TEAM / "shilla-duotone.webp")
+    team_src_dir = ROOT / "public" / "team"
+    if team_src_dir.exists():
+        seen = set()
+        for ext in ("*.jpg", "*.jpeg", "*.png", "*.webp"):
+            for img_path in sorted(team_src_dir.glob(ext)):
+                stem = img_path.stem.lower()
+                if stem in seen:
+                    continue
+                seen.add(stem)
+                offset = CROP_OFFSETS.get(stem, 0.0)
+                out_path = TEAM / f"{stem}-duotone.webp"
+                duotone_portrait(img_path, out_path, crop_offset=offset)
     else:
-        print("skipped founder portrait: public/team/shilla.jpg not found")
+        print("skipped team portraits: public/team not found")
     logo_src = ROOT / "public" / "logo.png"
     if logo_src.exists():
         trimmed_logo(logo_src, BRAND / "neurogrowth-logo.png", BRAND / "neurogrowth-logo.webp")

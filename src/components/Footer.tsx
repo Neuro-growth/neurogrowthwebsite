@@ -61,9 +61,8 @@ export default function Footer() {
             </p>
             <div style={{ display: 'flex', gap: 12 }}>
               {[
-                { icon: 'in', label: 'LinkedIn', href: 'https://www.linkedin.com/company/neurogrowthtech/' },
-                { icon: 'ig', label: 'Instagram', href: 'https://www.instagram.com/neurogrowth.tech?igsh=bGtrMmh1ZzlnM2xt&utm_source=qr' },
-                { icon: 'X',  label: 'Twitter',   href: '#' },
+                { icon: 'in', label: 'LinkedIn', href: 'https://www.linkedin.com/company/neurogrowth-tech' },
+                { icon: 'ig', label: 'Instagram', href: 'https://instagram.com/neurogrowthtech' },
               ].map(({ icon, label, href }) => (
                 <a key={label} href={href} aria-label={label}
                   target="_blank" rel="noopener noreferrer"

@@ -28,7 +28,7 @@ const differences = [
 const teamRoles = [
   { photo: '/team/shilla.jpg', name: 'Shilla Swanapole', role: 'Founder & CEO' },
   { photo: '/team/eric.jpg', name: 'Eric Cecil', role: 'ML Engineering' },
-  { photo: '/team/lenny.jpg', name: 'Lenny Kadavi', role: 'Marketing Engineering' },
+  { photo: '/team/lenny.jpg', name: 'Lenny Kidavi', role: 'Marketing Engineering' },
   { photo: '/team/racheal.jpg', name: 'Racheal Ngochi', role: 'CX & Personalization' },
 ]
 

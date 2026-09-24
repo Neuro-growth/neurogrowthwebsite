@@ -1,15 +1,23 @@
+import { siteConfig } from '@/content/site'
+
 export default function StructuredData() {
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'NeuroGrowth Tech',
-    url: 'https://neurogrowthtech.com',
-    logo: 'https://neurogrowthtech.com/brand/neurogrowth-logo.png',
+    legalName: 'NeuroGrowth',
+    url: siteConfig.url,
+    logo: `${siteConfig.url}/brand/neurogrowth-logo.png`,
     description: 'NeuroGrowth Tech builds AI solutions and engineering systems for African businesses — automating operations, accelerating growth, and transforming business performance through custom artificial intelligence.',
     foundingDate: '2024',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Nairobi',
+      addressCountry: 'KE',
+    },
     areaServed: { '@type': 'Place', name: 'Africa' },
-    contactPoint: { '@type': 'ContactPoint', email: 'info@neurogrowthtech.com', contactType: 'customer service' },
-    sameAs: ['https://linkedin.com/company/neurogrowth-tech', 'https://twitter.com/neurogrowthtech'],
+    contactPoint: { '@type': 'ContactPoint', email: siteConfig.email, contactType: 'customer service' },
+    sameAs: siteConfig.socials.map((s) => s.href),
     knowsAbout: [
       'Artificial Intelligence', 'Machine Learning', 'Marketing Automation',
       'Predictive Analytics', 'CRM Systems', 'AI Chatbots', 'Business Intelligence',

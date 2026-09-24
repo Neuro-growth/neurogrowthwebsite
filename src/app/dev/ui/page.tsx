@@ -24,7 +24,21 @@ import {
   SheetTitle,
   SheetDescription,
 } from "@/components/ui/sheet";
+import Image from "next/image";
 import { ArrowRight, Phone, Sparkles, Menu } from "lucide-react";
+import {
+  systems,
+  products,
+  teamMembers,
+  pricingPlans,
+  formatKsh,
+  pricingNote,
+  confirmedTestimonials,
+  companyValues,
+  homeFaqs,
+  integrations,
+  heroStats,
+} from "@/content";
 
 export const metadata = {
   title: "Design System & UI Preview — NeuroGrowth Tech",
@@ -374,6 +388,247 @@ export default function DevUiPreviewPage() {
                   </div>
                 </SheetContent>
               </Sheet>
+            </div>
+          </div>
+        </section>
+
+        {/* 8. CONTENT LAYER & PRODUCT ASSETS (Prompt 01A) */}
+        <section className="space-y-6">
+          <h2 className="t-h3 font-medium text-ink">8. Content Layer &amp; Product Assets (`src/content`)</h2>
+          <div className="p-8 bg-white rounded-[24px] border border-line space-y-10">
+            {/* Systems */}
+            <div>
+              <h3 className="t-h4 text-ink mb-4">Systems ({systems.length})</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {systems.map((sys) => (
+                  <div key={sys.id} className="p-4 rounded-xl border border-line bg-mist space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-mono text-cyan-deep font-semibold">{sys.tag}</span>
+                      <span className="text-xs bg-white px-2 py-0.5 rounded-full border border-line text-ink-3">
+                        {sys.services.length} services
+                      </span>
+                    </div>
+                    <div className="font-medium text-ink text-sm">{sys.name}</div>
+                    <div className="relative w-full h-24 rounded-lg overflow-hidden border border-line bg-navy">
+                      <Image
+                        src={sys.image.src}
+                        alt={sys.image.alt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 25vw"
+                      />
+                    </div>
+                    <p className="text-xs text-ink-2 line-clamp-2">{sys.summary}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Products */}
+            <div>
+              <h3 className="t-h4 text-ink mb-4">In-House Products ({products.length})</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {products.map((p) => (
+                  <div key={p.slug} className="p-6 rounded-2xl border border-line bg-mist space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg overflow-hidden border border-line relative bg-white shrink-0">
+                          <Image
+                            src={p.logo.src}
+                            alt={p.logo.alt}
+                            fill
+                            className="object-contain p-1"
+                          />
+                        </div>
+                        <div>
+                          <div className="font-medium text-ink">{p.name}</div>
+                          <span className="text-xs text-ink-3">{p.category}</span>
+                        </div>
+                      </div>
+                      <Tag tone="light">{p.status.toUpperCase()}</Tag>
+                    </div>
+
+                    <p className="text-xs text-ink-2">{p.tagline}</p>
+
+                    <div className="relative w-full h-44 rounded-xl overflow-hidden border border-line bg-navy">
+                      <Image
+                        src={p.heroImage.src}
+                        alt={p.heroImage.alt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-line text-xs text-ink-2">
+                      <span className="bg-white px-2.5 py-1 rounded-md border border-line">
+                        <strong>{p.gallery.length}</strong> gallery shots
+                      </span>
+                      <span className="bg-white px-2.5 py-1 rounded-md border border-line">
+                        <strong>{p.features.length}</strong> features
+                      </span>
+                      {p.sampleContent && (
+                        <span className="bg-white px-2.5 py-1 rounded-md border border-line">
+                          <strong>{p.sampleContent.length}</strong> phrasebook pairs
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Gallery Thumbnails */}
+                    <div className="flex gap-2 overflow-x-auto py-1">
+                      {p.gallery.slice(0, 4).map((img, i) => (
+                        <div
+                          key={i}
+                          className="relative w-20 h-14 rounded-lg overflow-hidden border border-line shrink-0 bg-navy"
+                        >
+                          <Image
+                            src={img.src}
+                            alt={img.alt}
+                            fill
+                            className="object-cover"
+                            sizes="80px"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Team Members */}
+            <div>
+              <h3 className="t-h4 text-ink mb-4">Team ({teamMembers.length})</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {teamMembers.map((member) => (
+                  <div key={member.slug} className="p-4 rounded-xl border border-line bg-mist text-center space-y-3">
+                    <div className="relative w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-line bg-navy flex items-center justify-center">
+                      {member.photo ? (
+                        <Image
+                          src={member.photo.src}
+                          alt={member.photo.alt}
+                          fill
+                          className="object-cover"
+                          sizes="80px"
+                        />
+                      ) : (
+                        <span className="text-xl font-medium text-white">{member.initials}</span>
+                      )}
+                    </div>
+                    <div>
+                      <div className="font-medium text-ink text-sm">{member.name}</div>
+                      <div className="text-xs text-ink-3">{member.role}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Pricing Plans */}
+            <div>
+              <h3 className="t-h4 text-ink mb-4">Pricing Plans ({pricingPlans.length})</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {pricingPlans.map((plan) => (
+                  <div
+                    key={plan.id}
+                    className={`p-5 rounded-xl border ${
+                      plan.featured ? "border-cyan bg-white shadow-sm" : "border-line bg-mist"
+                    } space-y-2`}
+                  >
+                    <div className="flex justify-between items-center">
+                      <span className="font-medium text-ink text-sm">{plan.name}</span>
+                      {plan.featured && <Tag tone="light">FEATURED</Tag>}
+                    </div>
+                    <div className="text-2xl font-light text-ink">
+                      {formatKsh(plan.priceKsh)}
+                      {plan.priceKsh && <span className="text-xs text-ink-3">/{plan.period}</span>}
+                    </div>
+                    <p className="text-xs text-ink-2">{plan.fit}</p>
+                    <div className="text-xs text-ink-3 pt-2 border-t border-line">
+                      {plan.features.length} features included
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-ink-3 mt-3 italic">{pricingNote}</p>
+            </div>
+
+            {/* Testimonials */}
+            <div>
+              <h3 className="t-h4 text-ink mb-4">Verified Testimonials ({confirmedTestimonials.length})</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {confirmedTestimonials.map((t, idx) => (
+                  <div key={idx} className="p-4 rounded-xl border border-line bg-mist space-y-2">
+                    <p className="text-xs text-ink-2 italic line-clamp-3">&quot;{t.quote}&quot;</p>
+                    <div className="pt-2 border-t border-line flex items-center justify-between text-xs">
+                      <div>
+                        <div className="font-medium text-ink">{t.name}</div>
+                        <div className="text-ink-3">{t.role}</div>
+                      </div>
+                      <Tag tone="light">Verified</Tag>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Verified Stats & Integrations */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="t-h4 text-ink mb-4">Verified Stats ({heroStats.length})</h3>
+                <div className="grid grid-cols-2 gap-3">
+                  {heroStats.map((st, i) => (
+                    <div key={i} className="p-3 rounded-lg border border-line bg-mist">
+                      <div className="text-xl font-light text-ink">
+                        {st.caret && <span className="text-cyan-deep mr-0.5">^</span>}
+                        {st.value}
+                      </div>
+                      <div className="text-xs text-ink-3 mt-1">{st.caption}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="t-h4 text-ink mb-4">Supported Integrations ({integrations.length})</h3>
+                <div className="flex flex-wrap gap-2">
+                  {integrations.map((item) => (
+                    <span
+                      key={item}
+                      className="px-3 py-1.5 rounded-lg border border-line bg-mist text-xs font-medium text-ink"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Company Values */}
+            <div>
+              <h3 className="t-h4 text-ink mb-4">Company Values ({companyValues.length})</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {companyValues.map((v) => (
+                  <div key={v.num} className="p-4 rounded-xl border border-line bg-mist space-y-1">
+                    <span className="text-xs font-mono text-cyan-deep font-semibold">{v.num}</span>
+                    <div className="text-sm font-medium text-ink">{v.title}</div>
+                    <p className="text-xs text-ink-2 line-clamp-2">{v.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Home FAQs */}
+            <div>
+              <h3 className="t-h4 text-ink mb-4">Home FAQs ({homeFaqs.length})</h3>
+              <div className="space-y-2">
+                {homeFaqs.slice(0, 3).map((faq, i) => (
+                  <div key={i} className="p-3 rounded-lg border border-line bg-mist text-xs">
+                    <span className="font-medium text-ink">Q: {faq.q}</span>
+                    <p className="text-ink-2 mt-1">A: {faq.a}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>

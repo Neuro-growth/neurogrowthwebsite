@@ -2,6 +2,7 @@
 
 - [x] 00 — Planning and Redesign Brief
 - [x] 01 — Foundation: design tokens, font, images, UI building blocks
+- [x] 01A — Client decisions, content layer and real product images (01A done — content layer + real product assets)
 - [ ] 02 — Home page & layout redesign
 - [ ] 03 — Services page redesign
 - [ ] 04 — Products pages (Overview, SmartChama, Gikuyu Translator)

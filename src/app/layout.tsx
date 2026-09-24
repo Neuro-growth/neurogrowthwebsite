@@ -49,7 +49,6 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
   },
   alternates: { canonical: 'https://neurogrowthtech.com' },
-  verification: { google: 'your-google-verification-code' },
   metadataBase: new URL('https://neurogrowthtech.com'),
   icons: {
     icon: '/icon.png',
