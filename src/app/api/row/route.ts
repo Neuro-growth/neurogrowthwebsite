@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import OpenAI from 'openai'
 
-const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
-
 const SYSTEM_PROMPT = `You are ROW, an AI Marketing Strategist built by NeuroGrowth Tech.
 
 Your personality:
@@ -44,6 +42,13 @@ export async function POST(req: NextRequest) {
     if (!messages || !Array.isArray(messages)) {
       return NextResponse.json({ error: 'Invalid messages format' }, { status: 400 })
     }
+
+    if (!process.env.OPENAI_API_KEY) {
+      return NextResponse.json({ error: 'ROW is not configured yet. Please contact us directly at info@neurogrowthtech.com' }, { status: 503 })
+    }
+
+    // Initialise client lazily so build doesn't fail without the env var
+    const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
 
     const completion = await client.chat.completions.create({
       model: 'gpt-4o-mini',
