@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { site } from "@/content/site";
 import { products } from "@/content/products";
+import { articles } from "@/content/insights";
 
 const LAST_MODIFIED = new Date("2026-09-24");
 
@@ -24,14 +25,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  const articleRoutes = [
-    {
-      url: `${site.url}/insights/ai-fundamentals`,
-      lastModified: LAST_MODIFIED,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    },
-  ];
+  const articleRoutes = articles.map((a) => ({
+    url: `${site.url}/insights/${a.slug}`,
+    lastModified: new Date(a.updatedAt ?? a.publishedAt),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
 
   return [
     ...staticRoutes.map((r) => ({

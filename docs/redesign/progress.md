@@ -9,6 +9,11 @@
 - [x] 05 — Products pages (Overview, SmartChama, Gikuyu Translator)
 - [x] 06 — About page redesign (About page rebuilt, team cards, founder figure, proof section, JSON-LD)
 - [x] 07 — Pricing page redesign (Plans in KSh, PlanCard, NumberedList, billing band, JSON-LD OfferCatalog)
-- [ ] 08 — Insights & research article layout
+- [x] 08 — Insights & research article layout (Insights index, data-driven [slug] route, TOC, ShareRow, reading time, sitemap)
 - [ ] 09 — Contact page redesign & forms
 - [ ] 10 — Final polish, SEO verification, legal pages
+
+## Notes
+
+### Adding a new article later
+> To publish an article: create `src/content/insights/<slug>.ts` exporting an `Article`, add it to the `articles` array in `src/content/insights/index.ts`, and pick a cover from `public/images/art/`. It appears on `/insights`, gets its own page, and is added to the sitemap automatically.

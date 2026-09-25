@@ -1,98 +1,83 @@
-import type { Metadata } from 'next'
-import RevealOnScroll from '@/components/RevealOnScroll'
-import ResourceCard from '@/components/ResourceCard'
-import { PageHero } from '@/components/site/page-hero'
+import type { Metadata } from "next";
+import { PageHero } from "@/components/site/page-hero";
+import { SectionHead } from "@/components/ui/section-head";
+import { Button } from "@/components/ui/button";
+import { ArticleCard } from "@/components/blocks/insights/article-card";
+import { ArticleRow } from "@/components/blocks/insights/article-row";
+import { CtaBand } from "@/components/blocks/cta-band";
+import { articles } from "@/content/insights";
+import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: 'Insights',
-  description: 'Notes on building with AI in Africa — practical guides from the NeuroGrowth team.',
-  alternates: { canonical: '/insights' },
-}
+  title: "Insights",
+  description:
+    "Notes on building with AI in Africa — practical guides from the NeuroGrowth team, written for business owners, not engineers.",
+  alternates: { canonical: "/insights" },
+};
 
-const resources = [
-  {
-    icon: '🧠',
-    badge: 'BEGINNER',
-    title: 'AI Fundamentals',
-    desc: 'A beginner-friendly guide to understanding artificial intelligence — what it is, how it works, and how your business can start using it today.',
-    href: '/insights/ai-fundamentals',
-    color: '#00D4FF',
-    time: '15 min read',
-  },
-  {
-    icon: '⚡',
-    badge: 'GUIDE',
-    title: 'Marketing Automation 101',
-    desc: 'Learn how to automate your marketing workflows — email sequences, lead nurturing, and customer segmentation without writing a single line of code.',
-    href: '/contact',
-    color: '#00FFCC',
-    time: 'Coming Soon',
-  },
-  {
-    icon: '📊',
-    badge: 'DEEP DIVE',
-    title: 'Predictive Analytics for Business',
-    desc: 'How AI can forecast customer behavior, predict churn, and identify your next best revenue opportunity using data you already have.',
-    href: '/contact',
-    color: '#00AAFF',
-    time: 'Coming Soon',
-  },
-  {
-    icon: '🤖',
-    badge: 'PRACTICAL',
-    title: 'Building Your First AI Chatbot',
-    desc: 'A step-by-step practical guide to deploying an AI chatbot for customer support or lead generation on your website or WhatsApp.',
-    href: '/contact',
-    color: '#00D4FF',
-    time: 'Coming Soon',
-  },
-  {
-    icon: '🌍',
-    badge: 'AFRICA FOCUS',
-    title: 'AI for African Businesses',
-    desc: 'How businesses across Africa are using AI to compete globally — real case studies from e-commerce, fintech, agritech, and healthcare.',
-    href: '/contact',
-    color: '#00FFCC',
-    time: 'Coming Soon',
-  },
-  {
-    icon: '💰',
-    badge: 'ROI',
-    title: 'Calculating Your AI ROI',
-    desc: 'A practical framework for measuring the return on investment of your AI initiatives — so you can justify the investment and track real results.',
-    href: '/contact',
-    color: '#00AAFF',
-    time: 'Coming Soon',
-  },
-]
+export default function InsightsPage() {
+  const featuredArticle = articles[0];
+  const otherArticles = articles.slice(1);
 
-const container: React.CSSProperties = { maxWidth: 1200, margin: '0 auto', padding: '0 24px' }
-
-export default function ResourcesPage() {
   return (
     <>
+      {/* 1. Page Hero */}
       <PageHero
+        breadcrumbs={[{ label: "Insights" }]}
         eyebrow="Insights"
         title="Notes on building with AI in Africa."
-        intro="Practical guides from the NeuroGrowth team."
+        intro="Practical guides from the NeuroGrowth team, written for business owners, not engineers."
       />
 
-      <section style={{ padding: '60px 0 100px' }}>
-        <div style={container}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }} className="three-col">
-            {resources.map((r, i) => (
-              <RevealOnScroll key={i} delay={i * 60}>
-                <ResourceCard {...r} />
-              </RevealOnScroll>
-            ))}
+      {/* 2. Articles Index */}
+      <section className="section-y container-site">
+        {/* Featured Article */}
+        {featuredArticle && <ArticleCard article={featuredArticle} />}
+
+        {/* Other Articles or 'More on the way' */}
+        {otherArticles.length > 0 ? (
+          <div className="mt-16">
+            <SectionHead
+              eyebrow="All articles"
+              title="More from the team."
+            />
+            <div className="mt-6 flex flex-col">
+              {otherArticles.map((article) => (
+                <ArticleRow key={article.slug} article={article} />
+              ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="mt-16 border-y border-line py-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+            <div>
+              <h3 className="t-h4 text-ink">More articles are on the way.</h3>
+              <p className="mt-1 text-[15px] text-ink-2">
+                Follow us on LinkedIn to see them first.
+              </p>
+            </div>
+            <Button
+              variant="outline"
+              href={
+                site.socials.find((s) => s.label === "LinkedIn")?.href ??
+                "https://www.linkedin.com/company/neurogrowthtech/"
+              }
+              external
+            >
+              Follow on LinkedIn
+            </Button>
+          </div>
+        )}
       </section>
 
-      <style>{`
-        @media (max-width: 1024px) { .three-col { grid-template-columns: 1fr 1fr !important; } }
-        @media (max-width: 640px)  { .three-col { grid-template-columns: 1fr !important; } }
-      `}</style>
+      {/* 3. CTA Band */}
+      <div className="section-y pt-0 pb-3">
+        <CtaBand
+          title="Want to apply this in your business?"
+          intro="Book a 30-minute call and we'll show you where AI pays off first."
+          primary={{ label: "Book a call", href: "/contact" }}
+          showWhatsApp
+        />
+      </div>
     </>
-  )
+  );
 }
