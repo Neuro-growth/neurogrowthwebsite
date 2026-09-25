@@ -16,3 +16,5 @@ export * from "./products-page";
 export * from "./about-page";
 export * from "./pricing-page";
 export * from "./insights";
+export * from "./contact";
+export * from "./legal";

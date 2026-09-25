@@ -4,17 +4,20 @@ import { Eyebrow } from "@/components/ui/eyebrow";
 import { ArtImage } from "@/components/ui/art-image";
 import { ContactForm } from "./contact-form";
 import { site, waLink } from "@/content/site";
+import { type ContactTopicKey, getTopicLabel } from "@/content/contact";
 import { cn } from "@/lib/utils";
 
 export interface ContactSplitProps {
+  id?: string;
   eyebrow?: string;
   title?: string;
   intro?: string;
-  defaultTopic?: string;
+  defaultTopic?: ContactTopicKey;
   className?: string;
 }
 
 export function ContactSplit({
+  id,
   eyebrow = "Let's talk",
   title = "Start a conversation",
   intro = "Tell us what's slowing your business down. We reply within one working day.",
@@ -22,7 +25,7 @@ export function ContactSplit({
   className,
 }: ContactSplitProps) {
   return (
-    <Panel tone="light" className={cn("overflow-hidden", className)}>
+    <Panel id={id} tone="light" className={cn("overflow-hidden", className)}>
       <div className="grid grid-cols-12 max-lg:grid-cols-1">
         {/* Left Visual Column */}
         <div className="col-span-12 lg:col-span-6 relative min-h-[420px] lg:min-h-[640px] overflow-hidden">
@@ -73,7 +76,16 @@ export function ContactSplit({
             </p>
           </div>
 
-          <ContactForm defaultTopic={defaultTopic} />
+          {defaultTopic && defaultTopic !== "general" && (
+            <p className="mb-4 text-sm text-ink-2 font-medium">
+              You&apos;re asking about:{" "}
+              <span className="text-ink font-semibold">
+                {getTopicLabel(defaultTopic)}
+              </span>
+            </p>
+          )}
+
+          <ContactForm key={defaultTopic} defaultTopic={defaultTopic} />
         </div>
       </div>
     </Panel>

@@ -4,14 +4,14 @@ import * as React from "react";
 import Link from "next/link";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { systems } from "@/content/systems";
+import { contactTopics, type ContactTopicKey } from "@/content/contact";
 import { waLink } from "@/content/site";
 import { cn } from "@/lib/utils";
 
 const FORMSPREE_ID = "mdavdkee";
 
 export interface ContactFormProps {
-  defaultTopic?: string;
+  defaultTopic?: ContactTopicKey;
   className?: string;
 }
 
@@ -19,7 +19,7 @@ interface FormState {
   name: string;
   email: string;
   phone: string;
-  topic: string;
+  topic: ContactTopicKey;
   message: string;
   consent: boolean;
   _gotcha: string;
@@ -33,19 +33,12 @@ interface FormErrors {
   consent?: string;
 }
 
-const TOPIC_OPTIONS = [
-  ...systems.map((s) => s.name),
-  "SmartChama",
-  "Gikuyu AI Translator",
-  "Not sure yet",
-];
-
-export function ContactForm({ defaultTopic, className }: ContactFormProps) {
+export function ContactForm({ defaultTopic = "general", className }: ContactFormProps) {
   const [formData, setFormData] = React.useState<FormState>({
     name: "",
     email: "",
     phone: "",
-    topic: defaultTopic || "",
+    topic: defaultTopic,
     message: "",
     consent: false,
     _gotcha: "",
@@ -149,6 +142,12 @@ export function ContactForm({ defaultTopic, className }: ContactFormProps) {
 
     setStatus("submitting");
 
+    const selectedTopic =
+      contactTopics.find((t) => t.key === formData.topic) ?? contactTopics[0];
+    const topicLabel = selectedTopic.label;
+    const pagePath =
+      typeof window !== "undefined" ? window.location.pathname : "";
+
     try {
       const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: "POST",
@@ -160,9 +159,10 @@ export function ContactForm({ defaultTopic, className }: ContactFormProps) {
           name: formData.name,
           email: formData.email,
           phone: formData.phone || "Not provided",
-          topic: formData.topic,
+          topic: topicLabel,
           message: formData.message,
-          _subject: `New Lead: ${formData.name} (${formData.topic})`,
+          _subject: `New website enquiry: ${topicLabel}`,
+          page: pagePath,
         }),
       });
 
@@ -340,10 +340,9 @@ export function ContactForm({ defaultTopic, className }: ContactFormProps) {
               : "border-transparent focus:border-cyan-deep"
           )}
         >
-          <option value="">Choose what you need...</option>
-          {TOPIC_OPTIONS.map((opt) => (
-            <option key={opt} value={opt}>
-              {opt}
+          {contactTopics.map((opt) => (
+            <option key={opt.key} value={opt.key}>
+              {opt.label}
             </option>
           ))}
         </select>

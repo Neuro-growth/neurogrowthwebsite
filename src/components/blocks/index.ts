@@ -16,3 +16,4 @@ export * from "./team-card";
 export * from "./numbered-list";
 export * from "./plan-card";
 export * from "./insights";
+export * from "./legal-page";

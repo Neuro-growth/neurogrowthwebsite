@@ -1,169 +1,178 @@
-import type { Metadata } from 'next'
-import RevealOnScroll from '@/components/RevealOnScroll'
-import { ContactForm } from '@/components/blocks/contact-form'
-import { PageHero } from '@/components/site/page-hero'
+import type { Metadata } from "next";
+import { Mail, Phone, MapPin } from "lucide-react";
+import { PageHero } from "@/components/site/page-hero";
+import { Button } from "@/components/ui/button";
+import { Panel } from "@/components/ui/panel";
+import { Eyebrow } from "@/components/ui/eyebrow";
+import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
+import { ContactSplit } from "@/components/blocks/contact-split";
+import { StepGrid } from "@/components/blocks/step-grid";
+import { FaqBlock } from "@/components/blocks/faq-block";
+import { site, waLink } from "@/content/site";
+import {
+  contactData,
+  resolveTopic,
+  type ContactChannel,
+} from "@/content/contact";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: 'Contact',
-  description: "Tell us what's slowing your business down — we reply within one working day.",
-  alternates: { canonical: '/contact' },
+  title: "Contact",
+  description:
+    "Talk to NeuroGrowth Tech about AI automation, chatbots or analytics for your business. WhatsApp, email or book a free 30-minute call.",
+  alternates: { canonical: "/contact" },
+};
+
+function ChannelCard({ channel }: { channel: ContactChannel }) {
+  const isLink = Boolean(channel.href);
+  const Tag = isLink ? "a" : "div";
+
+  const renderIcon = () => {
+    switch (channel.id) {
+      case "whatsapp":
+        return <WhatsAppIcon className="h-5 w-5 text-whatsapp" />;
+      case "email":
+        return <Mail className="h-5 w-5 text-cyan-deep" />;
+      case "phone":
+        return <Phone className="h-5 w-5 text-cyan-deep" />;
+      case "studio":
+        return <MapPin className="h-5 w-5 text-cyan-deep" />;
+    }
+  };
+
+  return (
+    <Tag
+      {...(isLink
+        ? {
+            href: channel.href,
+            target: channel.external ? "_blank" : undefined,
+            rel: channel.external ? "noopener noreferrer" : undefined,
+          }
+        : {})}
+      className={cn(
+        "group flex flex-col rounded-media bg-white p-6 transition-all duration-200",
+        isLink
+          ? "border border-line hover:border-ink hover:shadow-sm focus-visible:outline-2 focus-visible:outline-cyan"
+          : "border border-line"
+      )}
+    >
+      {/* 40px bg-mist tile */}
+      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-mist">
+        {renderIcon()}
+      </div>
+
+      <span className="mt-4 text-[13px] text-ink-3">{channel.label}</span>
+      <span className="mt-1 text-[16px] font-medium text-ink break-words">
+        {channel.value}
+      </span>
+      <span className="mt-1 text-[13px] text-ink-3">{channel.note}</span>
+    </Tag>
+  );
 }
 
-const steps = [
-  { icon: '📖', title: 'Step 1 — Diagnose', body: 'We audit your current stack, campaigns, and customer data to find the highest-leverage AI opportunities.' },
-  { icon: '⚙️', title: 'Step 2 — Strategize', body: "We map out a custom AI growth plan showing exactly what we'd build, the timeline, and the expected ROI." },
-  { icon: '🚀', title: 'Step 3 — Decide', body: 'You decide if you\'d like to move forward. No pressure, no sales tactics — just a clear, honest plan.' },
-]
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  const { topic } = await searchParams;
+  const defaultTopic = resolveTopic(topic);
 
-const contactInfo = [
-  { icon: '✉️', title: 'Email Us', content: <a href="mailto:info@neurogrowthtech.com" style={{ fontSize: 14, color: '#8892B0', textDecoration: 'none' }}>info@neurogrowthtech.com</a> },
-  { icon: '🌍', title: 'Serving Clients Globally', content: <span style={{ fontSize: 14, color: '#8892B0' }}>Remote-first — we work with businesses worldwide</span> },
-  { icon: '🕐', title: 'Response Time', content: <span style={{ fontSize: 14, color: '#8892B0' }}>We respond to all inquiries within 24 business hours</span> },
-]
+  // JSON-LD: ContactPage schema with Organization contactPoint
+  const contactPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    mainEntity: {
+      "@type": "Organization",
+      name: site.name,
+      legalName: site.legalName,
+      url: site.url,
+      // TODO(client): confirm languages
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "sales",
+          telephone: site.phoneE164,
+          email: site.email,
+          areaServed: "KE",
+          availableLanguage: ["English", "Swahili"],
+        },
+      ],
+    },
+  };
 
-const whyBook = [
-  { icon: '🔍', title: 'AI Opportunity Audit', body: "We'll identify the top 3 areas in your business where AI can drive the fastest, highest-impact results — specific to your industry and growth stage." },
-  { icon: '📌', title: 'Custom Growth Roadmap', body: "You'll leave with a clear, actionable AI growth roadmap — outlining what to build, in what order, and what ROI to expect from each initiative." },
-  { icon: '📈', title: 'ROI Projection', body: "We'll model out realistic ROI projections based on your current data and industry benchmarks — so you can make an informed, confident decision." },
-]
-
-export default function ContactPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Let's talk"
-        title="Tell us what's slowing your business down."
-        intro="We reply within one working day."
+      {/* ContactPage JSON-LD Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(contactPageSchema).replace(/</g, "\\u003c"),
+        }}
       />
 
-      {/* CONTACT SECTION */}
-      <section style={{ padding: '100px 0' }}>
-        <div style={container}>
-          <div style={{
-            display: 'grid', gridTemplateColumns: '1fr 1.5fr',
-            gap: 80, alignItems: 'start',
-          }} className="contact-grid">
+      {/* 1. Page Hero */}
+      <PageHero
+        breadcrumbs={[{ label: "Contact" }]}
+        eyebrow={contactData.hero.eyebrow}
+        title={contactData.hero.title}
+        intro={contactData.hero.intro}
+        actions={
+          <>
+            <Button variant="green" href={waLink()} external>
+              <WhatsAppIcon className="h-4 w-4 mr-1.5" />
+              <span>WhatsApp us</span>
+            </Button>
+            <Button variant="glass" href={`mailto:${site.email}`}>
+              Email us
+            </Button>
+          </>
+        }
+      />
 
-            {/* LEFT */}
-            <RevealOnScroll>
-              <p style={labelStyle}>[ WHAT TO EXPECT ]</p>
-              <h2 style={h2Style}>Your Free Strategy Consultation</h2>
-              <p style={bodyStyle}>
-                In 30–45 minutes, we&apos;ll walk through your current marketing systems, identify where AI can have the biggest impact, and give you a clear picture of what we&apos;d build — and what it would return.
-              </p>
+      {/* 2. Form section */}
+      <section className="section-y container-site">
+        <ContactSplit
+          id="form"
+          eyebrow="Send a message"
+          title="Start a conversation"
+          intro="Tell us a little about your business. The more specific, the better our first call."
+          defaultTopic={defaultTopic}
+        />
+      </section>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 28, marginTop: 40 }}>
-                {steps.map((s, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 16 }}>
-                    <div style={{
-                      width: 44, height: 44, borderRadius: 10,
-                      border: 'none',
-                      background: 'rgba(0,212,255,0.08)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: 18, flexShrink: 0,
-                    }}>{s.icon}</div>
-                    <div>
-                      <h4 style={{ fontFamily: 'var(--font-space), sans-serif', fontSize: 14, fontWeight: 700, color: '#fff', marginBottom: 4 }}>{s.title}</h4>
-                      <span style={{ fontSize: 14, color: '#8892B0', lineHeight: 1.7 }}>{s.body}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* contact info box */}
-              <div style={{
-                marginTop: 48, padding: '28px 32px',
-                background: 'transparent',
-                border: 'none',
-                borderRadius: 16,
-              }}>
-                <p style={labelStyle}>[ CONTACT INFO ]</p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 20, marginTop: 8 }}>
-                  {contactInfo.map((c, i) => (
-                    <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 16 }}>
-                      <div style={{
-                        width: 44, height: 44, borderRadius: 10,
-                        border: 'none',
-                        background: 'rgba(0,212,255,0.08)',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        fontSize: 18, flexShrink: 0,
-                      }}>{c.icon}</div>
-                      <div>
-                        <h4 style={{ fontFamily: 'var(--font-space), sans-serif', fontSize: 14, fontWeight: 700, color: '#fff', marginBottom: 4 }}>{c.title}</h4>
-                        {c.content}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </RevealOnScroll>
-
-            {/* RIGHT — FORM */}
-            <RevealOnScroll delay={100}>
-              <div style={{
-                background: 'transparent',
-                border: 'none',
-                borderRadius: 20, padding: '48px 40px',
-              }}>
-                <h3 style={{
-                  fontFamily: 'var(--font-space), sans-serif',
-                  fontSize: 24, fontWeight: 700, color: '#fff', marginBottom: 8,
-                }}>Schedule Your Free Consultation</h3>
-                <p style={{ color: '#8892B0', fontSize: 15, marginBottom: 32 }}>
-                  Fill out the form below and we&apos;ll reach out within 24 hours to confirm your call time.
-                </p>
-                <ContactForm />
-              </div>
-            </RevealOnScroll>
-
-          </div>
+      {/* 3. Channels Section */}
+      <section className="container-site pb-[clamp(64px,8vw,104px)]">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {contactData.channels.map((ch) => (
+            <ChannelCard key={ch.id} channel={ch} />
+          ))}
         </div>
       </section>
 
-      {/* WHY BOOK */}
-      <section style={{ padding: '100px 0', background: 'transparent' }}>
-        <div style={container}>
-          <p style={{ ...labelStyle, textAlign: 'center' }}>[ WHY BOOK A CALL ]</p>
-          <h2 style={{ ...h2Style, textAlign: 'center' }}>
-            What You Get From<br /><span className="text-gradient">Your Free Strategy Call</span>
-          </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, marginTop: 48 }} className="three-col">
-            {whyBook.map((c, i) => (
-              <RevealOnScroll key={i} delay={i * 80}>
-                <div style={{
-                  background: 'transparent',
-                  border: 'none',
-                  borderRadius: 20, padding: '40px 32px',
-                }}>
-                  <div style={{
-                    width: 56, height: 56, borderRadius: '50%',
-                    border: '1px solid rgba(0,212,255,0.20)',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    fontSize: 24, marginBottom: 20,
-                  }}>{c.icon}</div>
-                  <h3 style={{ fontFamily: 'var(--font-space), sans-serif', fontSize: 20, fontWeight: 700, color: '#fff', marginBottom: 12 }}>{c.title}</h3>
-                  <p style={{ fontSize: 15, color: '#8892B0', lineHeight: 1.8 }}>{c.body}</p>
-                </div>
-              </RevealOnScroll>
-            ))}
+      {/* 4. What happens next Band */}
+      <Panel tone="dark" className="mt-3">
+        <div className="container-site grid grid-cols-12 gap-6 py-[clamp(64px,8vw,112px)] items-start">
+          <div className="col-span-12 lg:col-span-5 flex flex-col items-start">
+            <Eyebrow tone="dark">What happens next</Eyebrow>
+            <h2 className="t-h2-sm mt-5 text-white font-normal">
+              From message to plan in a week.
+            </h2>
+          </div>
+          <div className="col-span-12 lg:col-start-7 lg:col-span-6">
+            <StepGrid steps={contactData.nextSteps} tone="dark" />
           </div>
         </div>
-      </section>
+      </Panel>
 
-      <style>{`
-        @media (max-width: 1024px) {
-          .contact-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
-          .three-col { grid-template-columns: 1fr 1fr !important; }
-        }
-        @media (max-width: 640px) {
-          .three-col { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
+      {/* 5. Contact FAQ */}
+      <FaqBlock
+        id="faq"
+        eyebrow="FAQ"
+        title="Before you get in touch."
+        items={contactData.contactFaqs}
+        background="white"
+      />
     </>
-  )
+  );
 }
-
-const container: React.CSSProperties = { maxWidth: 1200, margin: '0 auto', padding: '0 24px' }
-const labelStyle: React.CSSProperties = { fontSize: 12, fontWeight: 600, letterSpacing: '3px', textTransform: 'uppercase', color: '#00D4FF', marginBottom: 20 }
-const h2Style: React.CSSProperties = { fontFamily: 'var(--font-space), sans-serif', fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 700, color: '#fff', lineHeight: 1.2, marginBottom: 20 }
-const bodyStyle: React.CSSProperties = { color: '#8892B0', fontSize: 17, lineHeight: 1.8, marginBottom: 32 }

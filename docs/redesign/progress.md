@@ -10,7 +10,7 @@
 - [x] 06 — About page redesign (About page rebuilt, team cards, founder figure, proof section, JSON-LD)
 - [x] 07 — Pricing page redesign (Plans in KSh, PlanCard, NumberedList, billing band, JSON-LD OfferCatalog)
 - [x] 08 — Insights & research article layout (Insights index, data-driven [slug] route, TOC, ShareRow, reading time, sitemap)
-- [ ] 09 — Contact page redesign & forms
+- [x] 09 — Contact page redesign & forms (Contact page with topic prefill, Formspree integration, Privacy Policy, Terms of Use, 404 page)
 - [ ] 10 — Final polish, SEO verification, legal pages
 
 ## Notes
