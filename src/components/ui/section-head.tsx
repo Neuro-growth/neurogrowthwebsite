@@ -6,6 +6,7 @@ export interface SectionHeadProps {
   eyebrow?: string | React.ReactNode;
   title: string | React.ReactNode;
   description?: string | React.ReactNode;
+  aside?: string | React.ReactNode;
   tone?: "light" | "dark";
   className?: string;
 }
@@ -14,10 +15,12 @@ export function SectionHead({
   eyebrow,
   title,
   description,
+  aside,
   tone = "light",
   className,
 }: SectionHeadProps) {
   const isDark = tone === "dark";
+  const asideContent = aside ?? description;
 
   return (
     <div
@@ -44,7 +47,7 @@ export function SectionHead({
         </h2>
       </div>
 
-      {description && (
+      {asideContent && (
         <div className="col-span-12 lg:col-start-9 lg:col-span-4">
           <p
             className={cn(
@@ -52,7 +55,7 @@ export function SectionHead({
               isDark ? "text-on-dark-2" : "text-ink-2"
             )}
           >
-            {description}
+            {asideContent}
           </p>
         </div>
       )}

@@ -26,3 +26,5 @@ export const steps: Step[] = [
     duration: "Ongoing",
   },
 ];
+
+export const process = steps;

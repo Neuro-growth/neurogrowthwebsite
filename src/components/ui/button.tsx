@@ -12,6 +12,7 @@ export interface ButtonProps
   dot?: boolean;
   href?: string;
   external?: boolean;
+  fullWidth?: boolean;
   className?: string;
   children?: React.ReactNode;
 }
@@ -37,14 +38,17 @@ const sizeClasses: Record<ButtonSize, string> = {
 export function getButtonClasses({
   variant = "ink",
   size = "md",
+  fullWidth = false,
   className,
 }: {
   variant?: ButtonVariant;
   size?: ButtonSize;
+  fullWidth?: boolean;
   className?: string;
 }) {
   return cn(
     "inline-flex items-center justify-center gap-2 rounded-full font-medium transition-colors select-none cursor-pointer whitespace-nowrap outline-none focus-visible:outline-2 focus-visible:outline-cyan focus-visible:outline-offset-2 disabled:pointer-events-none disabled:opacity-50",
+    fullWidth && "w-full",
     variantClasses[variant],
     sizeClasses[size],
     className
@@ -61,6 +65,7 @@ export const Button = React.forwardRef<
     dot,
     href,
     external,
+    fullWidth,
     className,
     children,
     type = "button",
@@ -84,7 +89,7 @@ export const Button = React.forwardRef<
     </>
   );
 
-  const classes = getButtonClasses({ variant, size, className });
+  const classes = getButtonClasses({ variant, size, fullWidth, className });
 
   if (href) {
     const isExt =

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import RevealOnScroll from '@/components/RevealOnScroll'
-import ContactForm from '@/components/ContactForm'
+import { ContactForm } from '@/components/blocks/contact-form'
 import { PageHero } from '@/components/site/page-hero'
 
 export const metadata: Metadata = {

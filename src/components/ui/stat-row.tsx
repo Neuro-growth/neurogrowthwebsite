@@ -5,7 +5,8 @@ export interface StatItem {
   value: string;
   caret?: boolean;
   suffix?: string;
-  label: string;
+  label?: string;
+  caption?: string;
 }
 
 export interface StatRowProps {
@@ -82,7 +83,7 @@ export function StatRow({
             >
               —
             </span>
-            <span>{stat.label}</span>
+            <span>{stat.label ?? stat.caption}</span>
           </div>
         </div>
       ))}
