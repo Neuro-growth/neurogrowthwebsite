@@ -6,6 +6,7 @@ import { Tag } from "@/components/ui/tag";
 import { Button } from "@/components/ui/button";
 import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 import { waLink } from "@/content/site";
+import { externalLinkProps } from "@/lib/utils";
 import type { Product } from "@/content/types";
 
 export interface ProductHeroProps {
@@ -66,6 +67,14 @@ export function ProductHero({ product }: ProductHeroProps) {
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               <Button
+                variant="white"
+                dot={false}
+                externalIcon
+                href={product.liveUrl}
+              >
+                {product.liveCta}
+              </Button>
+              <Button
                 variant="green"
                 href={`/contact?topic=${product.slug}`}
               >
@@ -80,6 +89,17 @@ export function ProductHero({ product }: ProductHeroProps) {
                 Ask on WhatsApp
               </Button>
             </div>
+            <p className="mt-3 text-[13px] text-on-dark-3">
+              Live at{" "}
+              <a
+                href={product.liveUrl}
+                {...externalLinkProps}
+                className="text-white underline underline-offset-4 decoration-white/30 hover:decoration-white"
+              >
+                {product.liveLabel}
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </p>
           </div>
         </div>
       </div>

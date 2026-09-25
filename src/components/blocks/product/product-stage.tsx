@@ -1,12 +1,14 @@
 import * as React from "react";
 import Image from "next/image";
+import { Lock } from "lucide-react";
 import type { ImageRef } from "@/content/types";
 
 export interface ProductStageProps {
   heroImage: ImageRef;
+  liveLabel?: string;
 }
 
-export function ProductStage({ heroImage }: ProductStageProps) {
+export function ProductStage({ heroImage, liveLabel }: ProductStageProps) {
   return (
     <div className="container-site pt-[clamp(40px,5vw,64px)]">
       <div className="overflow-hidden rounded-xl border border-line bg-white shadow-[0_20px_60px_-20px_rgb(5_13_26/0.08)]">
@@ -15,6 +17,15 @@ export function ProductStage({ heroImage }: ProductStageProps) {
           <span className="h-2.5 w-2.5 rounded-full bg-line" />
           <span className="h-2.5 w-2.5 rounded-full bg-line" />
           <span className="h-2.5 w-2.5 rounded-full bg-line" />
+          {liveLabel && (
+            <div
+              aria-hidden="true"
+              className="mx-auto inline-flex items-center gap-1.5 rounded-full bg-mist px-3 py-1 text-[12px] text-ink-3 select-none"
+            >
+              <Lock className="h-3 w-3 shrink-0" />
+              <span>{liveLabel}</span>
+            </div>
+          )}
         </div>
 
         {/* Screenshot Image */}

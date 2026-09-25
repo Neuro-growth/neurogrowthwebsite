@@ -1,8 +1,11 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { Panel } from "@/components/ui/panel";
 import { Logo } from "@/components/ui/logo";
 import { site, waLink } from "@/content/site";
 import { systems } from "@/content/systems";
+import { products } from "@/content/products";
+import { externalLinkProps } from "@/lib/utils";
 
 function LinkedinIcon({ className }: { className?: string }) {
   return (
@@ -68,7 +71,7 @@ export function SiteFooter() {
                 <a
                   key={s.label}
                   href={s.href}
-                  aria-label={s.label}
+                  aria-label={`${s.label} (opens in a new tab)`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-line-dark flex items-center justify-center text-on-dark-2 transition-colors hover:bg-white/10 hover:text-white"
@@ -110,6 +113,25 @@ export function SiteFooter() {
                   Contact
                 </Link>
               </li>
+            </ul>
+
+            <div className="text-[13px] text-on-dark-3 mt-5 mb-2.5 font-medium tracking-wide">
+              Live products
+            </div>
+            <ul className="grid gap-2 text-[14px] text-white">
+              {products.map((p) => (
+                <li key={p.slug}>
+                  <a
+                    href={p.liveUrl}
+                    {...externalLinkProps}
+                    className="inline-flex items-center gap-1 hover:text-cyan transition-colors"
+                  >
+                    <span>{p.name === "Gikuyu AI Translator" ? "Gikuyu Translator" : p.name}</span>
+                    <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -163,6 +185,7 @@ export function SiteFooter() {
                   className="hover:text-cyan transition-colors"
                 >
                   WhatsApp
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               </li>
             </ul>

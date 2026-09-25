@@ -51,6 +51,7 @@ export function ContactSplit({
               <span className="mt-0.5 block text-sm font-medium text-white">
                 {site.phoneDisplay}
               </span>
+              <span className="sr-only"> (opens in a new tab)</span>
             </a>
 
             {/* Email Link Card */}

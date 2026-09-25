@@ -62,11 +62,16 @@ export function ProductRow({ product, index }: ProductRowProps) {
           ))}
         </ul>
 
-        {/* CTA Button */}
-        <div className="mt-auto pt-8">
+        {/* CTA Buttons */}
+        <div className="mt-auto flex flex-wrap items-center gap-2 pt-8">
           <Button variant="ink" dot href={`/products/${product.slug}`}>
             View details
           </Button>
+          {product.liveUrl && (
+            <Button variant="outline" externalIcon href={product.liveUrl}>
+              Visit site
+            </Button>
+          )}
         </div>
       </div>
 

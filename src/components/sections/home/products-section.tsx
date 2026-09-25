@@ -13,6 +13,8 @@ export function ProductsSection() {
     summary: p.summary,
     heroImage: p.heroImage,
     logo: p.logo,
+    liveUrl: p.liveUrl,
+    liveLabel: p.liveLabel,
   }));
 
   return (

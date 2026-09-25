@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, Lock } from "lucide-react";
 import { ArtImage } from "@/components/ui/art-image";
 import { Button } from "@/components/ui/button";
 import { Tag } from "@/components/ui/tag";
@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 export type ProductShowcaseItem = Pick<
   Product,
-  "slug" | "name" | "category" | "status" | "summary" | "heroImage" | "logo"
+  "slug" | "name" | "category" | "status" | "summary" | "heroImage" | "logo" | "liveUrl" | "liveLabel"
 >;
 
 export interface ProductShowcaseProps {
@@ -89,6 +89,15 @@ export function ProductShowcase({ products, className }: ProductShowcaseProps) {
             <span className="h-2 w-2 rounded-full bg-white/25" />
             <span className="h-2 w-2 rounded-full bg-white/25" />
             <span className="h-2 w-2 rounded-full bg-white/25" />
+            {current.liveLabel && (
+              <div
+                aria-hidden="true"
+                className="mx-auto inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-0.5 text-[12px] text-on-dark-2 select-none"
+              >
+                <Lock className="h-3 w-3 shrink-0" />
+                <span>{current.liveLabel}</span>
+              </div>
+            )}
           </div>
 
           {/* Screenshot Container */}
@@ -158,14 +167,25 @@ export function ProductShowcase({ products, className }: ProductShowcaseProps) {
         </p>
 
         {/* Footer Row */}
-        <div className="mt-1.5 flex items-center justify-between pt-2">
-          <Button
-            variant="ink"
-            dot
-            href={`/products/${current.slug}`}
-          >
-            View details
-          </Button>
+        <div className="mt-1.5 flex flex-wrap items-center justify-between gap-3 pt-2">
+          <div className="flex flex-wrap items-center gap-2">
+            <Button
+              variant="ink"
+              dot
+              href={`/products/${current.slug}`}
+            >
+              View details
+            </Button>
+            {current.liveUrl && (
+              <Button
+                variant="outline"
+                externalIcon
+                href={current.liveUrl}
+              >
+                Visit site
+              </Button>
+            )}
+          </div>
 
           {count > 1 && (
             <div className="flex items-center gap-3">

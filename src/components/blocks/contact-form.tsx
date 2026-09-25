@@ -435,6 +435,7 @@ export function ContactForm({ defaultTopic = "general", className }: ContactForm
             className="font-medium underline underline-offset-2 hover:text-navy"
           >
             message us on WhatsApp
+            <span className="sr-only"> (opens in a new tab)</span>
           </a>
           .
         </div>

@@ -75,7 +75,7 @@ export function ShareRow({ url, title, className }: ShareRowProps) {
           href={linkedinHref}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Share on LinkedIn"
+          aria-label="Share on LinkedIn (opens in a new tab)"
           className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line text-ink-3 transition-colors hover:border-ink hover:text-ink focus-visible:outline-2 focus-visible:outline-cyan"
         >
           <LinkedinIcon className="h-4 w-4" />
@@ -86,7 +86,7 @@ export function ShareRow({ url, title, className }: ShareRowProps) {
           href={whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Share on WhatsApp"
+          aria-label="Share on WhatsApp (opens in a new tab)"
           className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line text-ink-3 transition-colors hover:border-whatsapp hover:text-whatsapp focus-visible:outline-2 focus-visible:outline-cyan"
         >
           <WhatsAppIcon size={16} />

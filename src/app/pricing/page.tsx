@@ -67,6 +67,7 @@ export default function PricingPage() {
         className="text-cyan-deep underline underline-offset-4 hover:text-navy transition-colors font-medium"
       >
         Message us on WhatsApp.
+        <span className="sr-only"> (opens in a new tab)</span>
       </a>
     </p>
   );

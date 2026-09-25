@@ -1,5 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export type ButtonVariant = "green" | "ink" | "white" | "glass" | "outline" | "ghost";
@@ -12,6 +13,7 @@ export interface ButtonProps
   dot?: boolean;
   href?: string;
   external?: boolean;
+  externalIcon?: boolean;
   fullWidth?: boolean;
   className?: string;
   children?: React.ReactNode;
@@ -65,6 +67,7 @@ export const Button = React.forwardRef<
     dot,
     href,
     external,
+    externalIcon,
     fullWidth,
     className,
     children,
@@ -77,9 +80,19 @@ export const Button = React.forwardRef<
     dot !== undefined ? dot : (variant === "ink" || variant === "white");
   const dotColor = variant === "ink" ? "bg-cyan" : "bg-cyan-deep";
 
+  const isHttp = typeof href === "string" && href.startsWith("http");
+
   const content = (
     <>
-      <span className="inline-flex items-center gap-2">{children}</span>
+      <span className="inline-flex items-center gap-2">
+        {children}
+        {externalIcon && (
+          <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+        )}
+        {(externalIcon || isHttp) && (
+          <span className="sr-only"> (opens in a new tab)</span>
+        )}
+      </span>
       {showDot && (
         <span
           aria-hidden="true"
@@ -176,6 +189,12 @@ export const IconButton = React.forwardRef<
     className
   );
 
+  const isHttp = typeof href === "string" && href.startsWith("http");
+  const effectiveAriaLabel =
+    isHttp && ariaLabel && !/new tab|opens in a new tab/i.test(ariaLabel)
+      ? `${ariaLabel} (opens in a new tab)`
+      : ariaLabel;
+
   if (href) {
     const isExt =
       external ||
@@ -188,9 +207,9 @@ export const IconButton = React.forwardRef<
         <a
           ref={ref as React.Ref<HTMLAnchorElement>}
           href={href}
-          aria-label={ariaLabel}
-          target={href.startsWith("http") ? "_blank" : undefined}
-          rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+          aria-label={effectiveAriaLabel}
+          target={isHttp ? "_blank" : undefined}
+          rel={isHttp ? "noopener noreferrer" : undefined}
           className={classes}
           {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
         >

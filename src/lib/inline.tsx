@@ -46,6 +46,7 @@ export function parseInline(text: string): React.ReactNode {
             className="text-cyan-deep underline underline-offset-4 hover:text-navy transition-colors font-medium"
           >
             {label}
+            <span className="sr-only"> (opens in a new tab)</span>
           </a>
         );
       }

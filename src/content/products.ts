@@ -14,6 +14,9 @@ export const products: Product[] = [
     problemTitle: "Chamas run on trust, notebooks and screenshots.",
     howTitle: "Three steps. No spreadsheets.",
     applicationCategory: "FinanceApplication",
+    liveUrl: "https://www.smartchama.tech",
+    liveLabel: "smartchama.tech",
+    liveCta: "Open SmartChama",
     cta: {
       title: "Run your chama on SmartChama.",
       intro: "We'll set up your group, connect M-Pesa and walk your officials through it.",
@@ -150,6 +153,9 @@ export const products: Product[] = [
     problemTitle: "Gikuyu deserves better than a guess.",
     howTitle: "Three steps. No guesswork.",
     applicationCategory: "EducationalApplication",
+    liveUrl: "https://gikuyu-translate.vercel.app",
+    liveLabel: "gikuyu-translate.vercel.app",
+    liveCta: "Open the Translator",
     cta: {
       title: "Bring Gikuyu into your product or classroom.",
       intro: "Use the translator directly, or connect it to your app or WhatsApp line through the API.",

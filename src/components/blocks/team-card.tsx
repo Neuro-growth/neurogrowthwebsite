@@ -78,7 +78,7 @@ export function TeamCard({ member }: TeamCardProps) {
             href={member.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`${member.name} on LinkedIn`}
+            aria-label={`${member.name} on LinkedIn (opens in a new tab)`}
             className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line text-ink-3 transition-colors hover:border-ink hover:text-ink focus-visible:outline-2 focus-visible:outline-cyan"
           >
             <LinkedinIcon className="h-4 w-4" />

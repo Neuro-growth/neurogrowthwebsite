@@ -79,6 +79,8 @@ export default async function ProductDetailPage({
     description: product.summary,
     applicationCategory: product.applicationCategory,
     operatingSystem: "Web",
+    url: product.liveUrl,
+    sameAs: [product.liveUrl],
     image: `${site.url}${product.heroImage.src}`,
     publisher: {
       "@type": "Organization",
@@ -127,7 +129,7 @@ export default async function ProductDetailPage({
       <ProductHero product={product} />
 
       {/* 2. Framed Main Screenshot */}
-      <ProductStage heroImage={product.heroImage} />
+      <ProductStage heroImage={product.heroImage} liveLabel={product.liveLabel} />
 
       {/* 3. Problem Statement */}
       <ProductProblem

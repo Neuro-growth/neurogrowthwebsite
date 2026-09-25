@@ -42,6 +42,9 @@ export type Product = {
   problemTitle: string;
   howTitle: string;
   applicationCategory: "FinanceApplication" | "EducationalApplication";
+  liveUrl: string;
+  liveLabel: string;
+  liveCta: string;
   cta: {
     title: string;
     intro: string;

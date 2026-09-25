@@ -76,6 +76,10 @@ export const privacyPolicy = {
           type: "p",
           text: "We never sell, rent or trade your personal data to any third parties.",
         },
+        {
+          type: "p",
+          text: "Links to our products (SmartChama and the Gikuyu AI Translator) take you to separate websites with their own privacy policies.",
+        },
       ],
     },
     {

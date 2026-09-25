@@ -65,7 +65,10 @@ function ChannelCard({ channel }: { channel: ContactChannel }) {
       <span className="mt-1 text-[16px] font-medium text-ink break-words">
         {channel.value}
       </span>
-      <span className="mt-1 text-[13px] text-ink-3">{channel.note}</span>
+      <span className="mt-1 text-[13px] text-ink-3">
+        {channel.note}
+        {channel.external && <span className="sr-only"> (opens in a new tab)</span>}
+      </span>
     </Tag>
   );
 }
