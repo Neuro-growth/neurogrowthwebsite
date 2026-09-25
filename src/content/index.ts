@@ -11,3 +11,4 @@ export * from "./faqs";
 export * from "./integrations";
 export * from "./values";
 export * from "./home";
+export * from "./services-page";

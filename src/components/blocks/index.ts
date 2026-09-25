@@ -6,3 +6,6 @@ export * from "./testimonial-rail";
 export * from "./team-row";
 export * from "./contact-form";
 export * from "./contact-split";
+export * from "./faq-list";
+export * from "./faq-block";
+export * from "./cta-band";

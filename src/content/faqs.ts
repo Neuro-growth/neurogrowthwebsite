@@ -27,8 +27,26 @@ export const homeFaqs: Faq[] = [
   },
 ];
 
-// filled in Prompt 04 and 07
-export const servicesFaqs: Faq[] = [];
+export const servicesFaqs: Faq[] = [
+  {
+    q: "Can we start with just one service?",
+    a: "Yes. Most clients start with one system, usually a single workflow such as WhatsApp lead follow-up, and add more once it pays for itself.",
+  },
+  {
+    q: "Do you work with businesses outside Kenya?",
+    a: "Yes. We're based in Nairobi and work with businesses across Africa. Calls, handover and support run remotely, and we build for local payment and messaging tools in each market.",
+  },
+  // TODO(client): confirm policy
+  {
+    q: "Who owns what you build?",
+    a: "You do. The workflows, models, data and accounts we set up belong to your business. We document everything at handover so your team or another provider can maintain it.",
+  },
+  // TODO(client): confirm policy
+  {
+    q: "What do you need from us to start?",
+    a: "A 30-minute call, access to the tools involved (for example your CRM, WhatsApp Business or M-Pesa till), and one person on your side who can make decisions.",
+  },
+];
 
 // filled in Prompt 04 and 07
 export const pricingFaqs: Faq[] = [];
