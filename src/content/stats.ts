@@ -37,8 +37,9 @@ export const legacyClaims: Stat[] = [
     verified: false,
   },
   {
-    value: "$2B+",
-    caption: "Revenue influenced",
+    // Formerly "$2B+" in unverified legacy agency copy; USD removed per brief section 9
+    value: "2B+ KSh",
+    caption: "Revenue influenced (legacy unverified)",
     verified: false,
   },
   {

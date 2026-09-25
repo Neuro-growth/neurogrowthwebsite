@@ -48,5 +48,29 @@ export const servicesFaqs: Faq[] = [
   },
 ];
 
-// filled in Prompt 04 and 07
-export const pricingFaqs: Faq[] = [];
+export const pricingFaqs: Faq[] = [
+  {
+    q: "Why do you charge monthly?",
+    a: "Because the system keeps working, and so do we. Monthly fees cover hosting, monitoring, fixes and the ongoing tuning that makes results improve after launch.",
+  },
+  // TODO(client): confirm policy
+  {
+    q: "Is there a setup fee?",
+    a: "Setup is included in the monthly price for Starter and Growth. Enterprise projects with custom models are quoted with a one-off build fee.",
+  },
+  // TODO(client): confirm policy
+  {
+    q: "How do I pay?",
+    a: "Monthly invoices in KSh, payable by M-Pesa or bank transfer.",
+  },
+  // TODO(client): confirm policy
+  {
+    q: "Is there a contract?",
+    a: "Yes, a simple agreement with a 3-month minimum. After that, you can change or pause your plan with 30 days' notice.",
+  },
+  // TODO(client): confirm policy
+  {
+    q: "Can I switch plans?",
+    a: "Yes. Move up at any time. Moving down takes effect from your next billing month.",
+  },
+];

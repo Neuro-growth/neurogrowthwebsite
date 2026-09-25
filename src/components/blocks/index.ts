@@ -13,3 +13,5 @@ export * from "./image-lightbox";
 export * from "./product";
 export * from "./founder-figure";
 export * from "./team-card";
+export * from "./numbered-list";
+export * from "./plan-card";

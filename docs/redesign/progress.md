@@ -8,7 +8,7 @@
 - [x] 04 — Services page redesign (Systems explorer, process band, FAQ block, CTA band)
 - [x] 05 — Products pages (Overview, SmartChama, Gikuyu Translator)
 - [x] 06 — About page redesign (About page rebuilt, team cards, founder figure, proof section, JSON-LD)
-- [ ] 07 — Pricing page redesign
+- [x] 07 — Pricing page redesign (Plans in KSh, PlanCard, NumberedList, billing band, JSON-LD OfferCatalog)
 - [ ] 08 — Insights & research article layout
 - [ ] 09 — Contact page redesign & forms
 - [ ] 10 — Final polish, SEO verification, legal pages
