@@ -23,6 +23,12 @@ export type System = {
   services: Service[];
 };
 
+export type GalleryLayout = "wide" | "half" | "third" | "tall";
+
+export type GalleryItem = ImageRef & {
+  layout?: GalleryLayout;
+};
+
 export type ProductStatus = "live" | "pilot" | "in-development";
 
 export type Product = {
@@ -33,9 +39,17 @@ export type Product = {
   tagline: string;
   summary: string;
   problem: string;
+  problemTitle: string;
+  howTitle: string;
+  applicationCategory: "FinanceApplication" | "EducationalApplication";
+  cta: {
+    title: string;
+    intro: string;
+    primaryLabel: string;
+  };
   logo: ImageRef;
   heroImage: ImageRef;
-  gallery: ImageRef[];
+  gallery: GalleryItem[];
   features: { icon: string; title: string; body: string }[];
   howItWorks: { title: string; body: string }[];
   integrations: string[];

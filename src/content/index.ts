@@ -12,3 +12,4 @@ export * from "./integrations";
 export * from "./values";
 export * from "./home";
 export * from "./services-page";
+export * from "./products-page";

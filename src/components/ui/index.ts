@@ -11,3 +11,4 @@ export * from "./whatsapp-icon";
 export * from "./logo";
 export * from "./accordion";
 export * from "./sheet";
+export * from "./icon";

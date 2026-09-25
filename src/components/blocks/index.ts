@@ -9,3 +9,5 @@ export * from "./contact-split";
 export * from "./faq-list";
 export * from "./faq-block";
 export * from "./cta-band";
+export * from "./image-lightbox";
+export * from "./product";

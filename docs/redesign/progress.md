@@ -6,7 +6,7 @@
 - [x] 02 — Site shell: navigation, heroes, footer, WhatsApp button, routes, redirects
 - [x] 03 — The new homepage & reusable blocks (Hero, About, Systems, Showcase, Approach, Testimonials, FAQ, ContactSplit)
 - [x] 04 — Services page redesign (Systems explorer, process band, FAQ block, CTA band)
-- [ ] 05 — Products pages (Overview, SmartChama, Gikuyu Translator)
+- [x] 05 — Products pages (Overview, SmartChama, Gikuyu Translator)
 - [ ] 06 — About page redesign
 - [ ] 07 — Pricing page redesign
 - [ ] 08 — Insights & research article layout
