@@ -174,13 +174,16 @@ export function PlanCard({ plan }: PlanCardProps) {
 
         {/* Not included list */}
         {plan.notIncluded && plan.notIncluded.length > 0 && (
-          <ul className="mt-4 grid gap-3 opacity-60">
+          <ul className="mt-4 grid gap-3">
             {plan.notIncluded.map((item) => (
               <li
                 key={item}
-                className="flex items-start gap-2.5 text-[14.5px] leading-snug text-ink-3"
+                className={cn(
+                  "flex items-start gap-2.5 text-[14.5px] leading-snug",
+                  isFeatured ? "text-on-dark-3" : "text-ink-2"
+                )}
               >
-                <Minus className="h-4 w-4 mt-0.5 shrink-0" aria-hidden="true" />
+                <Minus className="h-4 w-4 mt-0.5 shrink-0 opacity-70" aria-hidden="true" />
                 <span>
                   <span className="sr-only">Not included: </span>
                   {item}

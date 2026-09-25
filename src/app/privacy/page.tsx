@@ -5,7 +5,7 @@ import { privacyPolicy } from "@/content/legal/privacy";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How NeuroGrowth collects, uses and protects personal data under the Kenya Data Protection Act, 2019.",
+    "Learn how NeuroGrowth Tech collects, uses and protects personal data under the Kenya Data Protection Act, 2019 across our website and digital services.",
   alternates: { canonical: "/privacy" },
 };
 

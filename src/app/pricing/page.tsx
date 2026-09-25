@@ -22,7 +22,7 @@ import {
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Monthly AI system plans priced in Kenyan shillings: Starter, Growth and Enterprise. Strategy, build and ongoing optimisation included.",
+    "Monthly AI system plans priced in Kenyan shillings: Starter, Growth and Enterprise. Strategy, build and ongoing optimization included for African businesses.",
   alternates: { canonical: "/pricing" },
 };
 

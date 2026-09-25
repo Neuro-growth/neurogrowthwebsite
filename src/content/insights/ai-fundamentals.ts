@@ -4,7 +4,7 @@ export const aiFundamentalsArticle: Article = {
   slug: "ai-fundamentals",
   title: "AI Fundamentals",
   excerpt:
-    "A beginner-friendly guide to Artificial Intelligence — what it is, how it works, and how your business can start using AI today.",
+    "A beginner-friendly guide to Artificial Intelligence — what it is, how modern models work, and how your African business can start using AI systems today.",
   tag: "Beginner",
   publishedAt: "2026-06-09T18:21:44-07:00",
   author: "NeuroGrowth Team",

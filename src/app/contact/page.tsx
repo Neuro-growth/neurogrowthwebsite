@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Talk to NeuroGrowth Tech about AI automation, chatbots or analytics for your business. WhatsApp, email or book a free 30-minute call.",
+    "Talk to NeuroGrowth Tech about custom AI automation, chatbots or predictive analytics for your business. Reach us via WhatsApp, email or book a call.",
   alternates: { canonical: "/contact" },
 };
 

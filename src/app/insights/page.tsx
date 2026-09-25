@@ -11,7 +11,7 @@ import { site } from "@/content/site";
 export const metadata: Metadata = {
   title: "Insights",
   description:
-    "Notes on building with AI in Africa — practical guides from the NeuroGrowth team, written for business owners, not engineers.",
+    "Notes on building with practical AI in Africa — field guides, system breakdowns and essays from the NeuroGrowth engineering team for business owners.",
   alternates: { canonical: "/insights" },
 };
 
