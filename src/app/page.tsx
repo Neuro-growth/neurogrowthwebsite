@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Logo from '@/components/Logo'
-import HeroScene3DWrapper from '@/components/HeroScene3DWrapper'
+import AfricaMap3DWrapper from '@/components/AfricaMap3DWrapper'
 
 export const metadata: Metadata = {
   title: 'NeuroGrowth Tech — Accelerating Growth Through Intelligence',
@@ -134,9 +134,9 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* ── RIGHT: 3D ANIMATION ── */}
+          {/* ── RIGHT: 3D AFRICA MAP ── */}
           <div style={{ height: 680 }} className="landing-3d">
-            <HeroScene3DWrapper />
+            <AfricaMap3DWrapper />
           </div>
         </div>
       </main>

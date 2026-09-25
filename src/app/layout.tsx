@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import ConditionalFooter from "@/components/ConditionalFooter";
 import StructuredData from "@/components/StructuredData";
+import RowAssistant from "@/components/RowAssistant";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const inter = Inter({
@@ -77,6 +78,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <ConditionalFooter />
+        <RowAssistant />
       </body>
     </html>
   );
