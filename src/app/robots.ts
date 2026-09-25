@@ -1,15 +1,15 @@
-import type { MetadataRoute } from 'next'
+import type { MetadataRoute } from "next";
+import { site } from "@/content/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      { userAgent: '*', allow: '/', disallow: '/api/' },
-      { userAgent: 'GPTBot', allow: '/' },
-      { userAgent: 'Google-Extended', allow: '/' },
-      { userAgent: 'anthropic-ai', allow: '/' },
-      { userAgent: 'PerplexityBot', allow: '/' },
-      { userAgent: 'Amazonbot', allow: '/' },
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/dev/", "/api/"],
+      },
     ],
-    sitemap: 'https://neurogrowthtech.com/sitemap.xml',
-  }
+    sitemap: `${site.url}/sitemap.xml`,
+  };
 }
