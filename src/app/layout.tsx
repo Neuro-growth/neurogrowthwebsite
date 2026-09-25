@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s | NeuroGrowth Tech",
   },
   description:
-    "NeuroGrowth Tech builds AI solutions and engineering systems for African businesses. We automate operations, accelerate growth, and transform business performance through custom AI — from marketing automation and predictive analytics to AI chatbots, CRM systems, and data intelligence.",
+    "NeuroGrowth Tech builds custom AI systems, chatbots, and automation for African businesses, wired into M-Pesa and WhatsApp to scale revenue.",
   keywords: [
     "AI solutions Africa",
     "AI engineering Africa",

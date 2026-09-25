@@ -29,8 +29,11 @@ export function HeroPanel({
           src={image}
           alt={imageAlt}
           fill
-          priority
-          sizes="100vw"
+          preload
+          fetchPriority="high"
+          loading="eager"
+          quality={60}
+          sizes="(min-width: 1440px) 1440px, 100vw"
           className="object-cover"
         />
       </div>

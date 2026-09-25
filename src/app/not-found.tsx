@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Page not found",
+  description:
+    "The page you're looking for isn't here. Explore NeuroGrowth Tech's services, products, pricing and insights.",
   robots: { index: false },
 };
 

@@ -26,10 +26,7 @@ export function StatRow({
     <div
       className={cn(
         "grid grid-cols-2 lg:grid-cols-4 border-y",
-        isDark
-          ? "border-line-dark divide-line-dark text-on-dark"
-          : "border-line divide-line text-ink",
-        "divide-y sm:divide-y-0 sm:divide-x",
+        isDark ? "border-line-dark text-on-dark" : "border-line text-ink",
         className
       )}
     >
@@ -38,7 +35,10 @@ export function StatRow({
           key={idx}
           className={cn(
             "p-5 sm:p-6 lg:p-8 flex flex-col justify-between",
-            idx >= 2 && "border-t sm:border-t-0"
+            isDark ? "border-line-dark" : "border-line",
+            idx % 2 === 0 && "border-r lg:border-r-0",
+            idx >= 2 && "border-t lg:border-t-0",
+            idx > 0 && "lg:border-l"
           )}
         >
           <div className="flex items-start">

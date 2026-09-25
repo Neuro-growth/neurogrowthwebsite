@@ -39,7 +39,7 @@ export function AboutSection() {
           <div className="pt-2">
             <Button variant="outline" href="/about">
               <span>{home.about.cta}</span>
-              <ArrowRight className="h-4 w-4 ml-1.5" aria-hidden="true" />
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Button>
           </div>
         </div>

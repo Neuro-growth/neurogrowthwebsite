@@ -69,7 +69,7 @@ export function CtaBand({
 
           {showWhatsApp && (
             <Button variant="glass" size="lg" href={waLink()} external>
-              <WhatsAppIcon className="h-4 w-4 mr-1.5" />
+              <WhatsAppIcon className="h-4 w-4" />
               <span>WhatsApp us</span>
             </Button>
           )}

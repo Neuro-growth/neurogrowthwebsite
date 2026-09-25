@@ -40,21 +40,31 @@ export function SystemIndex({ items, variant, className }: SystemIndexProps) {
     return () => observer.disconnect();
   }, [items]);
 
-  // Scroll active pill into view on mobile
+  const scrollerRef = React.useRef<HTMLDivElement>(null);
+
+  // Scroll active pill into view horizontally (never vertically)
   React.useEffect(() => {
     if (variant !== "pills") return;
     const activePill = pillRefs.current.get(activeId);
-    if (activePill) {
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
+    const scroller = scrollerRef.current;
+    if (!activePill || !scroller) return;
 
-      activePill.scrollIntoView({
-        inline: "nearest",
-        block: "nearest",
-        behavior: prefersReducedMotion ? "auto" : "smooth",
-      });
-    }
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    // Centre the pill within the scroller
+    const target = Math.max(
+      0,
+      activePill.offsetLeft -
+        scroller.offsetWidth / 2 +
+        activePill.offsetWidth / 2
+    );
+
+    scroller.scrollTo({
+      left: target,
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+    });
   }, [activeId, variant]);
 
   // Handle click for instant activeId update
@@ -71,6 +81,7 @@ export function SystemIndex({ items, variant, className }: SystemIndexProps) {
         )}
       >
         <div
+          ref={scrollerRef}
           role="region"
           aria-label="Systems on this page"
           tabIndex={0}

@@ -40,7 +40,7 @@ export function PlansSection() {
               href={waLink("Hi! I'd like help choosing a plan.")}
               external
             >
-              <WhatsAppIcon className="h-4 w-4 mr-1.5 text-whatsapp" />
+              <WhatsAppIcon className="h-4 w-4 text-whatsapp" />
               WhatsApp us
             </Button>
           </div>

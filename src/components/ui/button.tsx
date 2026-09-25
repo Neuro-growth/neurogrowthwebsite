@@ -79,7 +79,7 @@ export const Button = React.forwardRef<
 
   const content = (
     <>
-      <span>{children}</span>
+      <span className="inline-flex items-center gap-2">{children}</span>
       {showDot && (
         <span
           aria-hidden="true"

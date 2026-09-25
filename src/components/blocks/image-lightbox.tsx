@@ -49,7 +49,7 @@ export function ImageLightbox({
     setIndex((prev) => (prev + 1) % count);
   }, [count]);
 
-  // Arrow key listener
+  // Arrow key listener (capture phase so Base UI dialog does not swallow arrow keys)
   React.useEffect(() => {
     if (!open || count <= 1) return;
 
@@ -63,8 +63,8 @@ export function ImageLightbox({
       }
     };
 
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown, true);
+    return () => window.removeEventListener("keydown", handleKeyDown, true);
   }, [open, count, handlePrev, handleNext]);
 
   if (!current) return null;

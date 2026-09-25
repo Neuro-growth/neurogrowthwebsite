@@ -120,7 +120,7 @@ export default async function ContactPage({
         actions={
           <>
             <Button variant="green" href={waLink()} external>
-              <WhatsAppIcon className="h-4 w-4 mr-1.5" />
+              <WhatsAppIcon className="h-4 w-4" />
               <span>WhatsApp us</span>
             </Button>
             <Button variant="glass" href={`mailto:${site.email}`}>

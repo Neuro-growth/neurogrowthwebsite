@@ -27,6 +27,7 @@ export function ArtImage({
   fill,
   sizes,
   priority,
+  preload,
   rounded = "none",
   zoomOnHover = false,
   className,
@@ -34,6 +35,7 @@ export function ArtImage({
   ...props
 }: ArtImageProps) {
   const containerRadius = radiusClasses[rounded];
+  const isPreload = preload ?? priority;
 
   const imageElement = (
     <Image
@@ -43,7 +45,7 @@ export function ArtImage({
       height={fill ? undefined : height}
       fill={fill}
       sizes={sizes || (fill ? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" : undefined)}
-      priority={priority}
+      preload={isPreload}
       className={cn(
         "object-cover",
         containerRadius,

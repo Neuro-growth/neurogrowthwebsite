@@ -24,7 +24,7 @@ export function ProductStage({ heroImage }: ProductStageProps) {
             alt={heroImage.alt}
             width={heroImage.width}
             height={heroImage.height}
-            priority
+            loading="eager"
             sizes="(min-width:1280px) 1200px, 100vw"
             className="h-auto w-full object-cover"
           />
