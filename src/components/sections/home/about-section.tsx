@@ -1,15 +1,13 @@
 import * as React from "react";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Eyebrow } from "@/components/ui/eyebrow";
 import { Button } from "@/components/ui/button";
 import { TeamRow } from "@/components/blocks/team-row";
+import { FounderFigure } from "@/components/blocks/founder-figure";
 import { home } from "@/content/home";
 import { team } from "@/content/team";
 
 export function AboutSection() {
-  const shilla = team.find((m) => m.slug === "shilla") || team[0];
-  const photoSrc = shilla.photo?.src || "/images/team/shilla-duotone.webp";
 
   return (
     <section id="about" className="scroll-mt-24 section-y container-site">
@@ -20,27 +18,7 @@ export function AboutSection() {
         </div>
 
         {/* Founder Figure */}
-        <figure className="col-span-12 lg:col-span-5 relative aspect-[4/4.6] overflow-hidden rounded-media max-lg:max-w-[520px] max-lg:aspect-square bg-navy-2">
-          <Image
-            src={photoSrc}
-            alt="Shilla Swanapole, founder and CEO of NeuroGrowth Tech"
-            fill
-            sizes="(min-width:1024px) 40vw, 100vw"
-            className="object-cover"
-          />
-
-          {/* Caption pinned bottom */}
-          <figcaption className="absolute inset-x-4 bottom-4 rounded-xl bg-white/90 px-4 py-3 flex justify-between items-center text-[13px] text-ink-2 backdrop-blur-sm shadow-sm">
-            <div className="flex items-center gap-1.5 truncate pr-2">
-              <span className="font-medium text-ink text-sm">
-                {shilla.name}
-              </span>
-              <span className="text-ink-3">·</span>
-              <span className="truncate">{shilla.role}</span>
-            </div>
-            <span className="text-ink-3 shrink-0">Nairobi</span>
-          </figcaption>
-        </figure>
+        <FounderFigure className="col-span-12 lg:col-span-5" />
 
         {/* Copy Column */}
         <div className="col-span-12 lg:col-start-7 lg:col-span-6 grid gap-5 pt-2">

@@ -13,3 +13,4 @@ export * from "./values";
 export * from "./home";
 export * from "./services-page";
 export * from "./products-page";
+export * from "./about-page";

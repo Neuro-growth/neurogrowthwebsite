@@ -11,3 +11,5 @@ export * from "./faq-block";
 export * from "./cta-band";
 export * from "./image-lightbox";
 export * from "./product";
+export * from "./founder-figure";
+export * from "./team-card";

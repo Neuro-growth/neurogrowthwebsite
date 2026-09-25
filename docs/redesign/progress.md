@@ -7,7 +7,7 @@
 - [x] 03 — The new homepage & reusable blocks (Hero, About, Systems, Showcase, Approach, Testimonials, FAQ, ContactSplit)
 - [x] 04 — Services page redesign (Systems explorer, process band, FAQ block, CTA band)
 - [x] 05 — Products pages (Overview, SmartChama, Gikuyu Translator)
-- [ ] 06 — About page redesign
+- [x] 06 — About page redesign (About page rebuilt, team cards, founder figure, proof section, JSON-LD)
 - [ ] 07 — Pricing page redesign
 - [ ] 08 — Insights & research article layout
 - [ ] 09 — Contact page redesign & forms

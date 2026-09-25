@@ -9,3 +9,4 @@ export * from "./product-sample";
 export * from "./product-integrations";
 export * from "./product-other";
 export * from "./product-row";
+export * from "./product-link-card";
